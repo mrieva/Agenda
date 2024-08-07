@@ -1,111 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-
-    <title>Document</title>
-    <style>
-        .navbar-nav .nav-link {
-            position: relative;
-            display: inline-block;
-        }
-
-        .navbar-nav .nav-link::after {
-            content: "";
-            position: absolute;
-            display: block;
-            height: 2px;
-            width: 0;
-            background: #fff;
-            transition: width 0.4s;
-            bottom: 3.5px;
-            left: 12.5px;
-        }
-
-        .navbar-nav .nav-link:hover::after {
-            width: 80%;
-            background: #fff;
-        }
-
-        #tombols {
-            background-color: transparent;
-            color: #c3c3c3;
-            border: 2px solid #c3c3c3;
-            transition: background-color 0.4s, color 0.4s;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        #tombols::before {
-            content: "";
-            background-color: #fff;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 300%;
-            height: 300%;
-            transition: all 0.5s;
-            z-index: -1;
-            transform: translateX(50%) translateY(-75%) rotate(45deg);
-        }
-
-        #tombols:hover::before {
-            transform: translateX(-50%) translateY(-35%) rotate(45deg);
-        }
-
-        #tombols:hover {
-            color: rgb(103, 172, 197);
-            border: #fff 2px solid;
-            transition: 0.5s;
-        }
-
-        #tomboll {
-            background-color: #fff;
-            color: rgb(103, 172, 197);
-            border: 1px solid rgb(103, 172, 197);
-            transition: background-color 0.4s, color 0.4s;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        #tomboll::before {
-            content: "";
-            background-color: rgb(103, 172, 197);
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 600%;
-            height: 600%;
-            transition: all 0.6s;
-            z-index: -1;
-            transform: translateX(50%) translateY(-75%) rotate(45deg);
-        }
-
-        #tomboll:hover::before {
-            transform: translateX(-50%) translateY(-35%) rotate(45deg);
-        }
-
-        #tomboll:hover {
-            color: #fff;
-            border: rgb(103, 172, 197) 1px solid;
-            transition: 0.2s all;
-        }
-
-        input:focus {
-        outline: #58A1C0 solid 2px;
-    }
-    </style>
-</head>
-
-<body>
-    <nav class="mt-10 z-50" x-data="{ isOpen: false }">
+    <nav class="z-50 absolute top-0 w-full mt-5" x-data="{ isOpen: false }">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
                 <div class="flex items-center">
@@ -226,7 +119,8 @@
             <div class="relative bg-white rounded-2xl shadow-lg p-6" style="background-color: #F3F7FB;">
                 <!-- Modal header -->
                 <div class="flex items-center justify-center p-4 md:p-5">
-                    <h3 class="text-2xl font-medium text-center text-[#58A1C0]">Login to <span class="font-semibold">EduNote</span></h3>
+                    <h3 class="text-2xl font-medium text-center text-[#58A1C0]">Login to <span
+                            class="font-semibold">EduNote</span></h3>
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5">
@@ -253,31 +147,13 @@
                             <a href="#" class="text-sm text-[#58A1C0] hover:underline">forgot password?</a>
                         </div>
                         <div class="flex space-x-4">
-                            <button type="button"
-                                class="w-full p-3 border border-gray-300 text-gray-700 rounded-lg" id="tomboll">cancel</button>
-                            <button type="submit"
-                                class="w-full p-3 bg-[#58A1C0] text-white rounded-lg" id="tomboll">login</button>
+                            <button type="button" class="w-full p-3 border border-gray-300 text-gray-700 rounded-lg"
+                                id="tomboll">cancel</button>
+                            <button type="submit" class="w-full p-3 bg-[#58A1C0] text-white rounded-lg"
+                                id="tomboll">login</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-    <script>
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('nav');
-            if (window.scrollY > 0) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    </script>
-
-</body>
-
-</html>
