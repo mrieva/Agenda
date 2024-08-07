@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=
     , initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
     <title>Document</title>
     <style>
         .navbar-nav .nav-link {
@@ -30,41 +33,79 @@
         }
 
         #tombols {
-        background-color: transparent;
-        color: #c3c3c3;
-        border: 2px solid #c3c3c3;
-        transition: background-color 0.4s, color 0.4s;
-        position: relative;
-        overflow: hidden;
-        z-index: 1;
-    }
+            background-color: transparent;
+            color: #c3c3c3;
+            border: 2px solid #c3c3c3;
+            transition: background-color 0.4s, color 0.4s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
 
-    #tombols::before {
-        content: "";
-        background-color: #fff;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 300%;
-        height: 300%;
-        transition: all 0.5s;
-        z-index: -1;
-        transform: translateX(50%) translateY(-75%) rotate(45deg);
-    }
+        #tombols::before {
+            content: "";
+            background-color: #fff;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            transition: all 0.5s;
+            z-index: -1;
+            transform: translateX(50%) translateY(-75%) rotate(45deg);
+        }
 
-    #tombols:hover::before {
-        transform: translateX(-50%) translateY(-35%) rotate(45deg);
-    }
+        #tombols:hover::before {
+            transform: translateX(-50%) translateY(-35%) rotate(45deg);
+        }
 
-    #tombols:hover {
-        color: rgb(103, 172, 197);
-        border: #fff 2px solid;
-        transition: 0.5s;
+        #tombols:hover {
+            color: rgb(103, 172, 197);
+            border: #fff 2px solid;
+            transition: 0.5s;
+        }
+
+        #tomboll {
+            background-color: #fff;
+            color: rgb(103, 172, 197);
+            border: 1px solid rgb(103, 172, 197);
+            transition: background-color 0.4s, color 0.4s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        #tomboll::before {
+            content: "";
+            background-color: rgb(103, 172, 197);
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 600%;
+            height: 600%;
+            transition: all 0.6s;
+            z-index: -1;
+            transform: translateX(50%) translateY(-75%) rotate(45deg);
+        }
+
+        #tomboll:hover::before {
+            transform: translateX(-50%) translateY(-35%) rotate(45deg);
+        }
+
+        #tomboll:hover {
+            color: #fff;
+            border: rgb(103, 172, 197) 1px solid;
+            transition: 0.2s all;
+        }
+
+        input:focus {
+        outline: #58A1C0 solid 2px;
     }
     </style>
 </head>
+
 <body>
-    <nav class="mt-7 z-50" x-data="{ isOpen: false }">
+    <nav class="mt-10 z-50" x-data="{ isOpen: false }">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
                 <div class="flex items-center">
@@ -73,14 +114,17 @@
                     </div>
                 </div>
                 <div class="hidden md:flex items-center mr-14 space-x-4 navbar-nav">
-                    <a href="/" class="text-gray-300 hover:border-white px-3 py-2 rounded-md font-medium nav-link">Home</a>
-                    <a href="/about" class="text-gray-300 hover:border-white px-3 py-2 rounded-md font-medium nav-link">About</a>
-                    <a href="/contact" class="text-gray-300 hover:border-white px-3 py-2 rounded-md font-medium nav-link">Contact</a>
+                    <a href="/"
+                        class="text-gray-300 hover:border-white px-3 py-2 rounded-md font-medium nav-link">Home</a>
+                    <a href="#about"
+                        class="text-gray-300 hover:border-white px-3 py-2 rounded-md font-medium nav-link">About</a>
+                    <a href="#contact"
+                        class="text-gray-300 hover:border-white px-3 py-2 rounded-md font-medium nav-link">Contact</a>
                     <div class="relative">
                         <button id="tombols" type="button" @click="isOpen = !isOpen"
-                        class="border border-white bg-transparent text-gray-300 px-7 py-1.5 rounded-md text-sm font-medium transition-colors duration-300 ease-in-out">
-                        Login
-                    </button>
+                            class="border border-white bg-transparent text-gray-300 px-7 py-1.5 rounded-md text-sm font-medium transition-colors duration-300 ease-in-out">
+                            Login
+                        </button>
                         <div x-show="isOpen" x-transition:enter="transition ease-out duration-100 transform"
                             x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
                             x-transition:leave="transition ease-in duration-75 transform"
@@ -88,22 +132,26 @@
                             class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                             role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
                             tabindex="-1">
-                            <a href="#"
+                            <a href="#" data-modal-target="authentication-modal"
+                                data-modal-toggle="authentication-modal"
                                 class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                 <img src="{{ asset('img/headmaster.png') }}" alt="Kepala Sekolah" class="w-6 h-6 mr-2">
                                 Kepala Sekolah
                             </a>
-                            <a href="#"
+                            <a href="#" data-modal-target="authentication-modal"
+                                data-modal-toggle="authentication-modal"
                                 class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                 <img src="{{ asset('img/teacher.png') }}" alt="Guru" class="w-6 h-6 mr-2">
                                 Guru
                             </a>
-                            <a href="#"
+                            <a href="#" data-modal-target="authentication-modal"
+                                data-modal-toggle="authentication-modal"
                                 class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                 <img src="{{ asset('img/sekretarit.png') }}" alt="Sekretaris" class="w-6 h-6 mr-2">
                                 Sekretaris
                             </a>
-                            <a href="#"
+                            <a href="#" data-modal-target="authentication-modal"
+                                data-modal-toggle="authentication-modal"
                                 class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                 <img src="{{ asset('img/student.png') }}" alt="Siswa" class="w-6 h-6 mr-2">
                                 Siswa
@@ -167,5 +215,69 @@
         </div>
     </nav>
 
+
+    <!-- Main modal -->
+    <div id="authentication-modal" tabindex="-1" aria-hidden="true"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-xl">
+            <!-- Modal content -->
+            <div class="flex justify-end pt-2">
+            </div>
+            <div class="relative bg-white rounded-2xl shadow-lg p-6" style="background-color: #F3F7FB;">
+                <!-- Modal header -->
+                <div class="flex items-center justify-center p-4 md:p-5">
+                    <h3 class="text-2xl font-medium text-center text-[#58A1C0]">Login to <span class="font-semibold">EduNote</span></h3>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5">
+                    <form class="space-y-4">
+                        <div>
+                            <label for="nisn" class="block mb-2 text-sm font-medium text-gray-700">NISN /
+                                NIPD</label>
+                            <input type="text" name="nisn" id="nisn"
+                                class="w-full p-3 border border-gray-300 rounded-lg text-gray-900" placeholder="NISN"
+                                required />
+                        </div>
+                        <div class="relative">
+                            <label for="password"
+                                class="block mb-2 text-sm font-medium text-gray-700">Password</label>
+                            <input type="password" name="password" id="password"
+                                class="w-full p-3 border border-gray-300 rounded-lg text-gray-900"
+                                placeholder="ur password" required />
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <input id="remember" type="checkbox" class="w-4 h-4 border-gray-300 rounded">
+                                <label for="remember" class="ml-2 text-sm text-gray-700">keep me logged in</label>
+                            </div>
+                            <a href="#" class="text-sm text-[#58A1C0] hover:underline">forgot password?</a>
+                        </div>
+                        <div class="flex space-x-4">
+                            <button type="button"
+                                class="w-full p-3 border border-gray-300 text-gray-700 rounded-lg" id="tomboll">cancel</button>
+                            <button type="submit"
+                                class="w-full p-3 bg-[#58A1C0] text-white rounded-lg" id="tomboll">login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 0) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+
 </body>
+
 </html>
