@@ -124,7 +124,8 @@
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5">
-                    <form class="space-y-4">
+                    <form class="space-y-4" action="{{ route('login') }}" method="POST">
+                        @csrf
                         <div>
                             <label for="nisn" class="block mb-2 text-sm font-medium text-gray-700">NISN /
                                 NIPD</label>
@@ -141,7 +142,8 @@
                         </div>
                         <div class="flex justify-between items-center">
                             <div class="flex items-center">
-                                <input id="remember" type="checkbox" class="w-4 h-4 border-gray-300 rounded">
+                                <input id="remember" type="checkbox" name="remember"
+                                    class="w-4 h-4 border-gray-300 rounded">
                                 <label for="remember" class="ml-2 text-sm text-gray-700">keep me logged in</label>
                             </div>
                             <a href="#" class="text-sm text-[#58A1C0] hover:underline">forgot password?</a>
@@ -153,6 +155,11 @@
                                 id="tomboll">login</button>
                         </div>
                     </form>
+                    @if ($errors->any())
+                        <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg">
+                            {{ $errors->first() }}
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

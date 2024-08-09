@@ -184,8 +184,8 @@
             <div class="container lg:px-20 py-16 mx-auto lg:h-full">
                 <div class="flex flex-wrap items-center justify-center h-full w-full lg:mt-[7%]">
                     <div class="basis-full lg:basis-1/2 flex md:h-full items-center">
-                        <div class="text-left p-5 bg-opacity-70">
-                            <h1 class="text-4xl lg:text-8xl text-[#ffffff] m-0 font-extrabold tracking-wide">EduNote.
+                        <div class="text-left p-5 bg-opacity-70 ml-[17%] lg:text-start md:text-center sm:text-center">
+                            <h1 class="text-4xl lg:text-8xl text-[#ffffff] m-0 font-extrabold tracking-wide ">EduNote.
                             </h1>
                             <p class="text-2xl text-[#ffffff] m-0">Indonesia Maju Dengan<br>Generasi Baru!</p>
                             <a id="tombolz" href="#"
@@ -195,9 +195,9 @@
                         </div>
                     </div>
                     <div class="basis-full lg:basis-1/2 relative md:h-full">
-                        <div class="relative md:h-full">
+                        <div class="relative md:h-full left-[55px]">
                             <img src="{{ asset('img/elipse.png') }}" alt="elipse" class="absolute z-10 w-[600px]">
-                            <img src="{{ asset('img/ketua.png') }}" alt="ketua" class="absolute z-20 w-[440px] left-[80px]">
+                            <img src="{{ asset('img/ketua.png') }}" alt="ketua" class="absolute z-20 w-[450px] left-[90px] top-[25px]">
                         </div>
                     </div>
                 </div>

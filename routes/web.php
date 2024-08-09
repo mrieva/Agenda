@@ -22,3 +22,13 @@ Route::get('index', function () {
 use App\Http\Controllers\ContactController;
 
 Route::post('/kirim-email', [ContactController::class, 'sendEmail'])->name('send.email');
+
+use App\Http\Controllers\AuthController;
+
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/index', function () {
+        return view('indexsiswa');
+    });
+});
