@@ -25,8 +25,7 @@
                     </svg>
                     Tutorial
                 </a>
-                <h1 class="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">How to quickly deploy
-                    a static website</h1>
+                <h1 class="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">sekretaris</h1>
                 <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">Static websites are now used to
                     bootstrap lots of websites and are becoming the basis for a variety of tools that even influence
                     both web designers and developers.</p>
