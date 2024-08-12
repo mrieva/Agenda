@@ -45,3 +45,5 @@ Route::middleware(['auth'])->group(function () {
         return view('indexsiswa');
     });
 });
+
+
