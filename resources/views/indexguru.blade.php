@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Guru Sekolah</title>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
     @vite('resources/css/app.css')
 </head>
@@ -61,90 +61,109 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-4 mx-10">
-                <div
-                    class="flex items-center justify-center h-96 rounded-xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
-                    <img src="{{ asset('img/icon/printi.png') }}" alt="">
-                    <div>
-                        <div class="mt-4">
-                            <img src="{{ asset('img/icon/guru.png') }}" alt="guru-icon">
-                            <div class="text-center bg-[#fff] rounded-md py-1">
-                                <p class="xl:text-2xl lg:text-md text-gray-400 dark:text-gray-500 ">Fulani S.pd</p>
-                            </div>
-                        </div>
-                        <div class="text-center my-8">
-                            <p class=" text-[#fff]">jadwal</p>
-                            <h1 class="text-3xl text-[#fff]">Matematika</h1>
-                        </div>
+    <!-- Monday -->
+    <div class="flex flex-col">
+        <p class="text-2xl text-[#6CC6EC] mb-4 font-bold">Senin</p>
+        <div class="flex flex-col items-center justify-center h-96 w-80 max-w-full rounded-xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
+            <img src="{{ asset('img/icon/printi.png') }}" alt="">
+            <div class="flex flex-col items-center">
+                <div class="mt-4">
+                    <img src="{{ asset('img/icon/guru.png') }}" alt="guru-icon">
+                    <div class="text-center bg-[#fff] rounded-md py-1">
+                        <p class="xl:text-2xl lg:text-md text-gray-400 dark:text-gray-500">Fulani S.pd</p>
                     </div>
                 </div>
-                <div
-                    class="flex items-center justify-center h-96 rounded-xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
-                    <img src="{{ asset('img/icon/printi.png') }}" alt="">
-                    <div>
-                        <div class="mt-4">
-                            <img src="{{ asset('img/icon/guru.png') }}" alt="guru-icon">
-                            <div class="text-center bg-[#fff] rounded-md py-1">
-                                <p class="xl:text-2xl lg:text-md text-gray-400 dark:text-gray-500 ">Fulani S.pd</p>
-                            </div>
-                        </div>
-                        <div class="text-center my-8">
-                            <p class=" text-[#fff]">jadwal</p>
-                            <h1 class="text-3xl text-[#fff]">Matematika</h1>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="flex items-center justify-center h-96 rounded-xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
-                    <img src="{{ asset('img/icon/printi.png') }}" alt="">
-                    <div>
-                        <div class="mt-4">
-                            <img src="{{ asset('img/icon/guru.png') }}" alt="guru-icon">
-                            <div class="text-center bg-[#fff] rounded-md py-1">
-                                <p class="xl:text-2xl lg:text-md text-gray-400 dark:text-gray-500 ">Fulani S.pd</p>
-                            </div>
-                        </div>
-                        <div class="text-center my-8">
-                            <p class=" text-[#fff]">jadwal</p>
-                            <h1 class="text-3xl text-[#fff]">Matematika</h1>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="flex items-center justify-center h-96 rounded-xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
-                    <img src="{{ asset('img/icon/printi.png') }}" alt="">
-                    <div>
-                        <div class="mt-4">
-                            <img src="{{ asset('img/icon/guru.png') }}" alt="guru-icon">
-                            <div class="text-center bg-[#fff] rounded-md py-1">
-                                <p class="xl:text-2xl lg:text-md text-gray-400 dark:text-gray-500 ">Fulani S.pd</p>
-                            </div>
-                        </div>
-                        <div class="text-center my-8">
-                            <p class=" text-[#fff]">jadwal</p>
-                            <h1 class="text-3xl text-[#fff]">Matematika</h1>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="flex items-center justify-center h-96 rounded-xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
-                    <img src="{{ asset('img/icon/printi.png') }}" alt="">
-                    <div>
-                        <div class="mt-4">
-                            <img src="{{ asset('img/icon/guru.png') }}" alt="guru-icon">
-                            <div class="text-center bg-[#fff] rounded-md py-1">
-                                <p class="xl:text-2xl lg:text-md text-gray-400 dark:text-gray-500 ">Fulani S.pd</p>
-                            </div>
-                        </div>
-                        <div class="text-center my-8">
-                            <p class=" text-[#fff]">jadwal</p>
-                            <h1 class="text-3xl text-[#fff]">Matematika</h1>
-                        </div>
-                    </div>
+                <div class="text-center my-8">
+                    <p class="text-[#fff]">jadwal</p>
+                    <h1 class="text-3xl text-[#fff]">Matematika</h1>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Tuesday -->
+    <div class="flex flex-col">
+        <p class="text-2xl text-[#6CC6EC] mb-4 font-bold">Selasa</p>
+        <div class="flex flex-col items-center justify-center h-96 w-80 max-w-full rounded-xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
+            <img src="{{ asset('img/icon/printi.png') }}" alt="">
+            <div class="flex flex-col items-center">
+                <div class="mt-4">
+                    <img src="{{ asset('img/icon/guru.png') }}" alt="guru-icon">
+                    <div class="text-center bg-[#fff] rounded-md py-1">
+                        <p class="xl:text-2xl lg:text-md text-gray-400 dark:text-gray-500">Fulani S.pd</p>
+                    </div>
+                </div>
+                <div class="text-center my-8">
+                    <p class="text-[#fff]">jadwal</p>
+                    <h1 class="text-3xl text-[#fff]">Matematika</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wednesday -->
+    <div class="flex flex-col">
+        <p class="text-2xl text-[#6CC6EC] mb-4 font-bold">Rabu</p>
+        <div class="flex flex-col items-center justify-center h-96 w-80 max-w-full rounded-xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
+            <img src="{{ asset('img/icon/printi.png') }}" alt="">
+            <div class="flex flex-col items-center">
+                <div class="mt-4">
+                    <img src="{{ asset('img/icon/guru.png') }}" alt="guru-icon">
+                    <div class="text-center bg-[#fff] rounded-md py-1">
+                        <p class="xl:text-2xl lg:text-md text-gray-400 dark:text-gray-500">Fulani S.pd</p>
+                    </div>
+                </div>
+                <div class="text-center my-8">
+                    <p class="text-[#fff]">jadwal</p>
+                    <h1 class="text-3xl text-[#fff]">Matematika</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thursday -->
+    <div class="flex flex-col">
+        <p class="text-2xl text-[#6CC6EC] mb-4 font-bold">Kamis</p>
+        <div class="flex flex-col items-center justify-center h-96 w-80 max-w-full rounded-xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
+            <img src="{{ asset('img/icon/printi.png') }}" alt="">
+            <div class="flex flex-col items-center">
+                <div class="mt-4">
+                    <img src="{{ asset('img/icon/guru.png') }}" alt="guru-icon">
+                    <div class="text-center bg-[#fff] rounded-md py-1">
+                        <p class="xl:text-2xl lg:text-md text-gray-400 dark:text-gray-500">Fulani S.pd</p>
+                    </div>
+                </div>
+                <div class="text-center my-8">
+                    <p class="text-[#fff]">jadwal</p>
+                    <h1 class="text-3xl text-[#fff]">Matematika</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Friday -->
+    <div class="flex flex-col">
+        <p class="text-2xl text-[#6CC6EC] mb-4 font-bold">Jumat</p>
+        <div class="flex flex-col items-center justify-center h-96 w-80 max-w-full rounded-xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
+            <img src="{{ asset('img/icon/printi.png') }}" alt="">
+            <div class="flex flex-col items-center">
+                <div class="mt-4">
+                    <img src="{{ asset('img/icon/guru.png') }}" alt="guru-icon">
+                    <div class="text-center bg-[#fff] rounded-md py-1">
+                        <p class="xl:text-2xl lg:text-md text-gray-400 dark:text-gray-500">Fulani S.pd</p>
+                    </div>
+                </div>
+                <div class="text-center my-8">
+                    <p class="text-[#fff]">jadwal</p>
+                    <h1 class="text-3xl text-[#fff]">Matematika</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
