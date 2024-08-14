@@ -17,7 +17,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 mx-6">
                 <!-- Left Section (Welcome Text) -->
                 <div class="items-center justify-center h-24 rounded bg-transparent dark:bg-gray-800 block p-4">
-                    <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, Siswa!</h3>
+                    <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, Siswa Sekolah!</h3>
                     <p class="text-sm text-[#83a4ad] dark:text-gray-300">Lorem ipsum dolor sit amet, consectetur
                         adipisicing elit. Dolorem ipsum!</p>
                 </div>
@@ -58,90 +58,44 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-4 mx-10">
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-16 mb-4 mx-10">
                 <div
-                    class="flex items-center justify-center h-96 rounded-xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
-                    <img src="{{ asset('img/icon/printi.png') }}" alt="">
-                    <div>
-                        <div class="mt-4">
-                            <img src="{{ asset('img/icon/guru.png') }}" alt="guru-icon">
-                            <div class="text-center bg-[#fff] rounded-md py-1">
-                                <p class="xl:text-2xl lg:text-md text-gray-400 dark:text-gray-500 ">Fulani S.pd</p>
-                            </div>
-                        </div>
-                        <div class="text-center my-8">
-                            <p class=" text-[#fff]">jadwal</p>
-                            <h1 class="text-3xl text-[#fff]">Matematika</h1>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="flex items-center justify-center h-96 rounded-xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
-                    <img src="{{ asset('img/icon/printi.png') }}" alt="">
-                    <div>
-                        <div class="mt-4">
-                            <img src="{{ asset('img/icon/guru.png') }}" alt="guru-icon">
-                            <div class="text-center bg-[#fff] rounded-md py-1">
-                                <p class="xl:text-2xl lg:text-md text-gray-400 dark:text-gray-500 ">Fulani S.pd</p>
-                            </div>
-                        </div>
-                        <div class="text-center my-8">
-                            <p class=" text-[#fff]">jadwal</p>
-                            <h1 class="text-3xl text-[#fff]">Matematika</h1>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="flex items-center justify-center h-96 rounded-xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
-                    <img src="{{ asset('img/icon/printi.png') }}" alt="">
-                    <div>
-                        <div class="mt-4">
-                            <img src="{{ asset('img/icon/guru.png') }}" alt="guru-icon">
-                            <div class="text-center bg-[#fff] rounded-md py-1">
-                                <p class="xl:text-2xl lg:text-md text-gray-400 dark:text-gray-500 ">Fulani S.pd</p>
-                            </div>
-                        </div>
-                        <div class="text-center my-8">
-                            <p class=" text-[#fff]">jadwal</p>
-                            <h1 class="text-3xl text-[#fff]">Matematika</h1>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="flex items-center justify-center h-96 rounded-xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
-                    <img src="{{ asset('img/icon/printi.png') }}" alt="">
-                    <div>
-                        <div class="mt-4">
-                            <img src="{{ asset('img/icon/guru.png') }}" alt="guru-icon">
-                            <div class="text-center bg-[#fff] rounded-md py-1">
-                                <p class="xl:text-2xl lg:text-md text-gray-400 dark:text-gray-500 ">Fulani S.pd</p>
-                            </div>
-                        </div>
-                        <div class="text-center my-8">
-                            <p class=" text-[#fff]">jadwal</p>
-                            <h1 class="text-3xl text-[#fff]">Matematika</h1>
-                        </div>
+                    class="flex items-center justify-center h-52 rounded-xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
 
-                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-16 mb-4 mx-10">
+                <div
+                    class="flex items-center h-24 rounded-xl bg-gradient-to-r from-[#6CC6EC] to-[#5E9EB2]">
+                    <button class="flex space-x-4 ml-10">
+                        <img src="{{ asset('img/icon/Chat.png') }}" class="w-10 h-10" alt="test img">
+                        <span class="text-2xl font-medium mt-1">Silahkan Berkomunikasi</span>
+                    </button>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-16 mb-4 mx-10">
+                <p class="text-2xl text-[#6CC6EC] font-bold">Tugas</p>
+                <div
+                    class="flex items-center h-20 rounded-xl bg-gradient-to-r from-[#6CC6EC] to-[#5E9EB2] mt-[-1.5rem]">
+                    <button class="flex space-x-4 ml-10">
+                        <img src="{{ asset('img/icon/TugasS.png') }}" class="w-10 h-10" alt="test img">
+                        <span class="text-2xl font-medium mt-1">Tugas A
+                            <p class="text-xs text-[#ffff] font-extralight"> 1 July 2024</p>
+                        </span>
+                    </button>
                 </div>
                 <div
-                    class="flex items-center justify-center h-96 rounded-xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
-                    <img src="{{ asset('img/icon/printi.png') }}" alt="">
-                    <div>
-                        <div class="mt-4">
-                            <img src="{{ asset('img/icon/guru.png') }}" alt="guru-icon">
-                            <div class="text-center bg-[#fff] rounded-md py-1">
-                                <p class="xl:text-2xl lg:text-md text-gray-400 dark:text-gray-500 ">Fulani S.pd</p>
-                            </div>
-                        </div>
-                        <div class="text-center my-8">
-                            <p class=" text-[#fff]">jadwal</p>
-                            <h1 class="text-3xl text-[#fff]">Matematika</h1>
-                        </div>
-                    </div>
+                    class="flex items-center h-20 rounded-xl bg-gradient-to-r from-[#6CC6EC] to-[#5E9EB2] mt-[-1.5rem]">
+                    <button class="flex space-x-4 ml-10">
+                        <img src="{{ asset('img/icon/TugasS.png') }}" class="w-10 h-10" alt="test img">
+                        <span class="text-2xl font-medium mt-1">Tugas B
+                            <p class="text-xs text-[#ffff] font-extralight"> 1 July 2024</p>
+                        </span>
+                    </button>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
 </body>
