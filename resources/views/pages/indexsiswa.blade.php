@@ -4,99 +4,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Siswa</title>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    @vite('resources/css/app.css')
 </head>
 
 <body>
-
-
-    <section class="bg-white dark:bg-gray-900">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
-            <div
-                class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8">
-                <a href="#"
-                    class="bg-blue-100 text-blue-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-blue-400 mb-2">
-                    <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor" viewBox="0 0 20 14">
-                        <path
-                            d="M11 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm8.585 1.189a.994.994 0 0 0-.9-.138l-2.965.983a1 1 0 0 0-.685.949v8a1 1 0 0 0 .675.946l2.965 1.02a1.013 1.013 0 0 0 1.032-.242A1 1 0 0 0 20 12V2a1 1 0 0 0-.415-.811Z" />
-                    </svg>
-                    Tutorial
-                </a>
-                <h1 class="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">siswa</h1>
-                <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">Static websites are now used to
-                    bootstrap lots of websites and are becoming the basis for a variety of tools that even influence
-                    both web designers and developers.</p>
-                <a href="#"
-                    class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
-                    Read more
-                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M1 5h12m0 0L9 1m4 4L9 9" />
-                    </svg>
-                </a>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div
-                    class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12">
-                    <a href="#"
-                        class="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-green-400 mb-2">
-                        <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" viewBox="0 0 18 18">
-                            <path
-                                d="M17 11h-2.722L8 17.278a5.512 5.512 0 0 1-.9.722H17a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1ZM6 0H1a1 1 0 0 0-1 1v13.5a3.5 3.5 0 1 0 7 0V1a1 1 0 0 0-1-1ZM3.5 15.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM16.132 4.9 12.6 1.368a1 1 0 0 0-1.414 0L9 3.55v9.9l7.132-7.132a1 1 0 0 0 0-1.418Z" />
-                        </svg>
-                        Design
-                    </a>
-                    <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">Start with Flowbite Design
-                        System</h2>
-                    <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">Static websites are now used to
-                        bootstrap lots of websites and are becoming the basis for a variety of tools that even influence
-                        both web designers and developers.</p>
-                    <a href="#"
-                        class="text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center">Read
-                        more
-                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M1 5h12m0 0L9 1m4 4L9 9" />
-                        </svg>
-                    </a>
+    <x-sidebar></x-sidebar>
+    <div class="p-4 sm:ml-64">
+        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 mx-6">
+                <!-- Left Section (Welcome Text) -->
+                <div class="items-center justify-center h-24 rounded bg-transparent dark:bg-gray-800 block p-4">
+                    <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, Siswa Sekolah!</h3>
+                    <p class="text-sm text-[#83a4ad] dark:text-gray-300">Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit. Dolorem ipsum!</p>
                 </div>
-                <div
-                    class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12">
-                    <a href="#"
-                        class="bg-purple-100 text-purple-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-purple-400 mb-2">
-                        <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 20 16">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M5 4 1 8l4 4m10-8 4 4-4 4M11 1 9 15" />
+
+                <!-- Right Section (Search, Profile, Notifications) -->
+                <div class="flex items-center justify-end h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-4">
+                    <!-- Search Form -->
+                    <form class="relative">
+                        <input type="text"
+                            class="bg-[#5e9eb234] dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-xl px-4 py-2 pl-10 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]"
+                            placeholder="search">
+                        <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35M18.25 10.5a7.75 7.75 0 11-15.5 0 7.75 7.75 0 0115.5 0z" />
                         </svg>
-                        Code
-                    </a>
-                    <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">Best react libraries around
-                        the web</h2>
-                    <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">Static websites are now used to
-                        bootstrap lots of websites and are becoming the basis for a variety of tools that even influence
-                        both web designers and developers.</p>
-                    <a href="#"
-                        class="text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center">Read
-                        more
-                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                    </form>
+
+                    <!-- Profile Button -->
+                    <button
+                        class="flex items-center justify-center w-10 h-10 bg-[#5e9eb234] dark:bg-gray-700 rounded-xl">
+                        <svg class="w-6 h-6 text-gray-600 dark:text-gray-300 rounded-xl"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
-                    </a>
+                    </button>
+
+                    <!-- Notification Button -->
+                    <button
+                        class="flex items-center justify-center w-10 h-10 bg-[#5e9eb234] dark:bg-gray-700 rounded-xl">
+                        <svg class="w-6 h-6 text-gray-600 dark:text-gray-300" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11c0-3.39-1.353-6.391-3.636-8.505A4.92 4.92 0 0012 2a4.92 4.92 0 00-2.364.495C7.353 4.609 6 7.61 6 11v3.159c0 .417-.162.822-.405 1.12L4 17h5m0 0a3 3 0 006 0m-6 0V18m0-1h6" />
+                        </svg>
+                    </button>
                 </div>
             </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-16 mb-4 mx-10">
+                <div class="relative flex items-center justify-center h-64 rounded-xl bg-cover bg-center bg-no-repeat"
+                    style="background-image: url('{{ asset('img/background-banner.png') }}')">
+                    <!-- Tombol Sesuaikan di kanan atas -->
+                    <button
+                        class="absolute top-2 right-2 bg-[#5E9EB2] text-white font-medium py-1 px-3 rounded-lg shadow-md flex items-center space-x-2">
+                        <img src="{{ asset('img/icon/Pencil.png') }}" alt="" class="w-4 h-4">
+                        <!-- Ukuran disesuaikan -->
+                        <span>Sesuaikan</span>
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-16 mb-4 mx-10">
+                <div class="flex items-center h-24 rounded-xl bg-gradient-to-r from-[#6CC6EC] to-[#5E9EB2]">
+                    <button class="flex space-x-4 ml-10">
+                        <img src="{{ asset('img/icon/Chat.png') }}" class="w-10 h-10" alt="test img">
+                        <span class="text-2xl font-medium mt-1 text-white">Silahkan Berkomunikasi</span>
+                    </button>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-16 mb-4 mx-10">
+                <p class="text-2xl text-[#6CC6EC] font-bold">Pengumuman Tugas</p>
+
+                <!-- Tugas A -->
+                <div
+                    class="relative flex items-center h-20 rounded-xl bg-gradient-to-r from-[#6CC6EC] to-[#5E9EB2] mt-[-1.5rem]">
+                    <button class="flex items-center space-x-4 ml-10">
+                        <div class="flex items-center justify-center h-full">
+                            <img src="{{ asset('img/icon/TugasS.png') }}" class="w-9 h-9" alt="test img">
+                        </div>
+                        <div>
+                            <span class="text-2xl text-white font-medium mt-1">Tugas A</span>
+                            <p class="text-xs text-[#ffff] font-extralight">1 July 2024</p>
+                        </div>
+                    </button>
+                    <!-- Tombol titik tiga vertikal -->
+                    <button class="absolute top-1/2 right-4 transform -translate-y-1/2">
+                        <div class="flex flex-col space-y-1">
+                            <span class="block w-1 h-1 bg-white rounded-full"></span>
+                            <span class="block w-1 h-1 bg-white rounded-full"></span>
+                            <span class="block w-1 h-1 bg-white rounded-full"></span>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Tugas B -->
+                <div
+                    class="relative flex items-center h-20 rounded-xl bg-gradient-to-r from-[#6CC6EC] to-[#5E9EB2] mt-[-1.5rem]">
+                    <button class="flex items-center space-x-4 ml-10">
+                        <div class="flex items-center justify-center h-full">
+                            <img src="{{ asset('img/icon/TugasS.png') }}" class="w-9 h-9" alt="test img">
+                        </div>
+                        <div>
+                            <span class="text-2xl text-white font-medium mt-1">Tugas B</span>
+                            <p class="text-xs text-[#ffff] font-extralight">1 July 2024</p>
+                        </div>
+                    </button>
+                    <!-- Tombol titik tiga vertikal -->
+                    <button class="absolute top-1/2 right-4 transform -translate-y-1/2">
+                        <div class="flex flex-col space-y-1">
+                            <span class="block w-1 h-1 bg-white rounded-full"></span>
+                            <span class="block w-1 h-1 bg-white rounded-full"></span>
+                            <span class="block w-1 h-1 bg-white rounded-full"></span>
+                        </div>
+                    </button>
+                </div>
+
+            </div>
+
         </div>
-    </section>
-
-
+    </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
 </body>
 
