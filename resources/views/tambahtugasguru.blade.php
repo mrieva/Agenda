@@ -58,24 +58,6 @@
                 </div>
             </div>
 
-            <!-- Banner Section -->
-            <div class="grid grid-cols-1 md:grid-cols-1 gap-16 mb-4 mx-10">
-                <div class="relative flex items-center justify-center h-64 rounded-xl bg-cover bg-center bg-no-repeat"
-                    style="background-image: url('{{ asset('img/background-banner.png') }}')">
-                    <!-- Tombol Sesuaikan di kanan atas -->
-                    <button
-                        class="absolute top-2 right-2 bg-[#5E9EB2] text-white font-medium py-1 px-3 rounded-lg shadow-md flex items-center space-x-2">
-                        <img src="{{ asset('img/icon/Pencil.png') }}" alt="" class="w-4 h-4">
-                        <!-- Ukuran disesuaikan -->
-                        <span>Sesuaikan</span>
-                    </button>
-                    <button
-                        class="absolute bottom-4 left-7 bg-[#5E9EB2] text-white font-medium py-1 px-3 rounded-lg shadow-md flex items-center space-x-2">
-                        <!-- Ukuran disesuaikan -->
-                        <span>Tambahkan Tugas</span>
-                    </button>
-                </div>
-            </div>
 
             <!-- Form Tambah Tugas -->
             <div class="grid grid-cols-1 md:grid-cols-1 gap-16 mb-4 mx-10">
@@ -94,12 +76,24 @@
                         </div>
 
                         <div class="w-1/2 ">
-                            <label for="mapel" class="block text-gray-700 font-semibold mb-2">Mata Pelajaran:</label>
+                            <label for="mapel" class="block text-gray-700 font-semibold mb-2">Point</label>
                             <select id="mapel" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
-                                <option>Pilih Mata Pelajaran</option>
-                                <option>Matematika</option>
-                                <option>Bahasa Indonesia</option>
-                                <option>Ilmu Pengetahuan Alam</option>
+                                <option>Pilih Point</option>
+                            </select>
+                        </div>
+
+                        <div class="w-1/2 ">
+                            <label for="mapel" class="block text-gray-700 font-semibold mb-2">Tengat</label>
+                            <select id="mapel" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
+                                <option>Pilih Tanggal</option>
+                                <option>Tanggal</option>
+                            </select>
+                        </div>
+
+                        <div class="w-1/2 ">
+                            <label for="mapel" class="block text-gray-700 font-semibold mb-2">Topik</label>
+                            <select id="mapel" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
+                                <option>Pilih Topik</option>
                             </select>
                         </div>
                     </div>
