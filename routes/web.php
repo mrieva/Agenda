@@ -27,6 +27,9 @@ Route::get('index-kepala_sekolah', function () {
 Route::get('index-sekretaris', function () {
     return view('pages.indexsekretaris');
 });
+Route::get('tugas-siswa', function () {
+    return view('pages.tugassiswa');
+});
 
 Route::get('dashboard', function () {
     return view('dashboardGuru');
@@ -46,4 +49,4 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
-    
+
