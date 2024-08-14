@@ -21,6 +21,12 @@ Route::get('index-siswa', function () {
 Route::get('index-guru', function () {
     return view('indexguru');
 });
+Route::get('kelas-guru', function () {
+    return view('kelasguru');
+});
+Route::get('tugas-guru', function () {
+    return view('tugasguru');
+});
 Route::get('index-kepala_sekolah', function () {
     return view('pages.indexkepalasekolah');
 });
