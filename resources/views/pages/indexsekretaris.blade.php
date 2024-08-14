@@ -75,7 +75,7 @@
             <!-- Task Announcements -->
             <div class="p-4 mx-6">
                 <div class=" p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70%">
-                    <img src="{{ asset('img/icon/chat.png') }}" alt="" class="h-8 mr-4 ">
+                    <img src="{{ asset('img/icon/chatlight.png') }}" alt="" class="h-8 mr-4 ">
                     <p class="text-white font-semibold">Silahkan Berkomunikasi</p>
                 </div>
                 <span class="text-lg font-medium text-[#5E9EB2] ">Pengumuman Tugas
