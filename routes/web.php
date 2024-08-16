@@ -21,6 +21,18 @@ Route::get('index-siswa', function () {
 Route::get('index-guru', function () {
     return view('indexguru');
 });
+Route::get('kelas-guru', function () {
+    return view('kelasguru');
+});
+Route::get('tugas-guru', function () {
+    return view('tugasguru');
+});
+Route::get('tambah-tugas-guru', function () {
+    return view('tambahtugasguru');
+});
+Route::get('tabel-tugas-guru', function () {
+    return view('tabeltugasguru');
+});
 Route::get('index-kepala_sekolah', function () {
     return view('pages.indexkepalasekolah');
 });
@@ -30,7 +42,9 @@ Route::get('index-sekretaris', function () {
 Route::get('tugas-siswa', function () {
     return view('pages.tugassiswa');
 });
-
+Route::get('siswa-tugas', function () {
+    return view('siswatugas');
+});
 Route::get('dashboard', function () {
     return view('dashboardGuru');
 });
