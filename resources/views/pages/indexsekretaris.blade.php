@@ -54,27 +54,28 @@
             </div>
 
             <!-- Dashboard Sections -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-4 mx-10">
-                <!-- XI RPL1 Card -->
-                <div class="flex items-center justify-center h-48 rounded-lg bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC] p-4">
-                    <div class="flex flex-col items-center">
-                        <img src="{{ asset('img/kelas1.png') }}" alt="Icon" class="h-24 mb-4">
-                        <p class="text-xl font-bold text-white">XII RPL1</p>
-                    </div>
-                </div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-4 mx-10">
+    <!-- XII RPL1 Card -->
+    <div data-type="siswa" onclick="openModal('siswa')" class="flex items-center justify-center h-48 rounded-lg bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC] p-4 cursor-pointer">
+        <div class="flex flex-col items-center">
+            <img src="{{ asset('img/kelas1.png') }}" alt="Icon" class="h-24 mb-4">
+            <p class="text-xl font-bold text-white">XII RPL1</p>
+        </div>
+    </div>
 
-                <!-- Guru Card -->
-                <div class="flex items-center justify-center h-48 rounded-lg bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC] p-2">
-                    <div class="flex flex-col items-center">
-                        <img src="{{ asset('img/kelas2.png') }}" alt="Guru Icon" class="h-24 mb-4">
-                        <p class="text-xl font-bold text-white">XII RPL 2</p>
-                    </div>
-                </div>
-            </div>
+    <!-- Guru Card -->
+    <div data-type="guru" onclick="openModal('guru')" class="flex items-center justify-center h-48 rounded-lg bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC] p-2 cursor-pointer">
+        <div class="flex flex-col items-center">
+            <img src="{{ asset('img/kelas2.png') }}" alt="Guru Icon" class="h-24 mb-4">
+            <p class="text-xl font-bold text-white">Guru</p>
+        </div>
+    </div>
+</div>
+
 
             <!-- Task Announcements -->
             <div class="p-4 mx-6">
-                <div class=" p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70%">
+                <div class=" p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% cursor-pointer" onclick="window.location.href='#'">
                     <img src="{{ asset('img/icon/chatlight.png') }}" alt="" class="h-8 mr-4 ">
                     <p class="text-white font-semibold">Silahkan Berkomunikasi</p>
                 </div>
@@ -93,7 +94,69 @@
         </div>
     </div>
 
+
+   <!-- Modal -->
+<div id="modal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 text-[#000]">
+    <div class="bg-[#5E9EB2]/50 backdrop-blur-sm rounded-lg shadow-lg p-6 w-2/3 sm:w-1/2 lg:w-1/3  border border-[#83a4ad]">
+        <h3 id="modal-title" class="text-xl font-semibold mb-6 text-center">Input Kehadiran</h3>
+        <form>
+            <div class="mb-4">
+                <label for="name" id="name-label" class="block text-sm font-semibold">Nama Siswa</label>
+                <input type="text" id="name" name="name" class="w-full px-4 py-2 mt-2 bg-white border border-[#83a4ad] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5E9EB2] text-[#000]"  />
+            </div>
+            <div class="mb-4">
+                <label for="kehadiran" class="block text-sm font-semibold">Kehadiran</label>
+                <select id="kehadiran" name="kehadiran" class="w-full px-4 py-2 mt-2 bg-white border border-[#83a4ad] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
+                    <option value="hadir">Hadir</option>
+                    <option value="izin">Izin</option>
+                    <option value="sakit">Sakit</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="deskripsi" class="block text-sm font-semibold">Deskripsi</label>
+                <textarea id="deskripsi" name="deskripsi" rows="4" class="w-full px-4 py-2 mt-2 bg-white border border-[#83a4ad] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]"></textarea>
+            </div>
+            <div class="mb-4">
+                <label for="lampiran" class=" block text-sm font-semibold ">Lampiran Surat</label>
+                <input type="file" id="lampiran" name="lampiran" class="rounded-xl w-full px-4 py-2 mt-2 bg-white border border-[#83a4ad] focus:outline-none focus:ring-2 focus:ring-[#5E9EB2] text[#000]" />
+            </div>
+            <div class="flex justify-between">
+                <button type="button" id="close-modal" class="px-6 py-2 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600">Cancel</button>
+                <button type="submit" class="px-6 py-2 bg-[#fff] text-[#6CC6EC] font-semibold rounded-lg hover:bg-[#4c8da3] hover:text-[#fff]">Input Kehadiran</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <script>
+        function openModal(type) {
+    const modalTitle = document.getElementById('modal-title');
+    const nameLabel = document.getElementById('name-label');
+    const nameInput = document.getElementById('name');
+
+    if (type === 'guru') {
+        modalTitle.textContent = 'Input Kehadiran Guru';
+        nameLabel.textContent = 'Nama Guru';
+        nameInput.placeholder = 'Masukkan nama guru';
+    } else if (type === 'siswa') {
+        modalTitle.textContent = 'Input Kehadiran Siswa';
+        nameLabel.textContent = 'Nama Siswa';
+        nameInput.placeholder = 'Masukkan nama siswa';
+    }
+
+    document.getElementById('modal').classList.remove('hidden');
+}
+
+document.getElementById('close-modal').addEventListener('click', function () {
+    document.getElementById('modal').classList.add('hidden');
+});
+
+    </script>
+
 </body>
 
 </html>
