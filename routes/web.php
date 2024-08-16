@@ -48,6 +48,9 @@ Route::get('siswa-tugas', function () {
 Route::get('dashboard', function () {
     return view('dashboardGuru');
 });
+Route::get('settings', function () {
+    return view('pages.setting');
+});
 
 use App\Http\Controllers\ContactController;
 
