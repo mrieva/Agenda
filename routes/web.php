@@ -52,6 +52,10 @@ Route::get('settings', function () {
     return view('pages.setting');
 });
 
+Route::get('tugas-sekretaris', function () {
+    return view('tugassekretaris');
+});
+
 use App\Http\Controllers\ContactController;
 
 Route::post('/kirim-email', [ContactController::class, 'sendEmail'])->name('send.email');
