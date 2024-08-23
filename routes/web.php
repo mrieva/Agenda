@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Website;
 
 Route::get('/conn', function () {
     return User::get();
@@ -16,20 +17,16 @@ Route::get('test', function () {
 });
 
 Route::get('index-siswa', function () {
-    return view('pages.indexsiswa');
+    return view('siswa.indexsiswa');
 });
 Route::get('index-guru', function () {
-    return view('indexguru');
-});
-Route::get('index-kepala_sekolah', function () {
-    return view('pages.indexkepalasekolah');
-});
-Route::get('index-sekretaris', function () {
-    return view('pages.indexsekretaris');
+    return view('guru.indexguru');
 });
 
-Route::get('dashboard', function () {
-    return view('dashboardGuru');
+Route::get('index-kepala-sekolah', [Website::class, 'indexkepalasekolah']);
+
+Route::get('index-sekretaris', function () {
+    return view('sekretaris.indexsekretaris');
 });
 
 use App\Http\Controllers\ContactController;
@@ -45,5 +42,3 @@ Route::middleware(['auth'])->group(function () {
         return view('indexsiswa');
     });
 });
-
-    
