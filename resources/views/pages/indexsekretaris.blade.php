@@ -75,21 +75,42 @@
 
             <!-- Task Announcements -->
             <div class="p-4 mx-6">
-                <div class=" p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% cursor-pointer" onclick="window.location.href='#'">
+                <div class=" p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% cursor-pointer" onclick="window.location.href='komunikasi-sekretaris'">
                     <img src="{{ asset('img/icon/chatlight.png') }}" alt="" class="h-8 mr-4 ">
                     <p class="text-white font-semibold">Silahkan Berkomunikasi</p>
                 </div>
                 <span class="text-lg font-medium text-[#5E9EB2] ">Pengumuman Tugas
                     <p class="text-xs text-[#ffff] font-extralight"> 1 July 2024</p>
                 </span>
-                <div class=" p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70%">
-                    <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4 ">
-                    <p class="text-white font-semibold">Tugas A</p>
-                </div>
-                <div class=" p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70%">
-                    <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4">
-                    <p class="text-white font-semibold">Tugas B</p>
-                </div>
+                 <!-- Task A -->
+            <a href="#" class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
+                <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4 ">
+                <p class="text-white font-semibold">Tugas A</p>
+                <!-- Tombol titik tiga vertikal -->
+                <button class="absolute top-1/2 right-4 transform -translate-y-1/2">
+                    <div class="flex flex-col space-y-1">
+                        <span class="block w-1 h-1 bg-white rounded-full"></span>
+                        <span class="block w-1 h-1 bg-white rounded-full"></span>
+                        <span class="block w-1 h-1 bg-white rounded-full"></span>
+                    </div>
+                </button>
+            </a>
+
+            <!-- Task B -->
+            <a href="#" class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
+                <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4">
+                <p class="text-white font-semibold">Tugas B</p>
+                <!-- Tombol titik tiga vertikal -->
+                <button class="absolute top-1/2 right-4 transform -translate-y-1/2">
+                    <div class="flex flex-col space-y-1">
+                        <span class="block w-1 h-1 bg-white rounded-full"></span>
+                        <span class="block w-1 h-1 bg-white rounded-full"></span>
+                        <span class="block w-1 h-1 bg-white rounded-full"></span>
+                    </div>
+                </button>
+            </a>
+        </div>
+    </div>
             </div>
         </div>
     </div>
