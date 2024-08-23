@@ -23,7 +23,13 @@ Route::get('index-guru', function () {
     return view('guru.indexguru');
 });
 
-Route::get('index-kepala-sekolah', [Website::class, 'indexkepalasekolah']);
+Route::get('/index-kepala-sekolah', [Website::class, 'indexkepalasekolah'])->name('index-kepala-sekolah');
+
+Route::get('/settings-kepsek', function () {
+
+    return view('kepsek.settings');
+    
+})->name('settings-kepsek');
 
 Route::get('index-sekretaris', function () {
     return view('sekretaris.indexsekretaris');
