@@ -16,37 +16,40 @@ Route::get('test', function () {
 });
 
 Route::get('index-siswa', function () {
-    return view('pages.indexsiswa');
+    return view('siswa.indexsiswa');
 });
 Route::get('index-guru', function () {
-    return view('indexguru');
+    return view('guru.indexguru');
 });
 Route::get('kelas-guru', function () {
-    return view('kelasguru');
+    return view('guru.kelasguru');
 });
 Route::get('tugas-guru', function () {
-    return view('tugasguru');
+    return view('guru.tugasguru');
 });
 Route::get('tambah-tugas-guru', function () {
-    return view('tambahtugasguru');
+    return view('guru.tambahtugasguru');
 });
 Route::get('tabel-tugas-guru', function () {
-    return view('tabeltugasguru');
+    return view('guru.tabeltugasguru');
 });
-Route::get('index-kepala_sekolah', function () {
-    return view('pages.indexkepalasekolah');
+Route::get('index-kepala-sekolah', function () {
+    return view('kepsek.indexkepalasekolah');
 });
 Route::get('index-sekretaris', function () {
-    return view('pages.indexsekretaris');
+    return view('sekretaris.indexsekretaris');
 });
-Route::get('tugas-siswa', function () {
-    return view('pages.tugassiswa');
-});
+
 Route::get('siswa-tugas', function () {
-    return view('siswatugas');
+    return view('siswa.siswatugas');
 });
-Route::get('dashboard', function () {
-    return view('dashboardGuru');
+
+Route::get('tugas-sekretaris', function () {
+    return view('sekretaris.tugassekretaris');
+});
+
+Route::get('komunikasi-sekretaris', function () {
+    return view('sekretaris.komunikasisekretaris');
 });
 
 use App\Http\Controllers\ContactController;
