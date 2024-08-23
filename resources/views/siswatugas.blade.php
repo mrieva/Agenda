@@ -61,8 +61,8 @@
             <!-- Announcement Section -->
             <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg mx-10">
                 <div class="text-center mb-4">
-                    <h2 class="text-xl font-bold text-gray-700 dark:text-gray-300">Pengumuman Pengumpulan Tugas</h2>
-                    <p class="text-gray-500 dark:text-gray-400">M.Zalfa Akran Nur Hidayatullah · 9 Juni 2024 · 100 Point</p>
+                    <h2 class="text-xl flex justify-start  font-bold text-gray-700 dark:text-gray-300">Pengumuman Pengumpulan Tugas</h2>
+                    <p class="text-gray-500 flex justify-start  dark:text-gray-400">M.Zalfa Akran Nur Hidayatullah · 9 Juni 2024 · 100 Point</p>
                 </div>
                 <div class="mb-4">
                     <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Format Pengumpulan:</h3>
@@ -77,14 +77,28 @@
                     <p class="text-gray-600 dark:text-gray-400">Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                 </div>
             </div>
-
             <!-- Personal Comment Section -->
-            <div class="mt-4 flex justify-end bg-[#5E9EB2] p-4 rounded-lg mx-10">
-                <div class="w-">
-                    <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Komentar Pribadi</h3>
-                    <textarea id="personal-comment" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-100 h-24 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]" placeholder="Tambahkan komentar pribadi untuk saran dan ulasan"></textarea>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-4 mx-10">
+                <div class="bg-[#5E9EB2] p-2 rounded-lg">
+                    <!-- Menggunakan flexbox untuk menempatkan dua teks di samping satu sama lain -->
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-white dark:text-gray-300">Komentar Pribadi</h3>
+                        <h3 class="text-lg font-semibold text-white dark:text-gray-300">Komentar Pribadi</h3>
+                    </div>
+
+                    <!-- Menggunakan flexbox untuk menempatkan dua tombol di samping satu sama lain -->
+                    <div class="flex space-x-4 mt-6">
+                        <button class="bg-[#ffffff] text-white font-medium w-1/2 py-2 px-6 rounded-lg h-12 shadow-md hover:bg-[#4b8795] transition duration-300">Agung</button>
+                        <button class="bg-[#141313] text-white font-medium w-1/2 py-2 px-6 rounded-lg h-12 shadow-md hover:bg-[#4b8795] transition duration-300">Tambahan</button>
+                    </div>
+                </div>
+                <div class="bg-[#5E9EB2] p-2 rounded-lg">
+                    <h3 class="text-lg font-semibold text-white dark:text-gray-300">Komentar Pribadi</h3>
+                    <textarea id="personal-comment-2" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 mt-3 rounded-lg px-4 py-2 w-full h-24 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]" placeholder="Tambahkan komentar pribadi untuk saran dan ulasan"></textarea>
                 </div>
             </div>
+
+
 
             <div class="flex justify-end items-center mt-4 mx-10">
                 <button class="bg-[#5E9EB2] text-white font-medium py-2 px-6 rounded-lg shadow-md hover:bg-[#4b8795] transition duration-300">Tambah Atau Buat</button>
