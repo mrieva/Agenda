@@ -51,7 +51,6 @@ Route::get('dashboard', function () {
 Route::get('settings', function () {
     return view('pages.setting');
 });
-
 Route::get('tugas-sekretaris', function () {
     return view('tugassekretaris');
 });
