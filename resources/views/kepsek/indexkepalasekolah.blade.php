@@ -2,102 +2,146 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Kepala Sekolah</title>
+    <link href="{{ asset('tailwindcharts/css/flowbite.min.css') }}" rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            // Data and options (same as before)
+            var data1 = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Hadir', 80],
+                ['Tanpa Keterangan', 10],
+                ['Izin', 10],
+                ['Sakit', 7],
+            ]);
+
+            var options1 = {
+                title: 'Grafik Kehadiran Guru',
+            };
+
+            var chart1 = new google.visualization.PieChart(document.getElementById('donut_single'));
+            chart1.draw(data1, options1);
+
+            // Manipulate CSS directly after drawing the chart
+            var titleElement1 = document.querySelector('#donut_single svg text');
+            if (titleElement1) {
+                titleElement1.style.fontSize = '24px'; // Ubah ukuran font
+                titleElement1.style.fill = '#5E9EB2'; // Ubah warna teks
+                titleElement1.style.textAlign = 'center';
+                titleElement1.style.fontWeight = 'bold'; // Ubah ketebalan teks
+            }
+
+            // Data and options for the second chart (same as before)
+            var data2 = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Hadir', 1000],
+                ['Tanpa Keterangan', 10],
+                ['Izin', 23],
+                ['Sakit', 50]
+            ]);
+
+            var options2 = {
+                title: 'Grafik Kehadiran Siswa',
+            };
+
+            var chart2 = new google.visualization.PieChart(document.getElementById('donut_single2'));
+            chart2.draw(data2, options2);
+
+            // Manipulate CSS directly for the second chart
+            var titleElement2 = document.querySelector('#donut_single2 svg text');
+            if (titleElement2) {
+                titleElement2.style.fontSize = '24px'; // Ubah ukuran font
+                titleElement2.style.fill = '#5E9EB2'; // Ubah warna teks
+                titleElement2.style.fontWeight = 'bold'; // Ubah ketebalan teks
+            }
+        }
+    </script>
+    @vite('resources/css/app.css')
 </head>
 
 <body>
+    <x-sidebarkepsek></x-sidebarkepsek>
 
-
-    <section class="bg-white dark:bg-gray-900">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+    <div class="p-4 sm:ml-64">
+        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
             <div
-                class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8">
-                <a href="#"
-                    class="bg-blue-100 text-blue-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-blue-400 mb-2">
-                    <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor" viewBox="0 0 20 14">
-                        <path
-                            d="M11 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm8.585 1.189a.994.994 0 0 0-.9-.138l-2.965.983a1 1 0 0 0-.685.949v8a1 1 0 0 0 .675.946l2.965 1.02a1.013 1.013 0 0 0 1.032-.242A1 1 0 0 0 20 12V2a1 1 0 0 0-.415-.811Z" />
-                    </svg>
-                    Tutorial
-                </a>
-                <h1 class="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">kepsek</h1>
-                <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">Static websites are now used to
-                    bootstrap lots of websites and are becoming the basis for a variety of tools that even influence
-                    both web designers and developers.</p>
-                <a href="#"
-                    class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
-                    Read more
-                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M1 5h12m0 0L9 1m4 4L9 9" />
-                    </svg>
-                </a>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div
-                    class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12">
-                    <a href="#"
-                        class="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-green-400 mb-2">
-                        <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" viewBox="0 0 18 18">
-                            <path
-                                d="M17 11h-2.722L8 17.278a5.512 5.512 0 0 1-.9.722H17a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1ZM6 0H1a1 1 0 0 0-1 1v13.5a3.5 3.5 0 1 0 7 0V1a1 1 0 0 0-1-1ZM3.5 15.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM16.132 4.9 12.6 1.368a1 1 0 0 0-1.414 0L9 3.55v9.9l7.132-7.132a1 1 0 0 0 0-1.418Z" />
-                        </svg>
-                        Design
-                    </a>
-                    <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">Start with Flowbite Design
-                        System</h2>
-                    <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">Static websites are now used to
-                        bootstrap lots of websites and are becoming the basis for a variety of tools that even influence
-                        both web designers and developers.</p>
-                    <a href="#"
-                        class="text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center">Read
-                        more
-                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M1 5h12m0 0L9 1m4 4L9 9" />
-                        </svg>
-                    </a>
+                class="grid grid-cols-1 md:grid-cols-1 sm:grid-cols-1 xs:grid-cols-1 xss:grid-cols-1 lg:grid-cols-2 gap-4 mb-4 mx-6">
+                <!-- Left Section (Welcome Text) -->
+                <div class="items-center justify-center h-24 rounded bg-transparent dark:bg-gray-800 block p-4">
+                    <h3
+                        class="xl:text-3xl lg:text-2xl md:text-xl xss:text-sm font-bold text-[#5E9EB2] dark:text-gray-500">
+                        Welcome Back, Kepala Sekolah!</h3>
+                    <p class="text-sm text-[#83a4ad] dark:text-gray-300">Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit. Dolorem ipsum!</p>
                 </div>
+
+                <!-- Right Section (Search, Profile, Notifications) -->
                 <div
-                    class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12">
-                    <a href="#"
-                        class="bg-purple-100 text-purple-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-purple-400 mb-2">
-                        <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 20 16">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M5 4 1 8l4 4m10-8 4 4-4 4M11 1 9 15" />
-                        </svg>
-                        Code
-                    </a>
-                    <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">Best react libraries around
-                        the web</h2>
-                    <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">Static websites are now used to
-                        bootstrap lots of websites and are becoming the basis for a variety of tools that even influence
-                        both web designers and developers.</p>
-                    <a href="#"
-                        class="text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center">Read
-                        more
-                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M1 5h12m0 0L9 1m4 4L9 9" />
-                        </svg>
-                    </a>
+                    class="flex items-center lg:justify-end xs:justify-center xss:justify-center h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-4">
+                    <!-- Search Form -->
+                    <form class="relative flex items-center">
+                        <input type="text" placeholder="Search..."
+                            class="bg-[#5e9eb234] dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-xl lg:px-10 lg:py-2 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
+                        <i
+                            class='bx bx-search absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500'></i>
+                    </form>
+
+                    <!-- Profile Button -->
+                    <button
+                        onclick="window.location.href='{{ route('settings-kepsek') }}'"
+                        class="flex items-center justify-center lg:w-10 lg:h-10 md:w-8 md:h-8 sm:w-8 sm:h-8 xs:w-8 xs:h-8 xss:w-8 xss:h-8 bg-[#5e9eb234] dark:bg-gray-700 xl:rounded-lg lg:rounded-xl md:rounded-lg sm:rounded-lg xs:rounded-lg xss:rounded-lg">
+                        <i class='bx bx-user text-gray-600 dark:text-gray-300'></i>
+                    </button>
+
+                    <!-- Notification Button -->
+                    <button
+                        onclick="window.location.href='{{ route('notifkepsek') }}'"
+                        class="flex items-center justify-center lg:w-10 lg:h-10 md:w-8 md:h-8 sm:w-8 sm:h-8 xs:w-8 xs:h-8 xss:w-8 xss:h-8 bg-[#5e9eb234] dark:bg-gray-700 xl:rounded-lg lg:rounded-xl md:rounded-lg sm:rounded-lg xs:rounded-lg xss:rounded-lg">
+                        <i class='bx bx-bell text-gray-600 dark:text-gray-300'></i>
+                    </button>
                 </div>
+
             </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-16 mb-4 mx-10">
+                <!-- DIATAS GATAU NAMANYA -->
+                <div
+                    class="flex items-end justify-end h-[293px] max-w-full rounded-3xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
+                    <div class="image-wrapper">
+                        <img src="{{ asset('img/guru.png') }}" class="w-[50%] ml-[30%]" alt="kepsek-icon">
+                    </div>
+                </div>
+
+                <!-- Pie Charts Section -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 chart-wrapper">
+                    <div id="donut_single" class="w-[500px] h-[400px]"></div>
+                    <div id="donut_single2" class="w-[500px] h-[400px]"></div>
+                </div>
+
+            </div>
+
         </div>
-    </section>
+    </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdownToggle = document.querySelector('[data-collapse-toggle="dropdown-example"]');
+            const dropdownMenu = document.getElementById('dropdown-example');
 
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+            dropdownToggle.addEventListener('click', function () {
+                dropdownMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 
 </html>

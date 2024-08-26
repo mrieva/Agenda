@@ -15,45 +15,66 @@ Route::get('test', function () {
     return view('test');
 });
 
+// siswa section
 Route::get('index-siswa', function () {
     return view('siswa.indexsiswa');
 });
+
+// guru section
 Route::get('index-guru', function () {
     return view('guru.indexguru');
-});
-Route::get('kelas-guru', function () {
-    return view('guru.kelasguru');
-});
-Route::get('tugas-guru', function () {
+})->name('index-guru');;
+
+route::get("tugas-guru", function(){
     return view('guru.tugasguru');
 });
-Route::get('tambah-tugas-guru', function () {
-    return view('guru.tambahtugasguru');
-});
-Route::get('tabel-tugas-guru', function () {
+
+Route::get("notif-guru", function () {
+    return view("guru.settings-notif");
+})->name('notif-guru');
+
+Route::get("tugas-guru", function () {
+    return view("guru.tugasguru");
+})->name('tugas-guru');
+
+Route::get("settings-guru", function () {
+    return view("guru.setting");
+})->name('settings-guru');
+
+Route::get('tambahtugas', function () {
+    return view("guru.tambahtugasguru");
+})->name('tambahtugas');
+
+Route::get('kelas-guru', function() {
+    return view('guru.kelasguru');
+})->name('kelasguru');
+
+Route::get('tabel-guru', function() {
     return view('guru.tabeltugasguru');
-});
+})->name('tabelguru');
+
+// kepsek section
 Route::get('index-kepala-sekolah', function () {
     return view('kepsek.indexkepalasekolah');
-});
+})->name('index-kepala-sekolah');
+
+Route::get('settings-kepsek', function () {
+    return view('kepsek.settings');
+})->name('settings-kepsek');
+
+Route::get("notif-kepsek", function () {
+    return view("kepsek.notif-kepsek");
+})->name('notifkepsek');
+
+
+
+// sekretaris section
 Route::get('index-sekretaris', function () {
     return view('sekretaris.indexsekretaris');
 });
 
-Route::get('siswa-tugas', function () {
-    return view('siswa.siswatugas');
-});
-
 Route::get('tugas-sekretaris', function () {
     return view('sekretaris.tugassekretaris');
-});
-
-Route::get('komunikasi-sekretaris', function () {
-    return view('sekretaris.komunikasisekretaris');
-});
-
-Route::get('pengumuman-siswa', function () {
-    return view('siswa.pengumumansiswa');
 });
 
 use App\Http\Controllers\ContactController;
@@ -69,5 +90,3 @@ Route::middleware(['auth'])->group(function () {
         return view('indexsiswa');
     });
 });
-
-
