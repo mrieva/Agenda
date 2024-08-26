@@ -2,7 +2,6 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Website;
 
 Route::get('/conn', function () {
     return User::get();
@@ -16,35 +15,45 @@ Route::get('test', function () {
     return view('test');
 });
 
+// siswa section
 Route::get('index-siswa', function () {
-    return view('siswa.indexsiswa');
+    return view('pages.indexsiswa');
 });
+
+// guru section
 Route::get('index-guru', function () {
-    return view('guru.indexguru');
+    return view('indexguru');
 });
-
-route::get("tugas-guru", function(){
-    return view('guru.tugasguru');
+Route::get('kelas-guru', function () {
+    return view('kelasguru');
 });
-
-Route::get('index-kepala-sekolah', function () {
-    return view('kepsek.indexkepalasekolah');
-})->name('index-kepala-sekolah');
-
+Route::get('tugas-guru', function () {
+    return view('tugasguru');
+});
+Route::get('tambah-tugas-guru', function () {
+    return view('tambahtugasguru');
+});
+Route::get('tabel-tugas-guru', function () {
+    return view('tabeltugasguru');
+});
+Route::get('index-kepala_sekolah', function () {
+    return view('pages.indexkepalasekolah');
+});
 Route::get('index-sekretaris', function () {
-    return view('sekretaris.indexsekretaris');
+    return view('pages.indexsekretaris');
 });
-
-Route::get('settings-kepsek', function () {
-    return view('kepsek.settings');
-})->name('settings-kepsek');
-
-Route::get('setting-notif', function () {
-    return view('settings-notif');
+Route::get('tugas-siswa', function () {
+    return view('pages.tugassiswa');
+});
+Route::get('siswa-tugas', function () {
+    return view('siswatugas');
+});
+Route::get('dashboard', function () {
+    return view('dashboardGuru');
 });
 
 Route::get('tugas-sekretaris', function () {
-    return view('sekretaris.tugassekretaris');
+    return view('tugassekretaris');
 });
 
 use App\Http\Controllers\ContactController;
@@ -60,3 +69,5 @@ Route::middleware(['auth'])->group(function () {
         return view('indexsiswa');
     });
 });
+
+

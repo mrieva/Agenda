@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <x-sidebar></x-sidebar>
+    <x-sidebarguru></x-sidebarguru>
     <div class="p-4 sm:ml-64">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 mx-6">
@@ -70,6 +70,7 @@
                         <span>Sesuaikan</span>
                     </button>
                     <button
+                        onclick="window.location.href='{{ route('tambahtugas') }}'"
                         class="absolute bottom-4 left-7 bg-[#5E9EB2] text-white font-medium py-1 px-3 rounded-lg shadow-md flex items-center space-x-2">
                         <!-- Ukuran disesuaikan -->
                         <span>Tambahkan Tugas</span>
