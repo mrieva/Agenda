@@ -22,6 +22,11 @@ Route::get('index-siswa', function () {
 Route::get('index-guru', function () {
     return view('guru.indexguru');
 });
+
+route::get("tugas-guru", function(){
+    return view('guru.tugasguru');
+});
+
 Route::get('index-kepala-sekolah', function () {
     return view('kepsek.indexkepalasekolah');
 })->name('index-kepala-sekolah');
