@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Website;
 
 Route::get('/conn', function () {
     return User::get();
@@ -16,46 +17,32 @@ Route::get('test', function () {
 });
 
 Route::get('index-siswa', function () {
-    return view('pages.indexsiswa');
+    return view('siswa.indexsiswa');
 });
 Route::get('index-guru', function () {
-    return view('indexguru');
-});
-Route::get('kelas-guru', function () {
-    return view('kelasguru');
-});
-Route::get('tugas-guru', function () {
-    return view('tugasguru');
-});
-Route::get('tambah-tugas-guru', function () {
-    return view('tambahtugasguru');
-});
-Route::get('tabel-tugas-guru', function () {
-    return view('tabeltugasguru');
+    return view('guru.indexguru');
 });
 Route::get('index-kepala_sekolah', function () {
-    return view('pages.indexkepalasekolah');
+    return view('kepsek.indexkepalasekolah');
 });
 Route::get('index-sekretaris', function () {
-    return view('pages.indexsekretaris');
+    return view('sekretaris.indexsekretaris');
 });
-Route::get('tugas-siswa', function () {
-    return view('pages.tugassiswa');
-});
-Route::get('siswa-tugas', function () {
-    return view('siswatugas');
-});
+
 Route::get('dashboard', function () {
-    return view('dashboardGuru');
+    return view('guru.indexguru');
 });
+
 Route::get('settings', function () {
-    return view('pages.setting');
+    return view('setting');
 });
+
 Route::get('setting-notif', function () {
-    return view('pages.settings-notif');
+    return view('settings-notif');
 });
+
 Route::get('tugas-sekretaris', function () {
-    return view('tugassekretaris');
+    return view('sekretaris.tugassekretaris');
 });
 
 use App\Http\Controllers\ContactController;
@@ -71,5 +58,3 @@ Route::middleware(['auth'])->group(function () {
         return view('indexsiswa');
     });
 });
-
-
