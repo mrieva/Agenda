@@ -22,20 +22,17 @@ Route::get('index-siswa', function () {
 Route::get('index-guru', function () {
     return view('guru.indexguru');
 });
-Route::get('index-kepala_sekolah', function () {
+Route::get('index-kepala-sekolah', function () {
     return view('kepsek.indexkepalasekolah');
-});
+})->name('index-kepala-sekolah');
+
 Route::get('index-sekretaris', function () {
     return view('sekretaris.indexsekretaris');
 });
 
-Route::get('dashboard', function () {
-    return view('guru.indexguru');
-});
-
-Route::get('settings', function () {
-    return view('setting');
-});
+Route::get('settings-kepsek', function () {
+    return view('kepsek.settings');
+})->name('settings-kepsek');
 
 Route::get('setting-notif', function () {
     return view('settings-notif');
