@@ -52,6 +52,10 @@ Route::get('komunikasi-sekretaris', function () {
     return view('sekretaris.komunikasisekretaris');
 });
 
+Route::get('pengumuman-siswa', function () {
+    return view('siswa.pengumumansiswa');
+});
+
 use App\Http\Controllers\ContactController;
 
 Route::post('/kirim-email', [ContactController::class, 'sendEmail'])->name('send.email');
