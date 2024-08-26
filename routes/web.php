@@ -16,26 +16,53 @@ Route::get('test', function () {
     return view('test');
 });
 
+// siswa section
 Route::get('index-siswa', function () {
     return view('siswa.indexsiswa');
 });
+
+// guru section
 Route::get('index-guru', function () {
     return view('guru.indexguru');
-});
+})->name('index-guru');
+
+Route::get("notif-guru", function () {
+    return view("guru.settings-notif");
+})->name('notif-guru');
+
+Route::get("tugas-guru", function () {
+    return view("guru.tugasguru");
+})->name('tugas-guru');
+
+Route::get("settings-guru", function () {
+    return view("guru.setting");
+})->name('settings-guru');
+
+Route::get('tambahtugas', function () {
+    return view("guru.tambahtugasguru");
+})->name('tambahtugas');
+
+Route::get('kelas-guru', function() {
+    return view('guru.kelasguru');
+})->name('kelasguru');
+
+Route::get('tabel-guru', function() {
+    return view('guru.tabeltugasguru');
+})->name('tabelguru');
+
+// kepsek section
 Route::get('index-kepala-sekolah', function () {
     return view('kepsek.indexkepalasekolah');
 })->name('index-kepala-sekolah');
-
-Route::get('index-sekretaris', function () {
-    return view('sekretaris.indexsekretaris');
-});
 
 Route::get('settings-kepsek', function () {
     return view('kepsek.settings');
 })->name('settings-kepsek');
 
-Route::get('setting-notif', function () {
-    return view('settings-notif');
+
+// sekretaris section
+Route::get('index-sekretaris', function () {
+    return view('sekretaris.indexsekretaris');
 });
 
 Route::get('tugas-sekretaris', function () {

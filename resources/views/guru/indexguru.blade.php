@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <x-sidebar></x-sidebar>
+    <x-sidebarguru></x-sidebarguru>
 
 
     <div class="p-4 sm:ml-64">
@@ -48,12 +48,12 @@
                         <i class='bx bx-bell text-gray-600 dark:text-gray-300'></i>
                     </button>
                 </div>
-                
+
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-4 mx-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-4 mx-10 cursor-pointer">
                 <!-- Monday -->
-                <div class="flex flex-col">
+                <div class="flex flex-col" onclick="window.location.href='{{ route('kelasguru') }}'">
                     <p class="text-2xl text-[#6CC6EC] mb-4 font-bold">Senin</p>
                     <div
                         class="flex flex-col items-center justify-center h-96 w-80 max-w-full rounded-xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">

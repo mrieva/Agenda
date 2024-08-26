@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <x-sidebar></x-sidebar>
+    <x-sidebarguru></x-sidebarguru>
 
 
     <div class="p-4 sm:ml-64">

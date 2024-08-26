@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <x-sidebar></x-sidebar>
+    <x-sidebarguru></x-sidebarguru>
     <div class="p-4 sm:ml-64">
         <div class="p-4">
             <!-- Header -->
@@ -21,7 +21,7 @@
 
             <!-- Tabs -->
             <div class="flex border-b border-[#5E9EB2] mb-4">
-                <button class="py-2 px-4 text-[#5E9EB2]">Basic Info</button>
+                <button class="py-2 px-4 text-[#5E9EB2]" onclick="window.location.href='{{ route('settings-guru') }}'">Basic Info</button>
                 <button class="py-2 px-4 text-[#5E9EB2] border-b-2 border-[#5E9EB2]">Notification</button>
             </div>
         </div>
@@ -31,3 +31,4 @@
 </body>
 
 </html>
+
