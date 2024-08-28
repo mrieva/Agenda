@@ -15,10 +15,17 @@ Route::get('test', function () {
     return view('test');
 });
 
+
 // siswa section
 Route::get('index-siswa', function () {
     return view('siswa.indexsiswa');
 });
+
+Route::get('tugas-siswa', function () {
+    return view('siswa.siswatugas');
+})->name('tugas-siswa');
+
+
 
 // guru section
 Route::get('index-guru', function () {
@@ -71,11 +78,29 @@ Route::get("notif-kepsek", function () {
 // sekretaris section
 Route::get('index-sekretaris', function () {
     return view('sekretaris.indexsekretaris');
-});
+})->name('index-sekretaris');
 
 Route::get('tugas-sekretaris', function () {
     return view('sekretaris.tugassekretaris');
-});
+})->name('tugas-sekretaris');
+
+Route::get('komunikasi-sekretaris', function () {
+    return view('sekretaris.komunikasisekretaris');
+})->name('komunsekret');
+
+Route::get('pengumuman-sekret', function () {
+    return view('sekretaris.announcesekret');
+})->name('annnsekret');
+
+Route::get('settings-sekret', function () {
+    return view('sekretaris.setiing');
+})->name('setsekret');
+
+Route::get('notif-sekret', function () {
+    return view('sekretaris.notifsekret');
+})->name('notif-sekret');
+
+
 
 use App\Http\Controllers\ContactController;
 
