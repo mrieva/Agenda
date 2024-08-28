@@ -22,6 +22,7 @@ class AuthController extends Controller
         return redirect('/');
     }
 
+
     public function login(Request $request)
     {
         // Validasi input
@@ -60,8 +61,9 @@ class AuthController extends Controller
                 return redirect('/index-kepala-sekolah');
             }
         } else {
-            return back()->with('error', 'NISN/NIPD atau password salah');
+            return back()->with('error', 'NISN/NIPD atau PASSWORD salah');
         }
     }
 }
+
 

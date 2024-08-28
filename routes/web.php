@@ -17,7 +17,7 @@ Route::get('test', function () {
 
 // siswa section
 Route::get('index-siswa', function () {
-    return view('pages.indexsiswa');
+    return view('siswa.indexsiswa');
 });
 
 // guru section
@@ -84,6 +84,8 @@ Route::post('/kirim-email', [ContactController::class, 'sendEmail'])->name('send
 use App\Http\Controllers\AuthController;
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/index', function () {

@@ -139,7 +139,7 @@
             transition: 0.5s;
         }
 
-        #tomboll {
+        .tomboll {
             background-color: #fff;
             color: rgb(103, 172, 197);
             border: 1px solid rgb(103, 172, 197);
@@ -149,7 +149,7 @@
             z-index: 1;
         }
 
-        #tomboll::before {
+        .tomboll::before {
             content: "";
             background-color: rgb(103, 172, 197);
             position: absolute;
@@ -162,11 +162,11 @@
             transform: translateX(50%) translateY(-75%) rotate(45deg);
         }
 
-        #tomboll:hover::before {
+        .tomboll:hover::before {
             transform: translateX(-50%) translateY(-35%) rotate(45deg);
         }
 
-        #tomboll:hover {
+        .tomboll:hover {
             color: #fff;
             border: rgb(103, 172, 197) 1px solid;
             transition: 0.2s all;
@@ -175,6 +175,7 @@
 </head>
 
 <body class="m-0 font-poppins bg-cover bg-center bg-no-repeat">
+
 
     <x-navbar />
 
@@ -189,7 +190,8 @@
                             </h1>
                             <p class="text-2xl text-[#ffffff] m-0">Indonesia Maju Dengan<br>Generasi Baru!</p>
                             <a id="tombolz" href="#"
-                                class="inline-block mt-5 px-10 py-2 text-blue-300 bg-transparent border border-white rounded-md text-xl transition-colors duration-300 ease-in-out">
+                                class="inline-block mt-5 px-10 py-2 text-blue-300 bg-transparent border border-white rounded-md text-xl transition-colors duration-300 ease-in-out"
+                                data-modal-target="authentication-modal" data-modal-toggle="authentication-modal">
                                 Get Started
                             </a>
                         </div>
@@ -246,6 +248,11 @@
                     behavior: 'smooth'
                 });
             });
+        });
+
+        document.getElementById('cancel-button').addEventListener('click', function() {
+            // Logika untuk membatalkan atau menutup modal
+            document.getElementById('authentication-modal').classList.add('hidden');
         });
     </script>
 

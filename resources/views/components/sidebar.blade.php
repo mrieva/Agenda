@@ -72,6 +72,7 @@
             </li>
             <li>
                 <a href="#"
+                    onclick="confirmLogout(event)"
                     class="flex items-center my-6 p-2 text-[#ffffff] rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 hover:bg-opacity-40 group">
                     <svg class="absolute flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -79,6 +80,19 @@
                     </svg>
                     <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
                 </a>
+
+                <script>
+                    function confirmLogout(event) {
+                        event.preventDefault(); // Mencegah tindakan default link
+                        if (confirm("Apakah Anda yakin ingin logout?")) {
+                            document.getElementById('logout-form').submit(); // Mengirimkan formulir logout
+                        }
+                    }
+                </script>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                    @csrf
+                </form>
             </li>
 
         </ul>

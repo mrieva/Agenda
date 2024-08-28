@@ -38,7 +38,7 @@
                 titleElement1.style.fontSize = '24px'; // Ubah ukuran font
                 titleElement1.style.fill = '#5E9EB2'; // Ubah warna teks
                 titleElement1.style.textAlign = 'center';
-                titleElement1.style.fontWeight = 'bold'; // Ubah ketebalan teks
+                titleElement1.style.fontWeight = '200'; // Ubah ketebalan teks
             }
 
             // Data and options for the second chart (same as before)
@@ -62,7 +62,7 @@
             if (titleElement2) {
                 titleElement2.style.fontSize = '24px'; // Ubah ukuran font
                 titleElement2.style.fill = '#5E9EB2'; // Ubah warna teks
-                titleElement2.style.fontWeight = 'bold'; // Ubah ketebalan teks
+                titleElement2.style.fontWeight = '200'; // Ubah ketebalan teks
             }
         }
     </script>
@@ -97,15 +97,13 @@
                     </form>
 
                     <!-- Profile Button -->
-                    <button
-                        onclick="window.location.href='{{ route('settings-kepsek') }}'"
+                    <button onclick="window.location.href='{{ route('settings-kepsek') }}'"
                         class="flex items-center justify-center lg:w-10 lg:h-10 md:w-8 md:h-8 sm:w-8 sm:h-8 xs:w-8 xs:h-8 xss:w-8 xss:h-8 bg-[#5e9eb234] dark:bg-gray-700 xl:rounded-lg lg:rounded-xl md:rounded-lg sm:rounded-lg xs:rounded-lg xss:rounded-lg">
                         <i class='bx bx-user text-gray-600 dark:text-gray-300'></i>
                     </button>
 
                     <!-- Notification Button -->
-                    <button
-                        onclick="window.location.href='{{ route('notifkepsek') }}'"
+                    <button onclick="window.location.href='{{ route('notifkepsek') }}'"
                         class="flex items-center justify-center lg:w-10 lg:h-10 md:w-8 md:h-8 sm:w-8 sm:h-8 xs:w-8 xs:h-8 xss:w-8 xss:h-8 bg-[#5e9eb234] dark:bg-gray-700 xl:rounded-lg lg:rounded-xl md:rounded-lg sm:rounded-lg xs:rounded-lg xss:rounded-lg">
                         <i class='bx bx-bell text-gray-600 dark:text-gray-300'></i>
                     </button>
@@ -123,22 +121,33 @@
                 </div>
 
                 <!-- Pie Charts Section -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 chart-wrapper">
-                    <div id="donut_single" class="w-[500px] h-[400px]"></div>
-                    <div id="donut_single2" class="w-[500px] h-[400px]"></div>
+                <div class="border-4 border-solid border-[#5E9EB2] rounded-xl">
+                    <div class="container">
+                        <div class="text-wrapper flex px-14 py-14 items-center justify-between mb-5">
+                            <h1 class="text-3xl font-bold text-[#5E9EB2] mr-4">Piechart</h1>
+                            <div class="flex space-x-4">
+                                <button class="px-5 py-1 text-sm font-semibold text-white bg-[#5E9EB2] border-4 border-[#5E9EB2]-70 rounded-full">Today</button>
+                                <button class="px-5 py-1 text-sm font-semibold text-[#5E9EB2] bg-white border-2 border-[#5E9EB2] rounded-full">7 Days</button>
+                                <button class="px-5 py-1 text-sm font-semibold text-[#5E9EB2] bg-white border-2 border-[#5E9EB2] rounded-full">This Month</button>
+                                <button class="px-5 py-1 text-sm font-semibold text-[#5E9EB2] bg-white border-2 border-[#5E9EB2] rounded-full">This Year</button>
+                            </div>
+                        </div>
+                        <div class="flex flex-row justify-evenly chart-wrapper">
+                            <div id="donut_single" class="w-[500px] h-[400px] flex-row"></div>
+                            <div id="donut_single2" class="w-[500px] h-[400px] flex-row"></div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
-
         </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const dropdownToggle = document.querySelector('[data-collapse-toggle="dropdown-example"]');
             const dropdownMenu = document.getElementById('dropdown-example');
 
-            dropdownToggle.addEventListener('click', function () {
+            dropdownToggle.addEventListener('click', function() {
                 dropdownMenu.classList.toggle('hidden');
             });
         });
