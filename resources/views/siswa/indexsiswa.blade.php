@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <x-sidebar></x-sidebar>
+    <x-sidebarsiswa></x-sidebarsiswa>
     <div class="p-4 sm:ml-64">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 mx-6">
@@ -69,7 +69,7 @@
                     <!-- "Silahkan Berkomunikasi" Button -->
                     <div class="flex items-center h-24 rounded-xl bg-gradient-to-r from-[#6CC6EC] to-[#5E9EB2] w-full">
                         <button id="toggleForm" class="flex space-x-4 ml-10 w-full">
-                            <img src="{{ asset('img/icon/Chat.png') }}" class="w-10 h-10" alt="Chat Icon">
+                            <img src="{{ asset('img/icon/chatlight.png') }}" class="w-10 h-10" alt="Chat Icon">
                             <span class="text-2xl font-medium mt-1 text-white">Silahkan Berkomunikasi</span>
                         </button>
                     </div>
@@ -114,7 +114,7 @@
                     class="relative flex items-center h-20 rounded-xl bg-gradient-to-r from-[#6CC6EC] to-[#5E9EB2] mt-[-1.5rem]">
                     <button class="flex items-center space-x-4 ml-10">
                         <div class="flex items-center justify-center h-full">
-                            <img src="{{ asset('img/icon/TugasS.png') }}" class="w-9 h-9" alt="test img">
+                            <img src="{{ asset('img/icon/tugasb.png') }}" class="w-9 h-9" alt="test img">
                         </div>
                         <div>
                             <span class="text-2xl text-white font-medium mt-1">Tugas A</span>
@@ -136,7 +136,7 @@
                     class="relative flex items-center h-20 rounded-xl bg-gradient-to-r from-[#6CC6EC] to-[#5E9EB2] mt-[-1.5rem]">
                     <button class="flex items-center space-x-4 ml-10">
                         <div class="flex items-center justify-center h-full">
-                            <img src="{{ asset('img/icon/TugasS.png') }}" class="w-9 h-9" alt="test img">
+                            <img src="{{ asset('img/icon/tugasb.png') }}" class="w-9 h-9" alt="test img">
                         </div>
                         <div>
                             <span class="text-2xl text-white font-medium mt-1">Tugas B</span>

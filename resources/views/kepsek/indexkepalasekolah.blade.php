@@ -2,8 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kepala Sekolah</title>
     <link href="{{ asset('tailwindcharts/css/flowbite.min.css') }}" rel="stylesheet" />
@@ -98,12 +97,14 @@
 
                     <!-- Profile Button -->
                     <button
+                        onclick="window.location.href='{{ route('settings-kepsek') }}'"
                         class="flex items-center justify-center lg:w-10 lg:h-10 md:w-8 md:h-8 sm:w-8 sm:h-8 xs:w-8 xs:h-8 xss:w-8 xss:h-8 bg-[#5e9eb234] dark:bg-gray-700 xl:rounded-lg lg:rounded-xl md:rounded-lg sm:rounded-lg xs:rounded-lg xss:rounded-lg">
                         <i class='bx bx-user text-gray-600 dark:text-gray-300'></i>
                     </button>
 
                     <!-- Notification Button -->
                     <button
+                        onclick="window.location.href='{{ route('notifkepsek') }}'"
                         class="flex items-center justify-center lg:w-10 lg:h-10 md:w-8 md:h-8 sm:w-8 sm:h-8 xs:w-8 xs:h-8 xss:w-8 xss:h-8 bg-[#5e9eb234] dark:bg-gray-700 xl:rounded-lg lg:rounded-xl md:rounded-lg sm:rounded-lg xs:rounded-lg xss:rounded-lg">
                         <i class='bx bx-bell text-gray-600 dark:text-gray-300'></i>
                     </button>
@@ -141,7 +142,6 @@
             });
         });
     </script>
-
 </body>
 
 </html>

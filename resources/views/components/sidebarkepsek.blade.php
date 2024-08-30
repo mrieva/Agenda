@@ -34,7 +34,7 @@
             </li>
             <li>
                 <button type="button"
-                    class="flex items-center w-full my-6 p-2 text-base text-[#ffffff] transition duration-75 rounded-lg group hover:bg-gray-100 hover:bg-opacity-40 dark:text-white dark:hover:bg-gray-700 {{ request()->is('settings-kepsek') ? 'bg-gray-100 bg-opacity-40 text-[#fff] dark:bg-gray-700' : '' }}
+                    class="flex items-center w-full my-6 p-2 text-base text-[#ffffff] transition duration-75 rounded-lg group hover:bg-gray-100 hover:bg-opacity-40 dark:text-white dark:hover:bg-gray-700 {{ request()->is('settings-kepsek') || request()->is('notif-kepsek') ? 'bg-gray-100 bg-opacity-40 text-[#fff] dark:bg-gray-700' : '' }}
                     aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
                     <a href="{{ route('settings-kepsek') }}" class="flex items-center w-full">
                         <svg class="absolute flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
