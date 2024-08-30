@@ -50,6 +50,11 @@ Route::get('tabel-guru', function() {
     return view('guru.tabeltugasguru');
 })->name('tabelguru');
 
+Route::get('kelas-dipilih', function () {
+    return view('guru.kelasdipilih');
+})->name('kelasdipilih');
+
+
 // kepsek section
 Route::get('index-kepala-sekolah', function () {
     return view('kepsek.indexkepalasekolah');

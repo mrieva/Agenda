@@ -76,25 +76,18 @@
                         </div>
 
                         <div class="w-1/2 ">
-                            <label for="mapel" class="block text-gray-700 font-semibold mb-2">Point</label>
-                            <select id="mapel" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
-                                <option>Pilih Point</option>
-                            </select>
+                            <label for="point" class="block text-gray-700 font-semibold mb-2">Point</label>
+                            <input type="number" id="point" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]" max="100" placeholder="Masukan point">
                         </div>
 
                         <div class="w-1/2 ">
                             <label for="mapel" class="block text-gray-700 font-semibold mb-2">Tengat</label>
-                            <select id="mapel" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
-                                <option>Pilih Tanggal</option>
-                                <option>Tanggal</option>
-                            </select>
+                            <input type="date" id="tanggal" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
                         </div>
 
                         <div class="w-1/2 ">
-                            <label for="mapel" class="block text-gray-700 font-semibold mb-2">Topik</label>
-                            <select id="mapel" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
-                                <option>Pilih Topik</option>
-                            </select>
+                            <label for="topik" class="block text-gray-700 font-semibold mb-2">Topik</label>
+                            <input type="text" id="topik" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]" placeholder="Masukkan topik">
                         </div>
                     </div>
 

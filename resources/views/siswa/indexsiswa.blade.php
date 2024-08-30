@@ -64,11 +64,46 @@
 
 
             <div class="grid grid-cols-1 md:grid-cols-1 gap-16 mb-4 mx-10">
-                <div class="flex items-center h-24 rounded-xl bg-gradient-to-r from-[#6CC6EC] to-[#5E9EB2]">
-                    <button class="flex space-x-4 ml-10">
-                        <img src="{{ asset('img/icon/Chat.png') }}" class="w-10 h-10" alt="test img">
-                        <span class="text-2xl font-medium mt-1 text-white">Silahkan Berkomunikasi</span>
-                    </button>
+                <!-- Container for Button and Form -->
+                <div class="w-full">
+                    <!-- "Silahkan Berkomunikasi" Button -->
+                    <div class="flex items-center h-24 rounded-xl bg-gradient-to-r from-[#6CC6EC] to-[#5E9EB2] w-full">
+                        <button id="toggleForm" class="flex space-x-4 ml-10 w-full">
+                            <img src="{{ asset('img/icon/Chat.png') }}" class="w-10 h-10" alt="Chat Icon">
+                            <span class="text-2xl font-medium mt-1 text-white">Silahkan Berkomunikasi</span>
+                        </button>
+                    </div>
+
+                    <!-- Hidden Form with Animation -->
+                    <div id="communicationForm"
+                        class="hidden mt-4 p-4 border-2 border-gray-200 rounded-lg bg-[#e6f5fc] dark:bg-gray-800 w-full opacity-0 transform scale-y-0 origin-top transition-all duration-500">
+                        <textarea
+                            class="w-full h-40 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+                            placeholder="Write your message..."></textarea>
+                        <div class="flex justify-between items-center mt-4">
+                            <div class="flex space-x-2">
+                                <button
+                                    class="bg-gray-200 p-2 rounded hover:bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-500">
+                                    <i class='bx bx-italic'></i>
+                                </button>
+                                <button
+                                    class="bg-gray-200 p-2 rounded hover:bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-500">
+                                    <i class='bx bx-underline'></i>
+                                </button>
+                                <button
+                                    class="bg-gray-200 p-2 rounded hover:bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-500">
+                                    <i class='bx bx-list-ul'></i>
+                                </button>
+                                <button
+                                    class="bg-gray-200 p-2 rounded hover:bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-500">
+                                    <i class='bx bx-link'></i>
+                                </button>
+                            </div>
+                            <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                                Posting
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-1 gap-16 mb-4 mx-10">
@@ -124,6 +159,28 @@
     </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <script>
+        const toggleFormButton = document.getElementById('toggleForm');
+        const communicationForm = document.getElementById('communicationForm');
+
+        toggleFormButton.addEventListener('click', () => {
+            if (communicationForm.classList.contains('hidden')) {
+                communicationForm.classList.remove('hidden');
+                setTimeout(() => {
+                    communicationForm.classList.remove('opacity-0', 'scale-y-0');
+                }, 10); // Slight delay to allow transition
+            } else {
+                communicationForm.classList.add('opacity-0', 'scale-y-0');
+                communicationForm.addEventListener('transitionend', () => {
+                    if (communicationForm.classList.contains('opacity-0')) {
+                        communicationForm.classList.add('hidden');
+                    }
+                }, {
+                    once: true
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
