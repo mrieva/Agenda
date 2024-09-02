@@ -25,6 +25,18 @@ Route::get('tugas-siswa', function () {
     return view('siswa.siswatugas');
 })->name('tugas-siswa');
 
+Route::get('siswa-tugas', function () {
+    return view('siswa.tugassiswa');
+})->name('siswa-tugas');
+
+Route::get('settings-siswa', function () {
+    return view('siswa.settingsiswa');
+})->name('settings-siswa');
+
+Route::get('notif-siswa', function () {
+    return view('siswa.notifsiswa');
+})->name('notif-siswa');
+
 
 
 // guru section
@@ -89,10 +101,6 @@ Route::get('tugas-sekretaris', function () {
     return view('sekretaris.tugassekretaris');
 })->name('tugas-sekretaris');
 
-Route::get('komunikasi-sekretaris', function () {
-    return view('sekretaris.komunikasisekretaris');
-})->name('komunsekret');
-
 Route::get('pengumuman-sekret', function () {
     return view('sekretaris.announcesekret');
 })->name('annnsekret');
@@ -120,3 +128,5 @@ Route::middleware(['auth'])->group(function () {
         return view('indexsiswa');
     });
 });
+
+Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');

@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Siswa</title>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet" />
     @vite('resources/css/app.css')
 </head>
 
@@ -23,76 +24,106 @@
                 </div>
 
                 <!-- Right Section (Search, Profile, Notifications) -->
-                <div class="flex items-center justify-end h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-4">
+                <div
+                    class="flex items-center justify-center md:justify-end h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-4">
                     <!-- Search Form -->
-                    <form class="relative">
+                    <form
+                        class="relative flex items-center bg-[#5e9eb234] dark:bg-gray-700 rounded-lg w-8 h-8 md:w-auto md:h-auto">
+                        <!-- Search Icon in Mobile -->
+                        <button type="submit" class="flex items-center justify-center w-full h-full md:hidden">
+                            <i class='bx bx-search text-gray-600 dark:text-gray-300'></i>
+                        </button>
+                        <!-- Search Input in Desktop -->
                         <input type="text"
-                            class="bg-[#5e9eb234] dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-xl px-4 py-2 pl-10 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]"
+                            class="bg-transparent text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2] hidden md:block"
                             placeholder="search">
-                        <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-4.35-4.35M18.25 10.5a7.75 7.75 0 11-15.5 0 7.75 7.75 0 0115.5 0z" />
-                        </svg>
+                        <i
+                            class='bx bx-search absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500 hidden md:block'></i>
                     </form>
 
                     <!-- Profile Button -->
-                    <button
-                        class="flex items-center justify-center w-10 h-10 bg-[#5e9eb234] dark:bg-gray-700 rounded-xl">
-                        <svg class="w-6 h-6 text-gray-600 dark:text-gray-300 rounded-xl"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
+                    <button onclick="window.location.href='{{ route('settings-siswa') }}'"
+                        class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-[#5e9eb234] dark:bg-gray-700 rounded-lg">
+                        <i class='bx bx-user text-gray-600 dark:text-gray-300'></i>
                     </button>
 
                     <!-- Notification Button -->
-                    <button
-                        class="flex items-center justify-center w-10 h-10 bg-[#5e9eb234] dark:bg-gray-700 rounded-xl">
-                        <svg class="w-6 h-6 text-gray-600 dark:text-gray-300" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11c0-3.39-1.353-6.391-3.636-8.505A4.92 4.92 0 0012 2a4.92 4.92 0 00-2.364.495C7.353 4.609 6 7.61 6 11v3.159c0 .417-.162.822-.405 1.12L4 17h5m0 0a3 3 0 006 0m-6 0V18m0-1h6" />
-                        </svg>
+                    <button onclick="window.location.href='{{ route('notif-siswa') }}'"
+                        class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-[#5e9eb234] dark:bg-gray-700 rounded-lg">
+                        <i class='bx bx-bell text-gray-600 dark:text-gray-300'></i>
                     </button>
                 </div>
             </div>
 
-            <!-- Announcement Section -->
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg mx-10">
-                <div class="text-center mb-4">
-                    <h2 class="text-xl font-bold text-gray-700 dark:text-gray-300">Pengumuman Pengumpulan Tugas</h2>
-                    <p class="text-gray-500 dark:text-gray-400">M.Zalfa Akran Nur Hidayatullah · 9 Juni 2024 · 100 Point</p>
-                </div>
-                <div class="mb-4">
-                    <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Format Pengumpulan:</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                </div>
-                <div class="mb-4">
-                    <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Ketentuan Tugas:</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                </div>
-                <div class="mb-4">
-                    <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Perubahan Batas Waktu Pengumpulan:</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                </div>
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-start space-x-2 mb-6 md:space-x-4">
+                <button
+                    class="px-2 py-1 text-xs md:text-sm font-semibold text-white bg-[#5E9EB2] rounded-full border-4 border-[#fff] opacity-60">
+                    Belum Diserahkan
+                </button>
+                <button
+                    class="px-2 py-1 text-xs md:text-sm font-semibold text-[#5E9EB2] rounded-full border-4 border-[#fff] opacity-60">
+                    Sudah Diserahkan
+                </button>
+                <button
+                    class="px-4 py-1 text-xs md:text-sm font-semibold text-[#5E9EB2] rounded-full border-4 border-[#fff] opacity-60">
+                    Seleksi
+                </button>
             </div>
 
-            <!-- Personal Comment Section -->
-            <div class="mt-4 flex justify-end bg-[#5E9EB2] p-4 rounded-lg mx-10">
-                <div class="w-">
-                    <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Komentar Pribadi</h3>
-                    <textarea id="personal-comment" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-100 h-24 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]" placeholder="Tambahkan komentar pribadi untuk saran dan ulasan"></textarea>
-                </div>
-            </div>
 
-            <div class="flex justify-end items-center mt-4 mx-10">
-                <button class="bg-[#5E9EB2] text-white font-medium py-2 px-6 rounded-lg shadow-md hover:bg-[#4b8795] transition duration-300">Tambah Atau Buat</button>
+            <!-- Modal -->
+            <div x-data="{ open: false }">
+                <!-- Task A -->
+                <a href="{{ route('siswa-tugas') }}"
+                    class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
+                    <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4 ">
+                    <p class="text-white font-semibold">Tugas A</p>
+                    <!-- Tombol titik tiga vertikal -->
+                    <button @click="open = true" class="absolute top-1/2 right-4 transform -translate-y-1/2">
+                        <div class="flex flex-col space-y-1">
+                            <span class="block w-1 h-1 bg-white rounded-full"></span>
+                            <span class="block w-1 h-1 bg-white rounded-full"></span>
+                            <span class="block w-1 h-1 bg-white rounded-full"></span>
+                        </div>
+                    </button>
+                </a>
+
+                <!-- Task B -->
+                <a href="{{ route('siswa-tugas') }}"
+                    class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
+                    <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4">
+                    <p class="text-white font-semibold">Tugas B</p>
+                    <!-- Tombol titik tiga vertikal -->
+                    <button @click="open = true" class="absolute top-1/2 right-4 transform -translate-y-1/2">
+                        <div class="flex flex-col space-y-1">
+                            <span class="block w-1 h-1 bg-white rounded-full"></span>
+                            <span class="block w-1 h-1 bg-white rounded-full"></span>
+                            <span class="block w-1 h-1 bg-white rounded-full"></span>
+                        </div>
+                    </button>
+                </a>
+
+                <!-- Modal Overlay -->
+                <div x-show="open" @click.away="open = false"
+                    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div class="bg-white rounded-lg shadow-lg p-4 w-64">
+                        <ul class="space-y-2">
+                            <li><button class="w-full text-left px-4 py-2 text-blue-600 hover:bg-gray-200">Salin
+                                    Link</button></li>
+                            <li><button
+                                    class="w-full text-left px-4 py-2 text-red-600 hover:bg-gray-200">Report</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <!-- Include Alpine.js -->
+    <script src="//unpkg.com/alpinejs" defer></script>
 </body>
 
 </html>
