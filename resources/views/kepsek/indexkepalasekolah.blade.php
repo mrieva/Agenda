@@ -32,6 +32,9 @@
             var chart1 = new google.visualization.PieChart(document.getElementById('donut_single'));
             chart1.draw(data1, options1);
 
+            // Menghapus atribut fill pada elemen <rect> di dalam SVG
+
+
             // Manipulate CSS directly after drawing the chart
             var titleElement1 = document.querySelector('#donut_single svg text');
             if (titleElement1) {
@@ -56,6 +59,7 @@
 
             var chart2 = new google.visualization.PieChart(document.getElementById('donut_single2'));
             chart2.draw(data2, options2);
+
 
             // Manipulate CSS directly for the second chart
             var titleElement2 = document.querySelector('#donut_single2 svg text');
@@ -126,15 +130,22 @@
                         <div class="text-wrapper flex px-14 py-14 items-center justify-between mb-5">
                             <h1 class="text-3xl font-bold text-[#5E9EB2] mr-4">Piechart</h1>
                             <div class="flex space-x-4">
-                                <button class="px-5 py-1 text-sm font-semibold text-white bg-[#5E9EB2] border-4 border-[#5E9EB2]-70 rounded-full">Today</button>
-                                <button class="px-5 py-1 text-sm font-semibold text-[#5E9EB2] bg-white border-2 border-[#5E9EB2] rounded-full">7 Days</button>
-                                <button class="px-5 py-1 text-sm font-semibold text-[#5E9EB2] bg-white border-2 border-[#5E9EB2] rounded-full">This Month</button>
-                                <button class="px-5 py-1 text-sm font-semibold text-[#5E9EB2] bg-white border-2 border-[#5E9EB2] rounded-full">This Year</button>
+                                <button
+                                    class="px-5 py-1 text-sm font-semibold text-white bg-[#5E9EB2] border-4 border-[#5E9EB2]-70 rounded-full">Today</button>
+                                <button
+                                    class="px-5 py-1 text-sm font-semibold text-[#5E9EB2] bg-white border-2 border-[#5E9EB2] rounded-full">7
+                                    Days</button>
+                                <button
+                                    class="px-5 py-1 text-sm font-semibold text-[#5E9EB2] bg-white border-2 border-[#5E9EB2] rounded-full">This
+                                    Month</button>
+                                <button
+                                    class="px-5 py-1 text-sm font-semibold text-[#5E9EB2] bg-white border-2 border-[#5E9EB2] rounded-full">This
+                                    Year</button>
                             </div>
                         </div>
                         <div class="flex flex-row justify-evenly chart-wrapper">
-                            <div id="donut_single" class="w-[500px] h-[400px] flex-row"></div>
-                            <div id="donut_single2" class="w-[500px] h-[400px] flex-row"></div>
+                            <div id="donut_single" class="w-[500px] h-[400px] flex-row cursor-pointer"></div>
+                            <div id="donut_single2" class="w-[500px] h-[400px] flex-row cursor-pointer"></div>
                         </div>
                     </div>
                 </div>
