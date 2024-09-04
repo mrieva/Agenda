@@ -176,14 +176,14 @@
 
 <body class="m-0 font-poppins bg-cover bg-center bg-no-repeat">
 
-    <x-sidebar></x-sidebar>
+    <x-navbar></x-navbar>
     <main>
         <section id="hero" class="h-screen bg-no-repeat bg-cover bg-right-top"
             style="background-image: url('{{ asset('img/bg.jpeg') }}');">
             <div class="container lg:px-20 py-16 mx-auto lg:h-full">
                 <div class="flex flex-wrap items-center justify-center h-full w-full lg:mt-[7%]">
                     <div class="basis-full lg:basis-1/2 flex md:h-full items-center">
-                        <div class="text-left p-5 bg-opacity-70 lg:ml-[17%] lg:text-start text-center">
+                        <div class="text-left p-5 bg-opacity-70 lg:ml-[17%] lg:text-start ">
                             <h1 class="text-4xl lg:text-8xl text-[#ffffff] m-0 font-extrabold tracking-wide ">EduNote.
                             </h1>
                             <p class="text-2xl text-[#ffffff] m-0">Indonesia Maju Dengan<br>Generasi Baru!</p>

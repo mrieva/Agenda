@@ -79,6 +79,10 @@ Route::get('kelas-guru', function () {
 Route::get('tabel-guru', function () {
     return view('guru.tabeltugasguru');
 })->name('tabelguru');
+Route::get('kelas-dipilih', function () {
+    return view('guru.kelasdipilih');
+})->name('kelasdipilih');
+
 
 // Kepala sekolah section
 Route::get('index-kepala-sekolah', function () {
