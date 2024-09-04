@@ -176,15 +176,14 @@
 
 <body class="m-0 font-poppins bg-cover bg-center bg-no-repeat">
 
-    <x-navbar />
-
+    <x-sidebar></x-sidebar>
     <main>
         <section id="hero" class="h-screen bg-no-repeat bg-cover bg-right-top"
             style="background-image: url('{{ asset('img/bg.jpeg') }}');">
             <div class="container lg:px-20 py-16 mx-auto lg:h-full">
                 <div class="flex flex-wrap items-center justify-center h-full w-full lg:mt-[7%]">
                     <div class="basis-full lg:basis-1/2 flex md:h-full items-center">
-                        <div class="text-left p-5 bg-opacity-70 ml-[17%] lg:text-start md:text-center sm:text-center">
+                        <div class="text-left p-5 bg-opacity-70 lg:ml-[17%] lg:text-start text-center">
                             <h1 class="text-4xl lg:text-8xl text-[#ffffff] m-0 font-extrabold tracking-wide ">EduNote.
                             </h1>
                             <p class="text-2xl text-[#ffffff] m-0">Indonesia Maju Dengan<br>Generasi Baru!</p>
@@ -195,10 +194,11 @@
                         </div>
                     </div>
                     <div class="basis-full lg:basis-1/2 relative md:h-full">
-                        <div class="relative md:h-full left-[55px]">
-                            <img src="{{ asset('img/elipse.png') }}" alt="elipse" class="absolute z-10 w-[600px]">
+                        <div class="relative md:h-full lg:left-[55px]">
+                            <img src="{{ asset('img/elipse.png') }}" alt="elipse"
+                                class="absolute z-10 lg:w-[600px] w-[400px]">
                             <img src="{{ asset('img/ketua.png') }}" alt="ketua"
-                                class="absolute z-20 w-[450px] left-[90px] top-[25px]">
+                                class="absolute z-20 lg:w-[450px] w-[300px] lg:left-[90px] lg:top-[25px] left-[30px] top-[15px]">
                         </div>
                     </div>
                 </div>
@@ -221,7 +221,6 @@
             alert('{{ session('error') }}');
         </script>
     @endif
-
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>

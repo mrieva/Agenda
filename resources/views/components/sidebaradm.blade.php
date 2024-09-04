@@ -21,8 +21,9 @@
                 <p class="text-sm font-bold text-[#ffffff] mb-1 p-2 opacity-70">Menu</p>
             </li>
             <li>
-                <a href="#"
-                    class="flex items-center my-6 p-2 text-[#ffffff] rounded-lg dark:text-white hover:bg-[#fff] hover:bg-opacity-40 hover:z-0 hover:text-[#fff] dark:hover:bg-gray-700 group relative">
+                <a href="{{ route('indexadm') }}"
+                    class="flex items-center my-6 p-2 text-[#ffffff] rounded-lg dark:text-white hover:bg-[#fff] hover:bg-opacity-40 hover:z-0 hover:text-[#fff] dark:hover:bg-gray-700 group relative
+                    {{ request()->routeIs('indexadm') ? 'bg-gray-100 bg-opacity-40 text-[#fff] dark:bg-gray-700' : '' }}">
                     <svg class="absolute w-5 h-5 text-gray-500 transition duration-75 dark:text-[#ffffff] group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
                         <img src="{{ asset('img/icon/dashboard.png') }}" width="25" height="25"
@@ -31,48 +32,23 @@
                     <span class="ms-3 z-10">Dashboard</span>
                 </a>
             </li>
-            <li>
-                <a href="#"
-                    class="flex items-center my-6 p-2 text-[#ffffff] rounded-lg dark:text-white hover:bg-[#fff] hover:bg-opacity-40 hover:z-0 hover:text-[#fff] dark:hover:bg-gray-700 group relative">
-                    <svg class="absolute w-5 h-5 text-gray-500 transition duration-75 dark:text-[#ffffff] group-hover:text-gray-900 dark:group-hover:text-white"
-                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                        <img src="{{ asset('img/icon/tugas.png') }}" width="25" height="25" alt="home icon" />
-                    </svg>
-                    <span class="ms-3 z-10">Tugas</span>
-                </a>
-            </li>
 
             <li>
-                <button type="button"
-                    class="flex items-center w-full my-6 p-2 text-base text-[#ffffff] transition duration-75 rounded-lg group hover:bg-gray-100 hover:bg-opacity-40 dark:text-white dark:hover:bg-gray-700"
+                <button type="button" onclick="window.location.href='{{ route('tambahuser') }}'"
+                    class="flex items-center w-full my-6 p-2 text-base text-[#ffffff] transition duration-75 rounded-lg group hover:bg-gray-100 hover:bg-opacity-40 dark:text-white dark:hover:bg-gray-700
+                    {{ request()->routeIs('tambahuser') ? 'bg-gray-100 bg-opacity-40 text-[#fff] dark:bg-gray-700' : '' }}"
                     aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
                     <svg class="absolute flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">
-                        <img src="{{ asset('img/icon/settings.png') }}" width="25" height="25" alt="">
+                        <img src="{{ asset('img/icon/Icon-Add-User.png') }}" width="25" height="25"
+                            alt="">
                     </svg>
-                    <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Setings</span>
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 10 6">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m1 1 4 4 4-4" />
-                    </svg>
+                    <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Tambah User</span>
                 </button>
-                <ul id="dropdown-example" class="hidden py-2 space-y-2">
-                    <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-[#fff] transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:bg-opacity-40 dark:text-white dark:hover:bg-gray-700">Light
-                            Mode</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-[#fff] transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:bg-opacity-40 dark:text-white dark:hover:bg-gray-700">Dark
-                            Mode</a>
-                    </li>
-                </ul>
             </li>
+
             <li>
-                <a href="#"
-                    onclick="confirmLogout(event)"
+                <a href="logout" onclick="confirmLogout(event)"
                     class="flex items-center my-6 p-2 text-[#ffffff] rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 hover:bg-opacity-40 group">
                     <svg class="absolute flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">

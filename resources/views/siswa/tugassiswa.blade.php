@@ -23,7 +23,7 @@
         <!-- Welcome Section -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 mx-6">
             <div class="items-center justify-center h-24 rounded bg-transparent dark:bg-gray-800 block p-4">
-                <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, Sekretaris Sekolah!</h3>
+                <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, Siswa Sekolah!</h3>
                 <p class="text-sm text-[#83a4ad] dark:text-gray-300">Lorem ipsum dolor sit amet, consectetur adipisicing
                     elit. Dolorem ipsum!</p>
             </div>
@@ -40,13 +40,13 @@
                 </form>
 
                 <!-- Profile Button -->
-                <button onclick="window.location.href='{{ route('setsekret') }}'"
+                <button onclick="window.location.href='{{ route('settings-siswa') }}'"
                     class="flex items-center justify-center lg:w-10 lg:h-10 md:w-8 md:h-8 sm:w-8 sm:h-8 xs:w-8 xs:h-8 xss:w-8 xss:h-8 bg-[#5e9eb234] dark:bg-gray-700 xl:rounded-lg lg:rounded-xl md:rounded-lg sm:rounded-lg xs:rounded-lg xss:rounded-lg">
                     <i class='bx bx-user text-gray-600 dark:text-gray-300'></i>
                 </button>
 
                 <!-- Notification Button -->
-                <button onclick="window.location.href='{{ route('notif-sekret') }}'"
+                <button onclick="window.location.href='{{ route('notif-siswa') }}'"
                     class="flex items-center justify-center lg:w-10 lg:h-10 md:w-8 md:h-8 sm:w-8 sm:h-8 xs:w-8 xs:h-8 xss:w-8 xss:h-8 bg-[#5e9eb234] dark:bg-gray-700 xl:rounded-lg lg:rounded-xl md:rounded-lg sm:rounded-lg xs:rounded-lg xss:rounded-lg">
                     <i class='bx bx-bell text-gray-600 dark:text-gray-300'></i>
                 </button>

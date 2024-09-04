@@ -1,4 +1,4 @@
-    <nav class="z-50 absolute top-0 w-full mt-5" x-data="{ isOpen: false }">
+    <nav class="z-40 absolute top-0 w-full mt-5" x-data="{ isOpen: false }">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
                 <div class="flex items-center">
@@ -110,7 +110,7 @@
 
 
     <!-- Main modal -->
-    <div id="authentication-modal" tabindex="-1" aria-hidden="true"
+    <div id="authentication-modal" tabindex="-1" aria-hidden="true" x-show="open" @click.outside="open = false""
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-xl">
             <!-- Modal content -->
@@ -149,10 +149,10 @@
                             <a href="#" class="text-sm text-[#58A1C0] hover:underline">forgot password?</a>
                         </div>
                         <div class="flex space-x-4">
-                            <button type="button" class="w-full p-3 border border-gray-300 text-gray-700 rounded-lg"
-                                id="tomboll">cancel</button>
-                            <button type="submit" class="w-full p-3 bg-[#58A1C0] text-white rounded-lg"
-                                id="tomboll">login</button>
+                            <button type="button"
+                                class="tomboll w-full p-3 border border-gray-300 text-gray-700 rounded-lg" id="cancel-button"  @click="open = false">cancel</button>
+                            <button type="submit"
+                                class="tomboll w-full p-3 border border-gray-300 text-gray-700 rounded-lg">login</button>
                         </div>
                     </form>
                     @if ($errors->any())

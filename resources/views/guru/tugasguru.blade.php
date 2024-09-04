@@ -8,6 +8,7 @@
     <title>Siswa</title>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
     <link href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet" />
     @vite('resources/css/app.css')
 </head>
 
@@ -67,6 +68,7 @@
                         <span>Sesuaikan</span>
                     </button>
                     <button onclick="window.location.href='{{ route('tambahtugas') }}'"
+                    <button onclick="window.location.href='{{ route('tambahtugas') }}'"
                         class="absolute bottom-4 left-7 bg-[#5E9EB2] text-white font-medium py-1 px-3 rounded-lg shadow-md flex items-center space-x-2">
                         <!-- Ukuran disesuaikan -->
                         <span>Tambahkan Tugas</span>
@@ -84,6 +86,8 @@
                             <label for="kelas" class="block text-gray-700 font-semibold mb-2">Untuk Kelas:</label>
                             <select id="kelas"
                                 class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
+                            <select id="kelas"
+                                class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
                                 <option>Pilih Kelas</option>
                                 <option>Kelas 1</option>
                                 <option>Kelas 2</option>
@@ -93,6 +97,8 @@
 
                         <div class="w-1/2 ">
                             <label for="mapel" class="block text-gray-700 font-semibold mb-2">Mata Pelajaran:</label>
+                            <select id="mapel"
+                                class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
                             <select id="mapel"
                                 class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
                                 <option>Pilih Mata Pelajaran</option>
@@ -110,10 +116,17 @@
                         <textarea id="deskripsi-tugas"
                             class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full h-32 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]"
                             placeholder="Masukkan deskripsi tugas"></textarea>
+                        <label for="deskripsi-tugas" class="block text-gray-700 font-semibold mb-2">Deskripsi
+                            Tugas:</label>
+                        <textarea id="deskripsi-tugas"
+                            class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full h-32 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]"
+                            placeholder="Masukkan deskripsi tugas"></textarea>
                     </div>
 
 
                     <div class="flex justify-start space-x-4 mb-4">
+                        <button
+                            class="flex items-center justify-center w-10 h-10 bg-white-600 border-2 border-black text-white rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
                         <button
                             class="flex items-center justify-center w-10 h-10 bg-white-600 border-2 border-black text-white rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
                             <img src="{{ asset('img/icon/Google drive.png') }}" alt="">
@@ -121,14 +134,20 @@
 
                         <button
                             class="flex items-center justify-center w-10 h-10 bg-white-600 border-2 border-black text-white rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
+                        <button
+                            class="flex items-center justify-center w-10 h-10 bg-white-600 border-2 border-black text-white rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
                             <img src="{{ asset('img/icon/Youtube.png') }}" alt="">
                         </button>
 
                         <button
                             class="flex items-center justify-center w-10 h-10 bg-white-600 border-2 border-black text-white rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
+                        <button
+                            class="flex items-center justify-center w-10 h-10 bg-white-600 border-2 border-black text-white rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
                             <img src="{{ asset('img/icon/Upload.png') }}" alt="">
                         </button>
 
+                        <button
+                            class="flex items-center justify-center w-10 h-10 bg-white-600 border-2 border-black text-white rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
                         <button
                             class="flex items-center justify-center w-10 h-10 bg-white-600 border-2 border-black text-white rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
                             <img src="{{ asset('img/icon/Link.png') }}" alt="">
@@ -140,6 +159,8 @@
 
                     <!-- Tombol Posting -->
                     <div class="flex justify-end">
+                        <button
+                            class="bg-[#5E9EB2] text-white font-medium py-2 px-6 rounded-lg shadow-md hover:bg-[#4b8795] transition duration-300">Posting</button>
                         <button
                             class="bg-[#5E9EB2] text-white font-medium py-2 px-6 rounded-lg shadow-md hover:bg-[#4b8795] transition duration-300">Posting</button>
                     </div>

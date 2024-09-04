@@ -16,7 +16,7 @@
                     industry's standard dummy text ever since the 1500s.
                 </p>
             </div>
-
+`
             <!-- Tempat untuk foto gedung -->
             <div class="absolute inset-x-0 bottom-0">
                 <div class="flex justify-center space-x-[-50px]">
