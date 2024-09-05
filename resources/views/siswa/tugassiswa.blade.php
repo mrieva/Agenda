@@ -61,40 +61,32 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 mx-6">
             <div class="items-center justify-center h-24 rounded bg-transparent dark:bg-gray-800 block p-4">
                 <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, Siswa Sekolah!</h3>
-                <p class="text-sm text-[#83a4ad] dark:text-gray-300">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem ipsum!</p>
+                <p class="text-sm text-[#83a4ad] dark:text-gray-300"></p>
             </div>
 
             <!-- Right Section (Search, Profile, Notifications) -->
-            <!-- Right Section (Search, Profile, Notifications) -->
-                <div
-                    class="flex items-center justify-center md:justify-end h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-4">
-                    <!-- Search Form -->
-                    <form
-                        class="relative flex items-center bg-[#5e9eb234] dark:bg-gray-700 rounded-lg w-8 h-8 md:w-auto md:h-auto">
-                        <!-- Search Icon in Mobile -->
-                        <button type="submit" class="flex items-center justify-center w-full h-full md:hidden">
-                            <i class='bx bx-search text-gray-600 dark:text-gray-300'></i>
-                        </button>
-                        <!-- Search Input in Desktop -->
-                        <input type="text"
-                            class="bg-transparent text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2] hidden md:block"
-                            placeholder="search">
-                        <i
-                            class='bx bx-search absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500 hidden md:block'></i>
-                    </form>
-
-                    <!-- Profile Button -->
-                    <button onclick="window.location.href='{{ route('settings-siswa') }}'"
-                        class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-[#5e9eb234] dark:bg-gray-700 rounded-lg">
-                        <i class='bx bx-user text-gray-600 dark:text-gray-300'></i>
+            <div class="flex items-center justify-center md:justify-end h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-4">
+                <!-- Search Form -->
+                <form class="relative flex items-center bg-[#5e9eb234] dark:bg-gray-700 rounded-lg w-8 h-8 md:w-auto md:h-auto">
+                    <!-- Search Icon in Mobile -->
+                    <button type="submit" class="flex items-center justify-center w-full h-full md:hidden">
+                        <i class='bx bx-search text-gray-600 dark:text-gray-300'></i>
                     </button>
+                    <!-- Search Input in Desktop -->
+                    <input type="text" class="bg-transparent text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2] hidden md:block" placeholder="search">
+                    <i class='bx bx-search absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500 hidden md:block'></i>
+                </form>
 
-                    <!-- Notification Button -->
-                    <button onclick="window.location.href='{{ route('notif-siswa') }}'"
-                        class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-[#5e9eb234] dark:bg-gray-700 rounded-lg">
-                        <i class='bx bx-bell text-gray-600 dark:text-gray-300'></i>
-                    </button>
-                </div>
+                <!-- Profile Button -->
+                <button onclick="window.location.href='{{ route('settings-siswa') }}'" class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-[#5e9eb234] dark:bg-gray-700 rounded-lg">
+                    <i class='bx bx-user text-gray-600 dark:text-gray-300'></i>
+                </button>
+
+                <!-- Notification Button -->
+                <button onclick="window.location.href='{{ route('notif-siswa') }}'" class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-[#5e9eb234] dark:bg-gray-700 rounded-lg">
+                    <i class='bx bx-bell text-gray-600 dark:text-gray-300'></i>
+                </button>
+            </div>
         </div>
 
         <!-- Announcement Section -->
@@ -141,7 +133,7 @@
 
             <!-- Comments Section -->
             <div class="col-span-1 bg-gray-100 p-4 rounded-lg dark:bg-gray-900">
-                <textarea class="w-full px-4 py-2 text-gray-700 bg-gray-200 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600" rows="3" placeholder="Tambahkan komentar pribadi..."></textarea>
+                <textarea class="w-full px-4 py-2 text-gray-700 bg-gray-200 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600" rows="3" placeholder="Tambahkan komentar pribadi..."></textarea>
                 <div class="flex justify-end mt-2">
                     <button class="w-full px-4 py-2 text-sm font-medium text-white bg-custom rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600">Kirim</button>
                 </div>

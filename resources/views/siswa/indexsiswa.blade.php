@@ -19,8 +19,7 @@
                 <!-- Left Section (Welcome Text) -->
                 <div class="items-center justify-center h-24 rounded bg-transparent dark:bg-gray-800 block p-4">
                     <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, Siswa Sekolah!</h3>
-                    <p class="text-sm text-[#83a4ad] dark:text-gray-300">Lorem ipsum dolor sit amet, consectetur
-                        adipisicing elit.</p>
+                    <p class="text-sm text-[#83a4ad] dark:text-gray-300"></p>
                 </div>
 
                 <!-- Right Section (Search, Profile, Notifications) -->
@@ -105,7 +104,7 @@
                     <div id="communicationForm"
                         class="hidden mt-4 p-4 border-2 border-gray-200 rounded-lg bg-[#e6f5fc] dark:bg-gray-800 w-full opacity-0 transform scale-y-0 origin-top transition-all duration-500">
                         <textarea
-                            class="w-full h-32 md:h-40 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+                            class="w-full h-32 md:h-40 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
                             placeholder="Write your message..."></textarea>
                         <div class="flex flex-col md:flex-row justify-between items-center mt-4">
                             <div class="flex space-x-2 mb-2 md:mb-0">
@@ -126,7 +125,7 @@
                                     <i class='bx bx-link'></i>
                                 </button>
                             </div>
-                            <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                            <button class="bg-[#5E9EB2] text-white px-4 py-2 rounded hover:bg-[#6CC6EC] dark:bg-gray-600">
                                 Posting
                             </button>
                         </div>

@@ -45,6 +45,9 @@ Route::get('notif-siswa', function () {
     return view('siswa.notifsiswa');
 })->name('notif-siswa');
 
+Route::get('pengumuman-siswa', function () {
+    return view('siswa.pengumumansiswa');
+})->name('pengumuman-siswa');
 
 
 // Guru section
@@ -113,7 +116,20 @@ Route::get('index-sekretaris', function () {
 
 Route::get('tugas-sekretaris', function () {
     return view('sekretaris.tugassekretaris');
-});
+})->name('tugas-sekretaris');
+
+Route::get('settings-sekretaris', function () {
+    return view('sekretaris.setiing');
+})->name('setsekret');
+
+Route::get('notif-sekretaris', function () {
+    return view('sekretaris.notifsekret');
+})->name('notif-sekret');
+
+Route::get('announce-sekretaris', function () {
+    return view('sekretaris.announcesekret');
+})->name('annnsekret');
+
 
 // Route untuk mengirim email
 Route::post('/kirim-email', [ContactController::class, 'sendEmail'])->name('send.email');

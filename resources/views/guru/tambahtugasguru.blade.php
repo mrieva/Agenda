@@ -18,9 +18,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 mx-6">
                 <!-- Left Section (Welcome Text) -->
                 <div class="h-24 rounded bg-transparent dark:bg-gray-800 p-4">
-                    <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, Siswa Sekolah!</h3>
-                    <p class="text-sm text-[#83a4ad] dark:text-gray-300">Lorem ipsum dolor sit amet, consectetur
-                        adipisicing elit. Dolorem ipsum!</p>
+                    <h3 class="text-xl sm:text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, Siswa Sekolah!</h3>
+                    <p class="text-sm text-[#83a4ad] dark:text-gray-300"></p>
                 </div>
 
                 <!-- Right Section (Search, Profile, Notifications) -->
@@ -51,11 +50,11 @@
             </div>
 
             <!-- Form Tambah Tugas -->
-            <div class="grid grid-cols-1 md:grid-cols-1 gap-16 mb-4 mx-10">
+            <div class="grid grid-cols-1 gap-16 mb-4 mx-4 sm:mx-10">
                 <div class="relative flex flex-col p-6 rounded-xl bg-[#bfdbe2] border border-gray-200 shadow-lg">
                     <!-- Pilihan untuk Kelas dan Mata Pelajaran -->
-                    <div class="flex space-x-4 mb-4">
-                        <div class="w-1/2">
+                    <div class="flex flex-wrap sm:flex-nowrap space-x-0 sm:space-x-4 mb-4">
+                        <div class="w-full sm:w-1/2 mb-4 sm:mb-0">
                             <label for="kelas" class="block text-gray-700 font-semibold mb-2">Untuk Kelas:</label>
                             <select id="kelas" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
                                 <option>Pilih Kelas</option>
@@ -65,19 +64,19 @@
                             </select>
                         </div>
 
-                        <div class="w-1/2">
+                        <div class="w-full sm:w-1/2 mb-4 sm:mb-0">
                             <label for="mapel" class="block text-gray-700 font-semibold mb-2">Point</label>
                             <select id="mapel" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
                                 <option>Pilih Point</option>
                             </select>
                         </div>
 
-                        <div class="w-1/2">
+                        <div class="w-full sm:w-1/2 mb-4 sm:mb-0">
                             <label for="tengat" class="block text-gray-700 font-semibold mb-2">Tengat</label>
                             <input type="date" id="tengat" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
                         </div>
 
-                        <div class="w-1/2">
+                        <div class="w-full sm:w-1/2">
                             <label for="topik" class="block text-gray-700 font-semibold mb-2">Topik</label>
                             <input type="text" id="topik" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]" placeholder="Masukkan topik">
                         </div>

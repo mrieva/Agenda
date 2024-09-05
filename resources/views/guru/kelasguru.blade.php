@@ -22,8 +22,7 @@
                 <!-- Left Section (Welcome Text) -->
                 <div class="items-center justify-center h-24 rounded bg-transparent dark:bg-gray-800 block p-4">
                     <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, Siswa Sekolah!</h3>
-                    <p class="text-sm text-[#83a4ad] dark:text-gray-300">Lorem ipsum dolor sit amet, consectetur
-                        adipisicing elit. Dolorem ipsum!</p>
+                    <p class="text-sm text-[#83a4ad] dark:text-gray-300"></p>
                 </div>
 
                 <!-- Right Section (Search, Profile, Notifications) -->
