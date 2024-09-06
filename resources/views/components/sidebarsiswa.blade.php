@@ -13,7 +13,7 @@
     aria-label="Sidebar">
     <div
         class="h-full px-3 py-4 overflow-x-auto bg-gradient-to-l from-[#3D7086] from-[-40%] to-[#6CC6EC] to-80% rounded">
-        <a href="{{ route('index-guru') }}" class="flex items-center justify-center lg:py-4 lg:mb-6 md:mb-6 sm:mb-4 xs:mb-8 xss:mb-8">
+        <a href="{{ route('index-siswa') }}" class="flex items-center justify-center lg:py-4 lg:mb-6 md:mb-6 sm:mb-4 xs:mb-8 xss:mb-8">
             <img src="{{ asset('img/logo.png') }}" class="lg:h-24 md:h-20 xs:h-16 xss:h-12" alt="Edunote Logo" />
         </a>
         <ul class="space-y-2 font-medium">
@@ -21,9 +21,9 @@
                 <p class="text-sm font-bold text-[#ffffff] mb-1 p-2 opacity-70">Menu</p>
             </li>
             <li>
-                <a href="{{ route('index-guru') }}"
+                <a href="{{ route('index-siswa') }}"
                     class="flex items-center my-6 p-2 text-[#ffffff] rounded-lg dark:text-white hover:bg-[#fff] hover:bg-opacity-40 hover:z-0 hover:text-[#fff] dark:hover:bg-gray-700 group relative
-                    {{ request()->routeIs('index-guru') || request()->routeIs('kelasguru') ? 'bg-gray-100 bg-opacity-40 text-[#fff] dark:bg-gray-700' : '' }}">
+                    {{ request()->routeIs('index-siswa') ? 'bg-gray-100 bg-opacity-40 text-[#fff] dark:bg-gray-700' : '' }}">
                     <svg class="absolute w-5 h-5 text-gray-500 transition duration-75 dark:text-[#ffffff] group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
                         <img src="{{ asset('img/icon/dashboard.png') }}" width="25" height="25"
@@ -33,9 +33,9 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('tabelguru') }}"
+                <a href="{{ route('tugas-siswa') }}"
                     class="flex items-center my-6 p-2 text-[#ffffff] rounded-lg dark:text-white hover:bg-[#fff] hover:bg-opacity-40 hover:z-0 hover:text-[#fff] dark:hover:bg-gray-700 group relative
-                    {{ request()->routeIs('tugas-guru') || request()->routeIs('tambahtugas') || request()->routeIs('tabelguru') ? 'bg-gray-100 bg-opacity-40 text-[#fff] dark:bg-gray-700' : '' }}">
+                    {{ request()->routeIs('tugas-siswa') || request()->routeIs('tambahtugas') || request()->routeIs('tabelguru') ? 'bg-gray-100 bg-opacity-40 text-[#fff] dark:bg-gray-700' : '' }}">
                     <svg class="absolute w-5 h-5 text-gray-500 transition duration-75 dark:text-[#ffffff] group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
                         <img src="{{ asset('img/icon/tugas.png') }}" width="25" height="25" alt="home icon" />

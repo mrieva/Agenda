@@ -77,17 +77,65 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
 
             <!-- Task Section -->
-            <div class="col-span-1 bg-gray-100 p-4 rounded-lg dark:bg-gray-900">
-                <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300">Tugas</h3>
-                <button
-                    class="flex items-center justify-center mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-400 focus:outline-none w-full">
-                    <i class='bx bx-plus mr-2'></i> Tambah Atau Buat
-                </button>
-                <button
-                    class="flex items-center justify-center mt-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 focus:outline-none w-full">
-                    Tandai Sudah Selesai
-                </button>
+<!-- Task Section -->
+<div class="col-span-1 bg-gray-100 p-4 rounded-lg dark:bg-gray-900">
+    <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300">Tugas</h3>
+    <div class="mt-2 space-y-2">
+
+        <!-- Button to Open Link Modal -->
+        <button id="openLinkModal" class="flex items-center justify-center px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-400 focus:outline-none w-full">
+            <i class='bx bx-link mr-2'></i> Tambahkan Link
+        </button>
+
+        <!-- Button to Open File Modal -->
+        <button id="openFileModal" class="flex items-center justify-center px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-400 focus:outline-none w-full">
+            <i class='bx bx-file mr-2'></i> Tambahkan File
+        </button>
+
+    </div>
+</div>
+
+<!-- Modal untuk Input Link -->
+<div id="linkModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white p-6 rounded-lg dark:bg-gray-700">
+        <h3 class="text-xl font-bold mb-4 text-gray-700 dark:text-gray-300">Tambahkan Link</h3>
+        <form action="{{ route('submit.link') }}" method="POST">
+            @csrf
+            <input type="text" name="judul" placeholder="Judul Tugas" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-gray-600 dark:text-gray-200 dark:border-gray-500 mb-2">
+            <input type="text" name="link" placeholder="Link" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-gray-600 dark:text-gray-200 dark:border-gray-500" required>
+            <div class="flex justify-end mt-4">
+                <button type="button" id="closeLinkModal" class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-400 mr-2">Batal</button>
+                <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500">Tambahkan Link</button>
             </div>
+        </form>
+    </div>
+</div>
+
+<!-- Modal untuk Input File -->
+<div id="fileModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white p-6 rounded-lg dark:bg-gray-700">
+        <h3 class="text-xl font-bold mb-4 text-gray-700 dark:text-gray-300">Tambahkan File</h3>
+        <form action="{{ route('submit.file') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="text" name="judul" placeholder="Judul Tugas" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-gray-600 dark:text-gray-200 dark:border-gray-500 mb-2">
+            <label for="fileInput" class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer w-full">
+                <i class='bx bx-file mr-2'></i> Pilih File
+            </label>
+            <input type="file" id="fileInput" name="file" class="hidden">
+            <div class="flex justify-end mt-4">
+                <button type="button" id="closeFileModal" class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-400 mr-2">Batal</button>
+                <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500">Tambahkan File</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
 
             <!-- Comments Section -->
             <div class="col-span-2 bg-gray-100 p-4 rounded-lg dark:bg-gray-900">
@@ -106,6 +154,42 @@
 
     <!-- Flowbite JS -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <script>
+       // Link Modal
+const openLinkModal = document.getElementById('openLinkModal');
+const closeLinkModal = document.getElementById('closeLinkModal');
+const linkModal = document.getElementById('linkModal');
+
+openLinkModal.addEventListener('click', () => {
+    linkModal.classList.remove('hidden');
+});
+
+closeLinkModal.addEventListener('click', () => {
+    linkModal.classList.add('hidden');
+});
+
+// File Modal
+const openFileModal = document.getElementById('openFileModal');
+const closeFileModal = document.getElementById('closeFileModal');
+const fileModal = document.getElementById('fileModal');
+
+openFileModal.addEventListener('click', () => {
+    fileModal.classList.remove('hidden');
+});
+
+closeFileModal.addEventListener('click', () => {
+    fileModal.classList.add('hidden');
+});
+
+    </script>
+
+
+    @if (session('success'))
+    <script>
+        alert("{{ session('success') }}");
+    </script>
+@endif
+
 </body>
 
 </html>

@@ -63,5 +63,6 @@ class AuthController extends Controller
             return back()->with('error', 'NISN/NIPD atau password salah');
         }
     }
+    
 }
 

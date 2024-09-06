@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Guru extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'nama_siswa', 'kelas', 'judul_tugas', 'link_tugas', 'file_tugas'
+    ];
 }
+
+

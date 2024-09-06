@@ -23,7 +23,7 @@
             <li>
                 <a href="{{ route('index-sekretaris') }}"
                     class="flex items-center my-6 p-2 text-[#ffffff] rounded-lg dark:text-white hover:bg-[#fff] hover:bg-opacity-40 hover:z-0 hover:text-[#fff] dark:hover:bg-gray-700 group relative
-                    {{ request()->routeIs('index-sekretaris') || request()->routeIs('annnsekret') || request()->routeIs('komunsekret') ? 'bg-gray-100 bg-opacity-40 text-[#fff] dark:bg-gray-700' : '' }}">
+                    {{ request()->routeIs('index-sekretaris')  || request()->routeIs('komunsekret') ? 'bg-gray-100 bg-opacity-40 text-[#fff] dark:bg-gray-700' : '' }}">
                     <svg class="absolute w-5 h-5 text-gray-500 transition duration-75 dark:text-[#ffffff] group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
                         <img src="{{ asset('img/icon/dashboard.png') }}" width="25" height="25"
@@ -35,7 +35,7 @@
             <li>
                 <a href="{{ route('tugas-sekretaris') }}"
                     class="flex items-center my-6 p-2 text-[#ffffff] rounded-lg dark:text-white hover:bg-[#fff] hover:bg-opacity-40 hover:z-0 hover:text-[#fff] dark:hover:bg-gray-700 group relative
-                    {{ request()->routeIs('tugas-sekretaris') || request()->routeIs('tambahtugas') || request()->routeIs('tabelguru') ? 'bg-gray-100 bg-opacity-40 text-[#fff] dark:bg-gray-700' : '' }}">
+                    {{ request()->routeIs('tugas-sekretaris') || request()->routeIs('tambahtugas') || request()->routeIs('tabelguru') || request()->routeIs('annnsekret') ? 'bg-gray-100 bg-opacity-40 text-[#fff] dark:bg-gray-700' : '' }}">
                     <svg class="absolute w-5 h-5 text-gray-500 transition duration-75 dark:text-[#ffffff] group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
                         <img src="{{ asset('img/icon/tugas.png') }}" width="25" height="25" alt="home icon" />

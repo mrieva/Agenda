@@ -2,6 +2,21 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TugasController;
+use App\Http\Controllers\KehadiranController;
+
+Route::post('/kehadiran/store', [KehadiranController::class, 'store'])->name('kehadiran.store');
+
+// web.php
+Route::post('/submit-link', [TugasController::class, 'storeLink'])->name('submit.link');
+Route::post('/submit-file', [TugasController::class, 'storeFile'])->name('submit.file');
+
+
+
+
+
+
+
 
 Route::get('/conn', function () {
     return User::get();
@@ -19,7 +34,13 @@ Route::get('test', function () {
 // siswa section
 Route::get('index-siswa', function () {
     return view('siswa.indexsiswa');
-});
+})->name('index-siswa');
+
+Route::get('tugas-siswa', function () {
+    return view('siswa.siswatugas');
+})->name('tugas-siswa');
+
+
 
 Route::get('tugas-siswa', function () {
     return view('siswa.siswatugas');
@@ -59,6 +80,11 @@ Route::get('kelas-guru', function() {
 Route::get('tabel-guru', function() {
     return view('guru.tabeltugasguru');
 })->name('tabelguru');
+
+Route::get('kelas-dipilih', function () {
+    return view('guru.kelasdipilih');
+})->name('kelasdipilih');
+
 
 // kepsek section
 Route::get('index-kepala-sekolah', function () {
@@ -103,6 +129,10 @@ Route::get('notif-sekret', function () {
 
 
 use App\Http\Controllers\ContactController;
+
+// routes/web.php
+Route::post('/input-kehadiran', [KehadiranController::class, 'store'])->name('input-kehadiran');
+
 
 Route::post('/kirim-email', [ContactController::class, 'sendEmail'])->name('send.email');
 

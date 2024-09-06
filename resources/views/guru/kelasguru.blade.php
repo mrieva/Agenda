@@ -62,7 +62,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-4 mx-10">
     <!-- Monday -->
-    <div class="flex flex-col">
+    <div class="flex flex-col cursor-pointer" onclick="window.location.href='{{ route('kelasdipilih') }}'">
         <div class="flex flex-col items-center justify-center h-96 w-80 max-w-full rounded-xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
             <img src="{{ asset('img/icon/printi.png') }}" alt="">
             <div class="flex flex-col items-center">
@@ -70,14 +70,14 @@
                     <img src="{{ asset('img/icon/amico.png') }}" alt="guru-icon">
                 </div>
                 <div class="text-center my-8">
-                    <h1 class="text-3xl text-[#fff]">Matematika</h1>
+                    <h1 class="text-3xl text-[#fff]">XI RPL 1</h1>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Tuesday -->
-    <div class="flex flex-col">
+    <div class="flex flex-col cursor-pointer" onclick="window.location.href='{{ route('kelasdipilih') }}'">
         <div class="flex flex-col items-center justify-center h-96 w-80 max-w-full rounded-xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
             <img src="{{ asset('img/icon/printi.png') }}" alt="">
             <div class="flex flex-col items-center">
@@ -85,14 +85,14 @@
                     <img src="{{ asset('img/icon/pana.png') }}" alt="guru-icon">
                 </div>
                 <div class="text-center my-8">
-                    <h1 class="text-3xl text-[#fff]">Matematika</h1>
+                    <h1 class="text-3xl text-[#fff]">XI RPL 2</h1>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Wednesday -->
-    <div class="flex flex-col">
+    <div class="flex flex-col cursor-pointer" onclick="window.location.href='{{ route('kelasdipilih') }}'">
         <div class="flex flex-col items-center justify-center h-96 w-80 max-w-full rounded-xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
             <img src="{{ asset('img/icon/printi.png') }}" alt="">
             <div class="flex flex-col items-center">
@@ -100,7 +100,7 @@
                     <img src="{{ asset('img/icon/rafiki1.png') }}" alt="guru-icon">
                 </div>
                 <div class="text-center my-8">
-                    <h1 class="text-3xl text-[#fff]">Matematika</h1>
+                    <h1 class="text-3xl text-[#fff]">XI DKV 1</h1>
                 </div>
             </div>
         </div>
