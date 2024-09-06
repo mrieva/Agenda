@@ -17,8 +17,12 @@ return new class extends Migration
             $table->integer('nisn');
             $table->enum('role', ['admin', 'siswa', 'guru', 'sekretaris', 'kepala_sekolah']);
             $table->string('email')->unique();
+            $table->string('mapel')->nullable(); // Kolom mapel untuk guru
+            $table->string('kelas')->nullable(); // Kolom kelas untuk siswa
+            $table->string('jurusan')->nullable(); // Kolom jurusan untuk siswa
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('profile_picture')->nullable(); // Kolom untuk gambar profil
             $table->rememberToken();
             $table->timestamps();
         });

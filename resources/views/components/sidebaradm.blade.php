@@ -13,7 +13,7 @@
     aria-label="Sidebar">
     <div
         class="h-full px-3 py-4 overflow-x-auto bg-gradient-to-l from-[#3D7086] from-[-40%] to-[#6CC6EC] to-80% rounded">
-        <a href="#" class="flex items-center justify-center lg:py-4 lg:mb-6 md:mb-6 sm:mb-4 xs:mb-8 xss:mb-8">
+        <a href="{{ route('indexadm') }}" class="flex items-center justify-center lg:py-4 lg:mb-6 md:mb-6 sm:mb-4 xs:mb-8 xss:mb-8">
             <img src="{{ asset('img/logo.png') }}" class="lg:h-24 md:h-20 xs:h-16 xss:h-12" alt="Edunote Logo" />
         </a>
         <ul class="space-y-2 font-medium">

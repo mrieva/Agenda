@@ -5,9 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AuthController;
-
-// Route untuk menambahkan user
-Route::post('/add-user', [UserController::class, 'store'])->name('add-user.store');
+use App\Http\Controllers\KepsekController;
 
 // Route untuk menampilkan semua data user (tes koneksi)
 Route::get('/conn', function () {
@@ -63,20 +61,21 @@ Route::get('index-kepala-sekolah', function () {
     return view('kepsek.indexkepalasekolah');
 })->name('index-kepala-sekolah');
 
-Route::get('settings-kepsek', function () {
-    return view('kepsek.settings');
-})->name('settings-kepsek');
+Route::get('settings-kepsek', [KepsekController::class, 'settings'])->name('settings-kepsek');
 
-Route::get('notif-kepsek', function () {
-    return view('kepsek.notif-kepsek');
-})->name('notifkepsek');
+Route::get('edit-profile', [KepsekController::class, 'editProfile'])->name('edit-profile');
+
+Route::put('update-profile', [KepsekController::class, 'updateProfile'])->name('update-profile');
+
 
 // Admin section
-Route::get('index-admin', function () {
-    return view('admin.indexadmin');
-})->name('indexadm');
+Route::get('index-admin', [UserController::class, 'index'])->name('indexadm');
 
-Route::get('tambah-user', function () {
+Route::post('tambah-user', [UserController::class, 'store'])->name('admin.store');
+
+Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
+
+route::get('tambah-user', function () {
     return view('admin.tambahdatauser');
 })->name('tambahuser');
 
@@ -95,6 +94,12 @@ Route::post('/kirim-email', [ContactController::class, 'sendEmail'])->name('send
 // Route untuk login dan logout
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
+
+Route::get('/admin/indexadm', [UserController::class, 'index'])->name('indexadm');
+Route::get('/admin/search', [UserController::class, 'search'])->name('search');
+
+// Route untuk menghapus data user
+Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 
 // Route yang memerlukan autentikasi
 Route::middleware(['auth'])->group(function () {

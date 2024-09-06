@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.drop-zone {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.drop-zone.dragover {
+    background-color: rgba(94, 158, 178, 0.1);
+    /* Warna latar belakang saat di-drag */
+    border-color: #5E9EB2;
+    /* Warna border saat di-drag */
+    transform: scale(1.01);
+}
+

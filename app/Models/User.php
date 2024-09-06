@@ -21,9 +21,13 @@ class User extends Authenticatable
         'role', // Tambahkan ini
         'email',
         'password',
+        'profile_picture',
+        'kelas',
+        'jurusan',
+        'mapel',
     ];
 
-    protected $table='users';
+    protected $table = 'users';
 
     /**
      * The attributes that should be hidden for serialization.
@@ -47,5 +51,17 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-}
 
+    public function getFirstNameAttribute()
+    {
+        $names = explode(' ', $this->name, 2);
+        return $names[0];
+    }
+
+    // Akses nama belakang
+    public function getLastNameAttribute()
+    {
+        $names = explode(' ', $this->name, 2);
+        return $names[1] ?? '';
+    }
+}
