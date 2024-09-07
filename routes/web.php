@@ -6,6 +6,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KepsekController;
+use App\Http\Controllers\KehadiranController;
+
+Route::get('/kehadiran-chart', [KehadiranController::class, 'chart'])->name('kehadiran.chart');
 
 // Route untuk menampilkan semua data user (tes koneksi)
 Route::get('/conn', function () {
@@ -15,7 +18,7 @@ Route::get('/conn', function () {
 // Route ke halaman home
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 // Route untuk halaman test
 Route::get('test', function () {
@@ -93,6 +96,7 @@ Route::post('/kirim-email', [ContactController::class, 'sendEmail'])->name('send
 
 // Route untuk login dan logout
 Route::post('/login', [AuthController::class, 'login'])->name('login');
+
 Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
 
 Route::get('/admin/indexadm', [UserController::class, 'index'])->name('indexadm');

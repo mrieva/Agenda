@@ -17,60 +17,40 @@
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            // Data and options (same as before)
-            var data1 = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                ['Hadir', 80],
-                ['Tanpa Keterangan', 10],
-                ['Izin', 10],
-                ['Sakit', 7],
-            ]);
+            fetch('{{ route('kehadiran.chart') }}')
+                .then(response => response.json())
+                .then(data => {
+                    var dataGuru = google.visualization.arrayToDataTable([
+                        ['Keterangan', 'Jumlah'],
+                        ['Hadir', data.guru.find(item => item.keterangan === 'hadir')?.jumlah || 0],
+                        ['Izin', data.guru.find(item => item.keterangan === 'izin')?.jumlah || 0],
+                        ['Sakit', data.guru.find(item => item.keterangan === 'sakit')?.jumlah || 0]
+                    ]);
 
-            var options1 = {
-                title: 'Grafik Kehadiran Guru',
-            };
+                    var optionsGuru = {
+                        title: 'Grafik Kehadiran Guru',
+                    };
 
-            var chart1 = new google.visualization.PieChart(document.getElementById('donut_single'));
-            chart1.draw(data1, options1);
+                    var chartGuru = new google.visualization.PieChart(document.getElementById('donut_single'));
+                    chartGuru.draw(dataGuru, optionsGuru);
 
-            // Menghapus atribut fill pada elemen <rect> di dalam SVG
+                    var dataSiswa = google.visualization.arrayToDataTable([
+                        ['Keterangan', 'Jumlah'],
+                        ['Hadir', data.siswa.find(item => item.keterangan === 'hadir')?.jumlah || 0],
+                        ['Izin', data.siswa.find(item => item.keterangan === 'izin')?.jumlah || 0],
+                        ['Sakit', data.siswa.find(item => item.keterangan === 'sakit')?.jumlah || 0]
+                    ]);
 
+                    var optionsSiswa = {
+                        title: 'Grafik Kehadiran Siswa',
+                    };
 
-            // Manipulate CSS directly after drawing the chart
-            var titleElement1 = document.querySelector('#donut_single svg text');
-            if (titleElement1) {
-                titleElement1.style.fontSize = '24px'; // Ubah ukuran font
-                titleElement1.style.fill = '#5E9EB2'; // Ubah warna teks
-                titleElement1.style.textAlign = 'center';
-                titleElement1.style.fontWeight = '200'; // Ubah ketebalan teks
-            }
-
-            // Data and options for the second chart (same as before)
-            var data2 = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                ['Hadir', 1000],
-                ['Tanpa Keterangan', 10],
-                ['Izin', 23],
-                ['Sakit', 50]
-            ]);
-
-            var options2 = {
-                title: 'Grafik Kehadiran Siswa',
-            };
-
-            var chart2 = new google.visualization.PieChart(document.getElementById('donut_single2'));
-            chart2.draw(data2, options2);
-
-
-            // Manipulate CSS directly for the second chart
-            var titleElement2 = document.querySelector('#donut_single2 svg text');
-            if (titleElement2) {
-                titleElement2.style.fontSize = '24px'; // Ubah ukuran font
-                titleElement2.style.fill = '#5E9EB2'; // Ubah warna teks
-                titleElement2.style.fontWeight = '200'; // Ubah ketebalan teks
-            }
+                    var chartSiswa = new google.visualization.PieChart(document.getElementById('donut_single2'));
+                    chartSiswa.draw(dataSiswa, optionsSiswa);
+                });
         }
     </script>
+
     @vite('resources/css/app.css')
 </head>
 

@@ -6,12 +6,22 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
-
 class KepsekController extends Controller
 {
     public function settings()
     {
-        // Ambil data user yang sesuai dengan pengguna yang sedang login
+        // Pengecekan manual jika user belum login
+        if (Auth::guest()) {
+            return redirect()->route('home')->with('error', 'Sesi Habis! Anda harus login terlebih dahulu');
+        }
+
+        // Pengecekan manual jika user sudah login tapi sesinya habis
+        if (Auth::user()->last_login_at < now()->subMinutes(180)) {
+            Auth::logout();
+            return redirect()->route('home')->with('error', 'Sesi Habis! Anda harus login terlebih dahulu');
+        }
+
+        // Ambil data user yang sedang login
         $user = Auth::user();
 
         // Kirim data ke view
@@ -20,21 +30,34 @@ class KepsekController extends Controller
 
     public function showSettings()
     {
-        $user = User::find(auth()->id()); // Ambil data user berdasarkan ID yang sedang login
+        if (Auth::guest()) {
+            return redirect()->route('login');
+        }
 
-        return view('settings', [
-            'user' => $user
-        ]);
+        // Ambil data user berdasarkan ID yang sedang login
+        $user = User::find(auth()->id());
+
+        return view('settings', compact('user'));
     }
 
     public function editProfile()
     {
+        if (Auth::guest()) {
+            return redirect()->route('login');
+        }
+
+        // Ambil data user yang sedang login
         $user = Auth::user();
+
         return view('kepsek.edit-profile', compact('user'));
     }
 
     public function updateProfile(Request $request)
     {
+        if (Auth::guest()) {
+            return redirect()->route('login');
+        }
+
         // Validasi input
         $request->validate([
             'first_name' => 'required|string|max:255',
@@ -48,8 +71,12 @@ class KepsekController extends Controller
         // Ambil user yang sedang login
         $user = Auth::user();
 
-        // Gabungkan first_name dan last_name ke dalam satu kolom name
-        $user->name = $request->input('first_name') . ' ' . $request->input('last_name');
+        // Gabungkan first_name dan last_name, cek jika last_name kosong
+        if ($request->input('last_name')) {
+            $user->name = $request->input('first_name') . ' ' . $request->input('last_name');
+        } else {
+            $user->name = $request->input('first_name');
+        }
 
         // Update data lainnya
         $user->nisn = $request->input('nisn');
