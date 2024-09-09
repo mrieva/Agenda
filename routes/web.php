@@ -60,9 +60,7 @@ Route::get('tabel-guru', function () {
 })->name('tabelguru');
 
 // Kepala sekolah section
-Route::get('index-kepala-sekolah', function () {
-    return view('kepsek.indexkepalasekolah');
-})->name('index-kepala-sekolah');
+Route::get('index-kepala-sekolah', [KepsekController::class, 'index'])->name('index-kepala-sekolah');
 
 Route::get('settings-kepsek', [KepsekController::class, 'settings'])->name('settings-kepsek');
 

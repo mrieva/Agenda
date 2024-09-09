@@ -47,24 +47,7 @@
                         </svg>
                         <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Settings</span>
                     </a>
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 10 6">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m1 1 4 4 4-4" />
-                    </svg>
                 </button>
-                <ul id="dropdown-example" class="hidden py-2 space-y-2">
-                    <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-[#fff] transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:bg-opacity-40 dark:text-white dark:hover:bg-gray-700">Light
-                            Mode</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-[#fff] transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:bg-opacity-40 dark:text-white dark:hover:bg-gray-700">Dark
-                            Mode</a>
-                    </li>
-                </ul>
             </li>
 
             <li>

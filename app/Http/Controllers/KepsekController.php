@@ -8,6 +8,12 @@ use App\Models\User;
 
 class KepsekController extends Controller
 {
+    public function index()
+    {
+        $user = Auth::user();
+        return view('kepsek.indexkepalasekolah', compact('user'));
+    }
+
     public function settings()
     {
         // Pengecekan manual jika user belum login
@@ -36,6 +42,7 @@ class KepsekController extends Controller
 
     public function editProfile()
     {
+
         if (Auth::guest()) {
             return redirect()->route('login');
         }

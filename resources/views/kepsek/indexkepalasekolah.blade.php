@@ -72,31 +72,24 @@
                 <div class="items-center justify-center h-24 rounded bg-transparent dark:bg-gray-800 block p-4">
                     <h3
                         class="xl:text-3xl lg:text-2xl md:text-xl xss:text-sm font-bold text-[#5E9EB2] dark:text-gray-500">
-                        Welcome Back, Kepala Sekolah!</h3>
-                    <p class="text-sm text-[#83a4ad] dark:text-gray-300">Lorem ipsum dolor sit amet, consectetur
-                        adipisicing elit. Dolorem ipsum!</p>
+                        Welcome Back, {{ $user->name }}!</h3>
+                    <p class="text-sm text-[#83a4ad] dark:text-gray-300">Di sini Anda dapat melihat data kehadiran
+                        seluruh warga sekolah</p>
                 </div>
                 <div
-                    class="flex items-center lg:justify-end xs:justify-center xss:justify-center h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-4">
-                    <form class="relative flex items-center">
-                        <input type="text" placeholder="Search..."
-                            class="bg-[#5e9eb234] dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-xl lg:px-10 lg:py-2 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
-                        <i
-                            class='bx bx-search absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500'></i>
-                    </form>
-                    <button onclick="window.location.href='{{ route('settings-kepsek') }}'"
-                        class="flex items-center justify-center lg:w-10 lg:h-10 bg-[#5e9eb234] dark:bg-gray-700 rounded-lg">
-                        <i class='bx bx-user text-gray-600 dark:text-gray-300'></i>
-                    </button>
+                    class="flex items-center justify-end h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-4">
+                    <div class="flex items-center space-x-4 cursor-pointer" onclick="window.location.href='{{ route('settings-kepsek') }}'">
+                        <img src="{{ asset('storage/' . $user->profile_picture) }}"
+                            class="w-10 h-10 rounded-full object-cover" alt="">
+                        <div>
+                            <p class="text-xs font-bold text-[#5E9EB2] dark:text-gray-500">{{ $user->name }}</p>
+                            <p class="text-xs text-[#83a4ad] dark:text-gray-300">{{ $user->email }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-1 gap-16 mb-4 mx-10">
-                <div
-                    class="flex items-end justify-end h-[293px] max-w-full rounded-3xl bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC]">
-                    <div class="image-wrapper">
-                        <img src="{{ asset('img/guru.png') }}" class="w-[50%] ml-[30%]" alt="kepsek-icon">
-                    </div>
-                </div>
+               git  --}}
                 <div class="border-4 border-solid border-[#5E9EB2] rounded-xl">
                     <div class="container">
                         <div class="text-wrapper flex px-14 py-14 items-center justify-between mb-5">
