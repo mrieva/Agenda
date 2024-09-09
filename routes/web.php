@@ -4,10 +4,15 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TugasController;
 use App\Http\Controllers\KehadiranController;
+use App\Http\Controllers\BannerController;
+
+Route::post('/upload-banner', [BannerController::class, 'upload'])->name('upload.banner');
+
 
 Route::post('/kehadiran/store', [KehadiranController::class, 'store'])->name('kehadiran.store');
 
 // web.php
+Route::get('/sekretaris', [TugasController::class, 'sekretaris'])->name('sekretaris.tugassekretaris');
 Route::post('/submit-link', [TugasController::class, 'storeLink'])->name('submit.link');
 Route::post('/submit-file', [TugasController::class, 'storeFile'])->name('submit.file');
 
@@ -36,15 +41,14 @@ Route::get('index-siswa', function () {
     return view('siswa.indexsiswa');
 })->name('index-siswa');
 
-Route::get('tugas-siswa', function () {
-    return view('siswa.siswatugas');
-})->name('tugas-siswa');
-
-
+Route::get('pengumuman-siswa', function () {
+    return view('siswa.announcesiswa');
+})->name('annnsiswa');
 
 Route::get('tugas-siswa', function () {
-    return view('siswa.siswatugas');
+    return view('siswa.tugassiswa');
 })->name('tugas-siswa');
+;
 
 
 

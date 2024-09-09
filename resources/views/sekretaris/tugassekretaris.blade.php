@@ -50,40 +50,37 @@
 
             </div>
 
-            <!-- Filter Buttons -->
-            <div class="flex items-center justify-start space-x-4 mb-6">
-                <button class="px-4 py-1 text-sm font-semibold text-white bg-[#5E9EB2] rounded-full border-4 border-[#fff]-opacity-60">Belum Diserahkan</button>
-                <button class="px-4 py-1 text-sm font-semibold text-[#5E9EB2] rounded-full border-4 border-[#fff]-opacity-60"">Sudah Diserahkan</button>
-                <button class="px-8 py-1 text-sm font-semibold text-[#5E9EB2] rounded-full border-4 border-[#fff]-opacity-60"">Seleksi</button>
-            </div>
+                        @php
+    $belumTugas = App\Models\Tugas::where('status', 'belum')->get();
+    $sudahTugas = App\Models\Tugas::where('status', 'sudah')->get();
+@endphp
 
-            <!-- Task A -->
-            <a href="{{ route('annnsekret') }}" class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
-                <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4 ">
-                <p class="text-white font-semibold">Tugas A</p>
-                <!-- Tombol titik tiga vertikal -->
-                <button class="absolute top-1/2 right-4 transform -translate-y-1/2">
-                    <div class="flex flex-col space-y-1">
-                        <span class="block w-1 h-1 bg-white rounded-full"></span>
-                        <span class="block w-1 h-1 bg-white rounded-full"></span>
-                        <span class="block w-1 h-1 bg-white rounded-full"></span>
-                    </div>
-                </button>
-            </a>
+<!-- Tugas Belum Diserahkan -->
+@if ($belumTugas->isNotEmpty())
+    <h3 class="text-lg font-bold text-gray-700">Tugas Belum Diserahkan</h3>
+    @foreach ($belumTugas as $tugas)
+        <a href="{{ route('annnsekret', $tugas->id) }}" class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
+            <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4 ">
+            <p class="text-white font-semibold">{{ $tugas->judul }}</p>
+        </a>
+    @endforeach
+@else
+    <p class="text-gray-500">Tidak ada tugas yang belum diserahkan.</p>
+@endif
 
-            <!-- Task B -->
-            <a href="{{ route('annnsekret') }}" class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
-                <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4">
-                <p class="text-white font-semibold">Tugas B</p>
-                <!-- Tombol titik tiga vertikal -->
-                <button class="absolute top-1/2 right-4 transform -translate-y-1/2">
-                    <div class="flex flex-col space-y-1">
-                        <span class="block w-1 h-1 bg-white rounded-full"></span>
-                        <span class="block w-1 h-1 bg-white rounded-full"></span>
-                        <span class="block w-1 h-1 bg-white rounded-full"></span>
-                    </div>
-                </button>
-            </a>
+<!-- Tugas Sudah Diserahkan -->
+@if ($sudahTugas->isNotEmpty())
+    <h3 class="text-lg font-bold text-gray-700">Tugas Sudah Diserahkan</h3>
+    @foreach ($sudahTugas as $tugas)
+        <a href="{{ route('annnsekret', $tugas->id) }}" class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
+            <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4">
+            <p class="text-white font-semibold">{{ $tugas->judul }}</p>
+        </a>
+    @endforeach
+@else
+    <p class="text-gray-500">Tidak ada tugas yang sudah diserahkan.</p>
+@endif
+
         </div>
     </div>
 

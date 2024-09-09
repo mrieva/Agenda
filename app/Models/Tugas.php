@@ -10,5 +10,6 @@ class Tugas extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['judul', 'link', 'file'];
+    protected $fillable = ['judul', 'link', 'file', 'status'];
+
 }
