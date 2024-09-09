@@ -44,7 +44,7 @@
                                     onchange="previewImage()">
 
                                     <label for="profile_picture" class="cursor-pointer py-2 px-4 bg-[#5E9EB2] text-white rounded-md shadow-sm hover:bg-[#4d8aa1] duration-200">
-                                        Ganti Foto Profile
+                                        Ganti Foto Profil
                                     </label>
                             </div>
                         </div>

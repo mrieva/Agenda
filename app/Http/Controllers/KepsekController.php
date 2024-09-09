@@ -15,12 +15,6 @@ class KepsekController extends Controller
             return redirect()->route('home')->with('error', 'Sesi Habis! Anda harus login terlebih dahulu');
         }
 
-        // Pengecekan manual jika user sudah login tapi sesinya habis
-        if (Auth::user()->last_login_at < now()->subMinutes(180)) {
-            Auth::logout();
-            return redirect()->route('home')->with('error', 'Sesi Habis! Anda harus login terlebih dahulu');
-        }
-
         // Ambil data user yang sedang login
         $user = Auth::user();
 
