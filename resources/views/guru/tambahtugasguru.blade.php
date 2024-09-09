@@ -66,10 +66,9 @@
 
                         <div class="w-full sm:w-1/2 mb-4 sm:mb-0">
                             <label for="mapel" class="block text-gray-700 font-semibold mb-2">Point</label>
-                            <select id="mapel" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
-                                <option>Pilih Point</option>
-                            </select>
+                            <input type="text" id="mapel" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]" placeholder="Masukkan point">
                         </div>
+
 
                         <div class="w-full sm:w-1/2 mb-4 sm:mb-0">
                             <label for="tengat" class="block text-gray-700 font-semibold mb-2">Tengat</label>
@@ -89,28 +88,23 @@
                     </div>
 
                     <!-- Tombol Upload dan Tautan -->
-                    <div class="flex justify-start space-x-4 mb-4">
-                        <button class="flex items-center justify-center w-10 h-10 bg-white border-2 border-black text-white rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
-                            <img src="{{ asset('img/icon/Google drive.png') }}" alt="Google Drive">
-                        </button>
-
-                        <button class="flex items-center justify-center w-10 h-10 bg-white border-2 border-black text-white rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
-                            <img src="{{ asset('img/icon/Youtube.png') }}" alt="YouTube">
-                        </button>
-
-                        <button class="flex items-center justify-center w-10 h-10 bg-white border-2 border-black text-white rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
-                            <img src="{{ asset('img/icon/Upload.png') }}" alt="Upload">
-                        </button>
-
-                        <button class="flex items-center justify-center w-10 h-10 bg-white border-2 border-black text-white rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
-                            <img src="{{ asset('img/icon/Link.png') }}" alt="Link">
-                        </button>
-                    </div>
-
-                    <!-- Tombol Posting -->
-                    <div class="flex justify-end">
-                        <button class="bg-[#5E9EB2] text-white font-medium py-2 px-6 rounded-lg shadow-md hover:bg-[#4b8795] transition duration-300">Posting</button>
-                    </div>
+                    <form action="{{ route('upload-file') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <!-- Input file untuk upload -->
+                        <input type="file" name="file" class="hidden" id="file-input" accept="*">
+                        <div class="flex justify-start space-x-4 mb-4">
+                            <label for="file-input" class="flex items-center justify-center w-10 h-10 bg-white border-2 border-black text-black rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
+                                <img src="{{ asset('img/icon/Upload.png') }}" alt="Upload">
+                            </label>
+                            <a href="{{ route('upload-link') }}" class="flex items-center justify-center w-10 h-10 bg-white border-2 border-black text-black rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
+                                <img src="{{ asset('img/icon/Link.png') }}" alt="Link">
+                            </a>
+                        </div>
+                        <!-- Tombol Posting -->
+                        <div class="flex justify-end">
+                            <button type="submit" class="bg-[#5E9EB2] text-white font-medium py-2 px-6 rounded-lg shadow-md hover:bg-[#4b8795] transition duration-300">Posting</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 

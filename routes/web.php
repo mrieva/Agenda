@@ -5,6 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BannerController;
+
+
+
+Route::post('/upload-banner', [BannerController::class, 'uploadBanner']);
+
+
 
 // Route untuk menambahkan user
 Route::post('/add-user', [UserController::class, 'store'])->name('add-user.store');
@@ -48,6 +55,19 @@ Route::get('notif-siswa', function () {
 Route::get('pengumuman-siswa', function () {
     return view('siswa.pengumumansiswa');
 })->name('pengumuman-siswa');
+
+Route::post('/upload-banner', [BannerController::class, 'uploadBanner'])->name('upload-banner');
+
+// Route untuk menampilkan halaman siswa dan mengambil data banner
+Route::get('index-siswa', [BannerController::class, 'showSiswaPage'])->name('index-siswa');
+
+
+
+// Rute untuk upload file
+Route::post('/upload-file', [BannerController::class, 'uploadFile'])->name('upload-file');
+
+// Rute untuk upload link
+Route::post('/upload-link', [BannerController::class, 'uploadLink'])->name('upload-link');
 
 
 // Guru section
