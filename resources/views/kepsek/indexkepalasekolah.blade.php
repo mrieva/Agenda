@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Kepala Sekolah</title>
+    <title>KepalaSekolah</title>
     <link href="{{ asset('tailwindcharts/css/flowbite.min.css') }}" rel="stylesheet" />
     <link href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet" />
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
