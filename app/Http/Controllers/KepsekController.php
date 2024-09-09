@@ -10,35 +10,39 @@ class KepsekController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
+        // Cek jika user belum login atau bukan kepala sekolah
+        if (Auth::guest() || Auth::user()->role !== 'kepala_sekolah') {
+            return redirect()->route('home')->with('error', 'Anda tidak memiliki akses ke halaman ini');
+        }
+
+        $user = Auth::user(); // Ambil data kepala sekolah yang login
         return view('kepsek.indexkepalasekolah', compact('user'));
     }
 
+
     public function settings()
     {
-        // Pengecekan manual jika user belum login
-        if (Auth::guest()) {
-            return redirect()->route('home')->with('error', 'Sesi Habis! Anda harus login terlebih dahulu');
+        // Cek jika user belum login atau bukan kepala sekolah
+        if (Auth::guest() || Auth::user()->role !== 'kepala_sekolah') {
+            return redirect()->route('home')->with('error', 'Anda tidak memiliki akses ke halaman ini');
         }
 
-        // Ambil data user yang sedang login
-        $user = Auth::user();
-
-        // Kirim data ke view
+        $user = Auth::user(); // Ambil data kepala sekolah yang login
         return view('kepsek.settings', compact('user'));
     }
 
+
     public function showSettings()
     {
-        if (Auth::guest()) {
-            return redirect()->route('login');
+        // Cek jika user belum login atau bukan kepala sekolah
+        if (Auth::guest() || Auth::user()->role !== 'kepala_sekolah') {
+            return redirect()->route('home')->with('error', 'Anda tidak memiliki akses ke halaman ini');
         }
 
-        // Ambil data user berdasarkan ID yang sedang login
-        $user = User::find(auth()->id());
-
-        return view('settings', compact('user'));
+        $user = Auth::user(); // Ambil data kepala sekolah yang login
+        return view('kepsek.settings', compact('user'));
     }
+
 
     public function editProfile()
     {

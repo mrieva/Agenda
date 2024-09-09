@@ -98,10 +98,10 @@
                                         <select name="role" id="role" onchange="updateFields()"
                                             class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
                                             <option value="">Pilih Role</option>
-                                            <option value="Siswa">Siswa</option>
-                                            <option value="Guru">Guru</option>
-                                            <option value="Sekretaris">Sekretaris</option>
-                                            <option value="Kepala Sekolah">Kepala Sekolah</option>
+                                            <option value="siswa">Siswa</option>
+                                            <option value="guru">Guru</option>
+                                            <option value="sekretaris">Sekretaris</option>
+                                            <option value="kepala_sekolah">Kepala Sekolah</option>
                                         </select>
                                         @error('role')
                                             <div class="text-red-500 text-sm">{{ $message }}</div>
@@ -181,24 +181,24 @@
     </div>
 
     <script>
-    const dropZone = document.querySelector('.drop-zone');
+        const dropZone = document.querySelector('.drop-zone');
 
-    dropZone.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        dropZone.classList.add('dragover');
-    });
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
 
-    dropZone.addEventListener('dragleave', () => {
-        dropZone.classList.remove('dragover');
-    });
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
 
-    dropZone.addEventListener('drop', (e) => {
-        e.preventDefault();
-        dropZone.classList.remove('dragover');
-        const fileName = e.dataTransfer.files[0]?.name || 'Klik untuk Mengunggah atau Seret dan Jatuhkan';
-        document.getElementById('file-name').innerText = fileName;
-    });
-</script>
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            const fileName = e.dataTransfer.files[0]?.name || 'Klik untuk Mengunggah atau Seret dan Jatuhkan';
+            document.getElementById('file-name').innerText = fileName;
+        });
+    </script>
 
 
     <script>

@@ -89,7 +89,6 @@
                 </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-1 gap-16 mb-4 mx-10">
-               git  --}}
                 <div class="border-4 border-solid border-[#5E9EB2] rounded-xl">
                     <div class="container">
                         <div class="text-wrapper flex px-14 py-14 items-center justify-between mb-5">
