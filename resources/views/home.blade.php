@@ -175,7 +175,7 @@
 </head>
 
 <body class="m-0 font-poppins bg-cover bg-center bg-no-repeat">
-
+    <x-preloader></x-preloader>
     <x-navbar />
 
     <main>

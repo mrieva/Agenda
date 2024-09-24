@@ -30,17 +30,9 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        // Mencoba login dari tabel Siswa
-        $user = User::where('nisn', $request->nisn)->first();
-        // Mencoba login dari tabel Guru
-        // ?? Guru::where('nipd', $request->nisn)->first()
-        // Mencoba login dari tabel Sekretaris
-        // ?? Sekretaris::where('nipd', $request->nisn)->first()
-        // Mencoba login dari tabel KepalaSekolah
-        // ?? KepalaSekolah::where('nipd', $request->nisn)->first();
 
-        // Debugging jika diperlukan
-        // dd($user);
+        $user = User::where('nisn', $request->nisn)->first();
+
 
         if ($user && Hash::check($request->password, $user->password)) {
             if ($user->role == 'siswa') {
@@ -63,6 +55,6 @@ class AuthController extends Controller
             return back()->with('error', 'NISN/NIPD atau password salah');
         }
     }
-    
+
 }
 

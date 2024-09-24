@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <x-preloader></x-preloader>
     <x-sidebarsekret></x-sidebarsekret>
     <div class="p-4 sm:ml-64">
         <div class="p-4">

@@ -13,6 +13,7 @@
 </head>
 
 <body class="bg-gray-50 dark:bg-gray-900">
+    <x-preloader></x-preloader>
 
     <!-- Sidebar -->
     <x-sidebarsekret></x-sidebarsekret>
@@ -75,8 +76,6 @@
 
         <!-- Task and Comment Section -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-
-            <!-- Task Section -->
 <!-- Task Section -->
 <div class="col-span-1 bg-gray-100 p-4 rounded-lg dark:bg-gray-900">
     <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300">Tugas</h3>
@@ -129,12 +128,6 @@
         </form>
     </div>
 </div>
-
-
-
-
-
-
 
 
             <!-- Comments Section -->

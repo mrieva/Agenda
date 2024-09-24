@@ -18,39 +18,40 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 mx-6">
                 <!-- Left Section (Welcome Text) -->
                 <div class="items-center justify-center h-24 rounded bg-transparent dark:bg-gray-800 block p-4">
-                    <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, Siswa Sekolah!</h3>
+                    <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back,
+                        {{ Auth::user()->name }}! </h3>
                     <p class="text-sm text-[#83a4ad] dark:text-gray-300"></p>
                 </div>
 
-              <!-- Right Section (Search, Profile, Notifications) -->
-              <div
-              class="flex items-center lg:justify-end xs:justify-center xss:justify-center h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-4">
-              <!-- Search Form -->
-              <form class="relative flex items-center">
-                  <input type="text" placeholder="Search..."
-                      class="bg-[#5e9eb234] dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-xl lg:px-10 lg:py-2 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
-                  <i
-                      class='bx bx-search absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500'></i>
-              </form>
+                <!-- Right Section (Search, Profile, Notifications) -->
+                <div
+                    class="flex items-center lg:justify-end xs:justify-center xss:justify-center h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-4">
+                    <!-- Search Form -->
+                    <form class="relative flex items-center">
+                        <input type="text" placeholder="Search..."
+                            class="bg-[#5e9eb234] dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-xl lg:px-10 lg:py-2 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
+                        <i
+                            class='bx bx-search absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500'></i>
+                    </form>
 
-              <!-- Profile Button -->
-              <button onclick="window.location.href='{{ route('setsekret') }}'"
-                  class="flex items-center justify-center lg:w-10 lg:h-10 md:w-8 md:h-8 sm:w-8 sm:h-8 xs:w-8 xs:h-8 xss:w-8 xss:h-8 bg-[#5e9eb234] dark:bg-gray-700 xl:rounded-lg lg:rounded-xl md:rounded-lg sm:rounded-lg xs:rounded-lg xss:rounded-lg">
-                  <i class='bx bx-user text-gray-600 dark:text-gray-300'></i>
-              </button>
+                    <!-- Profile Button -->
+                    <button onclick="window.location.href='{{ route('setsekret') }}'"
+                        class="flex items-center justify-center lg:w-10 lg:h-10 md:w-8 md:h-8 sm:w-8 sm:h-8 xs:w-8 xs:h-8 xss:w-8 xss:h-8 bg-[#5e9eb234] dark:bg-gray-700 xl:rounded-lg lg:rounded-xl md:rounded-lg sm:rounded-lg xs:rounded-lg xss:rounded-lg">
+                        <i class='bx bx-user text-gray-600 dark:text-gray-300'></i>
+                    </button>
 
-              <!-- Notification Button -->
-              <button onclick="window.location.href='{{ route('notif-sekret') }}'"
-                  class="flex items-center justify-center lg:w-10 lg:h-10 md:w-8 md:h-8 sm:w-8 sm:h-8 xs:w-8 xs:h-8 xss:w-8 xss:h-8 bg-[#5e9eb234] dark:bg-gray-700 xl:rounded-lg lg:rounded-xl md:rounded-lg sm:rounded-lg xs:rounded-lg xss:rounded-lg">
-                  <i class='bx bx-bell text-gray-600 dark:text-gray-300'></i>
-              </button>
-          </div>
+                    <!-- Notification Button -->
+                    <button onclick="window.location.href='{{ route('notif-sekret') }}'"
+                        class="flex items-center justify-center lg:w-10 lg:h-10 md:w-8 md:h-8 sm:w-8 sm:h-8 xs:w-8 xs:h-8 xss:w-8 xss:h-8 bg-[#5e9eb234] dark:bg-gray-700 xl:rounded-lg lg:rounded-xl md:rounded-lg sm:rounded-lg xs:rounded-lg xss:rounded-lg">
+                        <i class='bx bx-bell text-gray-600 dark:text-gray-300'></i>
+                    </button>
+                </div>
             </div>
 
 
             <div class="grid grid-cols-1 gap-16 mb-4 mx-4 md:mx-10">
                 <div class="relative flex items-center justify-center h-48 md:h-64 rounded-xl bg-cover bg-center bg-no-repeat"
-    style="background-image: url('{{ session('banner_url', asset('img/background-banner.png')) }}')">
+                    style="background-image: url('{{ session('banner_url', asset('img/background-banner.png')) }}')">
 
                     <!-- Tombol Sesuaikan di kanan atas -->
                     <button id="customizeBtn"
@@ -68,12 +69,13 @@
                 <!-- Modal Content -->
                 <div class="bg-white rounded-lg p-6 shadow-xl w-96">
                     <h2 class="text-xl font-semibold mb-4">Ganti Background Banner</h2>
-                    <form method="POST" action="{{ route('upload.banner') }}" enctype="multipart/form-data">
+                    <form method="POST" action="" enctype="multipart/form-data">
                         @csrf
                         <label class="block mb-2 text-gray-700">Pilih Gambar:</label>
                         <input type="file" name="bannerImage" class="block w-full mb-4" accept="image/*">
                         <div class="flex justify-end space-x-2">
-                            <button type="button" id="cancelBtn" class="border border-[#5E9EB2] text-[#5E9EB2] py-2 px-4 rounded-lg">Batal</button>
+                            <button type="button" id="cancelBtn"
+                                class="border border-[#5E9EB2] text-[#5E9EB2] py-2 px-4 rounded-lg">Batal</button>
                             <button type="submit" class="bg-[#5E9EB2] text-white py-2 px-4 rounded-lg">Simpan</button>
                         </div>
                     </form>
@@ -123,30 +125,53 @@
                 </div>
 
 
-                <span class="text-lg font-medium text-[#5E9EB2] ">Pengumuman Tugas
-                    <p class="text-xs text-[#ffff] font-extralight"> 1 July 2024</p>
+                <span class="text-lg font-medium text-[#5E9EB2] ">Tugas:
                 </span>
 
-                <!-- Task A -->
-                <a href="{{ route('annnsiswa') }}"
-                    class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
-                    <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4">
-                    <p class="text-white font-semibold">Tugas A</p>
-                </a>
+                <!-- Loop Through Tasks -->
+                @php
+                    $currentDate = null; // Variabel untuk menyimpan tanggal saat ini dalam loop
+                @endphp
 
-                <!-- Task B -->
-                <a href="{{ route('annnsiswa') }}"
-                    class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
-                    <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4">
-                    <p class="text-white font-semibold">Tugas B</p>
-                </a>
+                @if ($tugas->count() === 0)
+                    <div class="mt-6 ml-2 mb-2">
+                        <h2 class="text-sm font-semibold text-[#5E9EB2]">Tidak ada tugas yang tersedia.</h2>
+                    </div>
+                @else
+                    @foreach ($tugas as $t)
+                        @php
+                            // Format tanggal pembuatan tugas
+                            $tugasDate = \Carbon\Carbon::parse($t->created_at)->format('d F Y');
+                        @endphp
+
+                        <!-- Cek apakah tanggal berubah, jika ya tampilkan tanggal baru -->
+                        @if ($tugasDate !== $currentDate)
+                            <div class="mt-6 ml-2 mb-2">
+                                <h2 class="text-sm font-semibold text-[#5E9EB2]">{{ $tugasDate }}</h2>
+                            </div>
+                            @php
+                                // Update tanggal saat ini
+                                $currentDate = $tugasDate;
+                            @endphp
+                        @endif
+
+                        <!-- Tampilkan tugas -->
+                        <a href="{{ route('annnsiswa', ['id' => $t->id]) }}"
+                            class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
+                            <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4">
+                            <p class="text-white font-semibold">{{ $t->topik }}</p>
+                        </a>
+                    @endforeach
+                @endif
+
+
             </div>
         </div>
     </div>
     </div>
 
 
-        </div>
+    </div>
     </div>
     </div>
 
@@ -214,22 +239,26 @@
             }
         });
 
-        @if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
+        @if (session('success'))
+            <
+            div class = "alert alert-success" >
+            {{ session('success') }}
+                <
+                /div>
+        @endif
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
+        @if ($errors->any())
+            <
+            div class = "alert alert-danger" >
+            <
+            ul >
+                @foreach ($errors->all() as $error)
+                    <
+                    li > {{ $error }} < /li>
+                @endforeach <
+                /ul> <
+                /div>
+        @endif
     </script>
 </body>
 

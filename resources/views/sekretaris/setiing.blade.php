@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <x-preloader></x-preloader>
     <x-sidebarsekret>
 
     </x-sidebarsekret>

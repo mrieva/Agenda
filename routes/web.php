@@ -1,27 +1,29 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TugasController;
 use App\Http\Controllers\KehadiranController;
-use App\Http\Controllers\BannerController;
+use App\Http\Controllers\GuruTugasController;
+use App\Http\Controllers\SekretarisController;
+use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\PengumpulanTugasController;
+use App\Models\PengumpulanTugas;
 
-Route::post('/upload-banner', [BannerController::class, 'upload'])->name('upload.banner');
+Route::post('/guru/tugas', [GuruTugasController::class, 'store'])->name('gurutugas.store');
 
+Route::get('/tugassekretaris', [SekretarisController::class, 'index'])->name('tugassekretaris');
 
 Route::post('/kehadiran/store', [KehadiranController::class, 'store'])->name('kehadiran.store');
 
-// web.php
-Route::get('/sekretaris', [TugasController::class, 'sekretaris'])->name('sekretaris.tugassekretaris');
-Route::post('/submit-link', [TugasController::class, 'storeLink'])->name('submit.link');
-Route::post('/submit-file', [TugasController::class, 'storeFile'])->name('submit.file');
+Route::post('submit-tugas', [PengumpulanTugasController::class, 'store'])->name('submit.tugas');
 
 
+Route::post('login', [AuthController::class, 'login'])->name('login');
 
-
-
-
-
+Route::post('send.email', [ContactController::class, 'sendEmail'])->name('send.email');
 
 Route::get('/conn', function () {
     return User::get();
@@ -37,58 +39,52 @@ Route::get('test', function () {
 
 
 // siswa section
-Route::get('index-siswa', function () {
-    return view('siswa.indexsiswa');
-})->name('index-siswa');
+Route::get('index-siswa', [GuruTugasController::class, 'indexSiswa'])->name('index-siswa');
 
-Route::get('pengumuman-siswa', function () {
-    return view('siswa.announcesiswa');
-})->name('annnsiswa');
+Route::get('pengumuman-siswa/{id}', [GuruTugasController::class, 'detailTugas'])->name('annnsiswa');
 
-Route::get('tugas-siswa', function () {
-    return view('siswa.tugassiswa');
-})->name('tugas-siswa');
-;
+Route::get('/tugas-siswa', [GuruTugasController::class, 'tugasSiswa'])->name('tugassiswa');
 
+Route::get('/tugas/diserahkan/{id}', [PengumpulanTugasController::class, 'showDiserahkan'])->name('deskdiserahkan');
 
+Route::post('/tugas/{id}/cancel-submission', [PengumpulanTugasController::class, 'cancelSubmission'])->name('cancelSub');
 
 // guru section
-Route::get('index-guru', function () {
-    return view('guru.indexguru');
-})->name('index-guru');;
+Route::get('index-guru', [GuruTugasController::class, 'indexGuru'])->name('index-guru');
 
-route::get("tugas-guru", function(){
+route::get("tugas-guru", function () {
     return view('guru.tugasguru');
 });
 
-Route::get("notif-guru", function () {
-    return view("guru.settings-notif");
-})->name('notif-guru');
-
-Route::get("tugas-guru", function () {
-    return view("guru.tugasguru");
+Route::get('tugas-guru', function () {
+    return view('guru.tugasguru');
 })->name('tugas-guru');
 
-Route::get("settings-guru", function () {
-    return view("guru.setting");
+Route::get('notif-guru', function () {
+    return view('guru.settings-notif');
+})->name('notif-guru');
+
+Route::get('settings-guru', function () {
+    return view('guru.setting');
 })->name('settings-guru');
 
 Route::get('tambahtugas', function () {
-    return view("guru.tambahtugasguru");
+    return view('guru.tambahtugasguru');
 })->name('tambahtugas');
 
-Route::get('kelas-guru', function() {
-    return view('guru.kelasguru');
-})->name('kelasguru');
+Route::get('/preview-tugas/{id}', [GuruTugasController::class, 'showPreview'])->name('previewTugas.show');
 
-Route::get('tabel-guru', function() {
-    return view('guru.tabeltugasguru');
-})->name('tabelguru');
+Route::post('/preview-tugas/{id}/update', [GuruTugasController::class, 'updateNilai'])->name('previewTugas.update'); // Untuk update nilai
 
-Route::get('kelas-dipilih', function () {
-    return view('guru.kelasdipilih');
-})->name('kelasdipilih');
+Route::post('/batal-periksa/{id}', [GuruTugasController::class, 'batalPeriksa'])->name('periksa.batal');
 
+Route::get('periksa-tugas/{id}', [GuruTugasController::class, 'periksa'])->name('periksa');
+
+Route::put('/periksa/{id}', [GuruTugasController::class, 'periksaTugas'])->name('periksa.update');
+
+Route::get('tabel-guru', [GuruTugasController::class, 'showTable'])->name('tabelguru');
+
+Route::post('/update-nilai-status', [PengumpulanTugasController::class, 'updateNilaiStatus'])->name('updateNilai');
 
 // kepsek section
 Route::get('index-kepala-sekolah', function () {
@@ -129,23 +125,3 @@ Route::get('settings-sekret', function () {
 Route::get('notif-sekret', function () {
     return view('sekretaris.notifsekret');
 })->name('notif-sekret');
-
-
-
-use App\Http\Controllers\ContactController;
-
-// routes/web.php
-Route::post('/input-kehadiran', [KehadiranController::class, 'store'])->name('input-kehadiran');
-
-
-Route::post('/kirim-email', [ContactController::class, 'sendEmail'])->name('send.email');
-
-use App\Http\Controllers\AuthController;
-
-Route::post('/login', [AuthController::class, 'login'])->name('login');
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/index', function () {
-        return view('indexsiswa');
-    });
-});

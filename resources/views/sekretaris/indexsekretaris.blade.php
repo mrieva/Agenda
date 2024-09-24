@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <x-preloader></x-preloader>
     <x-sidebarsekret></x-sidebarsekret>
 
     <div class="p-4 sm:ml-64">
@@ -19,10 +20,8 @@
             <!-- Welcome Section -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 mx-6">
                 <div class="items-center justify-center h-24 rounded bg-transparent dark:bg-gray-800 block p-4">
-                    <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, Sekretaris Sekolah!
+                    <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, {{ Auth::user()->name }}!
                     </h3>
-                    <p class="text-sm text-[#83a4ad] dark:text-gray-300">Lorem ipsum dolor sit amet, consectetur
-                        adipisicing elit. Dolorem ipsum!</p>
                 </div>
 
                 <!-- Right Section (Search, Profile, Notifications) -->
@@ -117,19 +116,13 @@
                     <p class="text-xs text-[#ffff] font-extralight"> 1 July 2024</p>
                 </span>
 
-                <!-- Task A -->
-                <a href="{{ route('annnsekret') }}"
-                    class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
-                    <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4">
-                    <p class="text-white font-semibold">Tugas A</p>
-                </a>
+                 <!-- Loop Through Tasks -->
+            <a href="" class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
+                <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4">
+                <p class="text-white font-semibold"></p>
+            </a>
 
-                <!-- Task B -->
-                <a href="#"
-                    class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
-                    <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4">
-                    <p class="text-white font-semibold">Tugas B</p>
-                </a>
+
             </div>
         </div>
     </div>
@@ -148,7 +141,7 @@
                 <!-- Input tersembunyi untuk role -->
 
                 <div class="mb-4">
-                    <label for="name" id="name-label" class="block text-sm font-semibold">Nama Siswa</label>
+                    <label for="name" id="name-label" class="block text-sm font-semibold">Nama</label>
                     <input type="text" id="name" name="name"
                         class="w-full px-4 py-2 mt-2 bg-white border border-[#83a4ad] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5E9EB2] text-gray-900"
                         placeholder="Masukkan nama siswa" required />
@@ -190,7 +183,7 @@
                         class="px-6 py-2 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400">Cancel</button>
                     <button type="submit"
                         class="px-6 py-2 bg-[#fff] text-[#6CC6EC] font-semibold rounded-lg hover:bg-[#4c8da3] hover:text-[#fff] focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">Input
-                        Kehadiran</button>
+                        </button>
                 </div>
             </form>
         </div>

@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <x-preloader></x-preloader>
     <x-sidebarsekret></x-sidebarsekret>
     <div class="p-4 sm:ml-64">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
@@ -50,36 +51,37 @@
 
             </div>
 
-                        @php
-    $belumTugas = App\Models\Tugas::where('status', 'belum')->get();
-    $sudahTugas = App\Models\Tugas::where('status', 'sudah')->get();
-@endphp
+        
+
 
 <!-- Tugas Belum Diserahkan -->
-@if ($belumTugas->isNotEmpty())
-    <h3 class="text-lg font-bold text-gray-700">Tugas Belum Diserahkan</h3>
-    @foreach ($belumTugas as $tugas)
-        <a href="{{ route('annnsekret', $tugas->id) }}" class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
+
+    <a href="#" class="inline-block text-lg font-bold text-white bg-gradient-to-r from-[#FF6B6B] to-[#F86F86] hover:bg-gradient-to-br hover:from-[#F86F86] hover:to-[#FF6B6B] py-2 px-4 mb-4 rounded-full transition-colors duration-300 ease-in-out">
+        Tugas Belum Diserahkan
+    </a>
+
+        <a href="" class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
             <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4 ">
-            <p class="text-white font-semibold">{{ $tugas->judul }}</p>
+            <p class="text-white font-semibold"></p>
         </a>
-    @endforeach
-@else
-    <p class="text-gray-500">Tidak ada tugas yang belum diserahkan.</p>
-@endif
+
+
+
+
 
 <!-- Tugas Sudah Diserahkan -->
-@if ($sudahTugas->isNotEmpty())
-    <h3 class="text-lg font-bold text-gray-700">Tugas Sudah Diserahkan</h3>
-    @foreach ($sudahTugas as $tugas)
-        <a href="{{ route('annnsekret', $tugas->id) }}" class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
+    <a href="#" class="inline-block  font-bold text-white bg-gradient-to-r from-[#6CC6EC] to-[#5E9EB2] hover:bg-gradient-to-br hover:from-[#5E9EB2] hover:to-[#6CC6EC] py-2 px-4 mb-4 rounded-full transition-colors duration-300 ease-in-out">
+        Tugas Sudah Diserahkan
+    </a>
+
+        <a href="" class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
             <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4">
-            <p class="text-white font-semibold">{{ $tugas->judul }}</p>
+            <p class="text-white font-semibold"></p>
         </a>
-    @endforeach
-@else
+
     <p class="text-gray-500">Tidak ada tugas yang sudah diserahkan.</p>
-@endif
+
+
 
         </div>
     </div>

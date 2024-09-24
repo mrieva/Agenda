@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <x-preloader></x-preloader>
     <x-sidebarguru>
 
     </x-sidebarguru>
