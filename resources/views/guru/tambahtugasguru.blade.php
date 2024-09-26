@@ -103,7 +103,7 @@
 
                             <!-- Tengat -->
                             <div class="w-full sm:w-1/2 mb-4 sm:mb-0">
-                                <label for="tengat" class="block text-gray-700 font-semibold mb-2">Tenggat:</label>
+                                <label for="tengat" class="block text-gray-700 font-semibold mb-2">Tengat:</label>
                                 <input type="datetime-local" name="tengat" id="tengat"
                                     class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full">
                             </div>

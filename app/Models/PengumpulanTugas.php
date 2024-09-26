@@ -27,13 +27,18 @@ class PengumpulanTugas extends Model
     ];
 
     public function guruTugas()
-{
-    return $this->belongsTo(GuruTugas::class, 'guru_tugas_id');
-}
+    {
+        return $this->belongsTo(GuruTugas::class, 'guru_tugas_id');
+    }
 
-public function user()
-{
-    return $this->belongsTo(User::class, 'user_id'); // Pastikan 'user_id' adalah foreign key yang benar
-}
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id'); // Pastikan 'user_id' adalah foreign key yang benar
+    }
+
+    public function komentar()
+    {
+        return $this->hasMany(Comment::class, 'guru_tugas_id');
+    }
 
 }

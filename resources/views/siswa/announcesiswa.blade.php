@@ -24,14 +24,13 @@
             <div class="items-center justify-center h-24 rounded bg-transparent dark:bg-gray-800 block p-4">
                 <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, {{ Auth::user()->name }}
                 </h3>
-                <p class="text-sm text-[#83a4ad] dark:text-gray-300">Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit. Dolorem ipsum!</p>
+                <p class="text-sm text-[#83a4ad] dark:text-gray-300"></p>
             </div>
 
             <!-- Right Section (Search, Profile, Notifications) -->
             <div class="flex items-center lg:justify-end h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-4">
                 <!-- Search Form -->
-                <form class="relative flex items-center">
+                <form class="relative flex flex-none items-center">
                     <input type="text" placeholder="Search..."
                         class="bg-[#5e9eb234] dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-xl lg:px-10 lg:py-2 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
                     <i
@@ -138,8 +137,10 @@
                 class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50">
                 <div class="bg-white p-6 rounded-lg dark:bg-gray-700 max-w-7xl mx-auto">
                     <h3 class="text-2xl font-bold mb-4 text-gray-700 dark:text-gray-300">Preview File</h3>
-                    <iframe id="filePreview" src="" width="1000vh" height="450vh"
-                        class="border rounded-lg"></iframe>
+                    <img id="filePreview" src="" alt="Preview Gambar"
+                        class="border rounded-lg w-full h-auto hidden" />
+                    <iframe id="filePreviewIframe" src="" width="1000" height="450"
+                        class="border rounded-lg hidden"></iframe>
                     <div class="flex justify-end mt-4">
                         <button id="closePreviewModal"
                             class="px-4 py-2 bg-gray-500 text-white rounded-lg">Tutup</button>
@@ -199,10 +200,11 @@
                     </script>
                 @endif
             </div>
-
         </div>
 
     </div>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
     <script>
@@ -253,7 +255,21 @@
         });
 
         function openPreviewModal(fileUrl) {
-            filePreview.src = fileUrl;
+            const fileExtension = fileUrl.split('.').pop().toLowerCase();
+            const imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
+
+            if (imageExtensions.includes(fileExtension)) {
+                // Jika file adalah gambar
+                document.getElementById('filePreview').src = fileUrl;
+                document.getElementById('filePreview').style.display = 'block'; // Tampilkan gambar
+                document.getElementById('filePreviewIframe').style.display = 'none'; // Sembunyikan iframe
+            } else {
+                // Jika bukan gambar
+                document.getElementById('filePreview').style.display = 'none'; // Sembunyikan gambar
+                document.getElementById('filePreviewIframe').src = fileUrl; // Set src untuk iframe
+                document.getElementById('filePreviewIframe').style.display = 'block'; // Tampilkan iframe
+            }
+
             previewModal.classList.remove('hidden');
         }
 

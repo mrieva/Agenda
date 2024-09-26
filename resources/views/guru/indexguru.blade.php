@@ -19,7 +19,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 mx-6">
                 <!-- Left Section (Welcome Text) -->
                 <div class="items-center justify-center h-24 rounded bg-transparent dark:bg-gray-800 block p-4">
-                    <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, Siswa Sekolah!</h3>
+                    <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, {{ Auth::user()->name }}!</h3>
                     <p class="text-sm text-[#83a4ad] dark:text-gray-300"></p>
                 </div>
 
@@ -59,12 +59,7 @@
             <div class="grid grid-cols-1 gap-16 mb-4 mx-4 md:mx-10">
                 <div class="relative flex items-center justify-center h-48 md:h-64 rounded-xl bg-cover bg-center bg-no-repeat"
                     style="background-image: url('{{ asset('img/background-banner.png') }}')">
-                    <!-- Tombol Sesuaikan di kanan atas -->
-                    <button id="customizeBtn"
-                        class="absolute top-2 right-2 bg-[#5E9EB2] text-white font-medium py-1 px-2 md:px-3 rounded-lg shadow-md flex items-center space-x-1 md:space-x-2">
-                        <img src="{{ asset('img/icon/Pencil.png') }}" alt="" class="w-3 h-3 md:w-4 md:h-4">
-                        <span class="text-sm md:text-base">Sesuaikan</span>
-                    </button>
+
                     <button onclick="window.location.href='{{ route('tambahtugas') }}'"
                         class="absolute bottom-4 left-7 bg-[#5E9EB2] text-white font-medium py-1 px-3 rounded-lg shadow-md flex items-center space-x-2">
                         <!-- Ukuran disesuaikan -->
@@ -92,115 +87,10 @@
             </div>
 
 
-            <div class="grid grid-cols-1 gap-8 mb-4 mx-4 sm:mx-6 md:mx-8 lg:mx-10">
-                <!-- Container for Button and Form -->
-                <div class="w-full">
-                    <!-- "Silahkan Berkomunikasi" Button -->
-                    <div class="flex items-center h-20 sm:h-24 rounded-xl bg-white border-2 border-[#5E9EB2]">
-                        <button id="toggleForm" class="flex items-center space-x-4 p-4 w-full">
-                            <span class="text-base sm:text-xl font-medium text-[#5E9EB2]">
-                                Disinilah Di sinilah Anda dapat berbicara dengan kelas Anda
-                            </span>
-                        </button>
-                    </div>
-
-                    <!-- Hidden Form with Animation -->
-                    <div id="communicationForm"
-                        class="hidden mt-4 p-4 border-2 border-gray-200 rounded-lg bg-[#e6f5fc] dark:bg-gray-800 w-full opacity-0 transform scale-y-0 origin-top transition-all duration-500">
-                        <textarea
-                            class="w-full h-32 sm:h-40 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
-                            placeholder="Write your message..."></textarea>
-                        <div class="flex flex-wrap justify-between items-center mt-4">
-                            <div class="flex flex-wrap justify-start space-x-4 mb-4">
-                                <button
-                                    class="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-white-600 border-2 border-black text-white rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
-                                    <img src="{{ asset('img/icon/Google drive.png') }}" alt=""
-                                        class="w-5 h-5 sm:w-6 sm:h-6">
-                                </button>
-
-                                <button
-                                    class="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-white-600 border-2 border-black text-white rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
-                                    <img src="{{ asset('img/icon/Youtube.png') }}" alt=""
-                                        class="w-5 h-5 sm:w-6 sm:h-6">
-                                </button>
-
-                                <button
-                                    class="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-white-600 border-2 border-black text-white rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
-                                    <img src="{{ asset('img/icon/Upload.png') }}" alt=""
-                                        class="w-5 h-5 sm:w-6 sm:h-6">
-                                </button>
-
-                                <button
-                                    class="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-white-600 border-2 border-black text-white rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
-                                    <img src="{{ asset('img/icon/Link.png') }}" alt=""
-                                        class="w-5 h-5 sm:w-6 sm:h-6">
-                                </button>
-                            </div>
-
-                            <button class="bg-[#5E9EB2] text-white px-4 py-2 rounded-lg hover:bg-[#6CC6EC]">
-                                Posting
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
-            <div class="grid grid-cols-1 gap-8 mb-4 mx-4 sm:mx-6 md:mx-8 lg:mx-10">
-                <!-- Container for Button and Form -->
-                <div class="w-full">
-                    <!-- "Tambah Pengumuman" Button -->
-                    <div class="flex items-center h-20 sm:h-24 rounded-xl border-2 border-[#5E9EB2] w-full">
-                        <button id="toggleAnnouncementForm" class="flex items-center space-x-4 p-4 w-full">
-                            <span class="text-base sm:text-xl font-medium text-[#5E9EB2]">
-                                Disinilah Di sinilah Anda dapat menambah pengumuman
-                            </span>
-                        </button>
-                    </div>
 
-                    <!-- Hidden Form with Animation -->
-                    <div id="announcementForm"
-                        class="hidden mt-4 p-4 border-2 border-gray-200 rounded-lg bg-[#e6f5fc] dark:bg-gray-800 w-full opacity-0 transform scale-y-0 origin-top transition-all duration-500">
-                        <input type="text"
-                            class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
-                            placeholder="Title of the Announcement">
-                        <textarea
-                            class="w-full h-32 sm:h-40 p-2 mt-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
-                            placeholder="Details of the announcement..."></textarea>
-                        <div class="flex flex-wrap justify-between items-center mt-4">
-                            <div class="flex flex-wrap justify-start space-x-4 mb-4">
-                                <button
-                                    class="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-white-600 border-2 border-black text-white rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
-                                    <img src="{{ asset('img/icon/Google drive.png') }}" alt=""
-                                        class="w-5 h-5 sm:w-6 sm:h-6">
-                                </button>
 
-                                <button
-                                    class="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-white-600 border-2 border-black text-white rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
-                                    <img src="{{ asset('img/icon/Youtube.png') }}" alt=""
-                                        class="w-5 h-5 sm:w-6 sm:h-6">
-                                </button>
-
-                                <button
-                                    class="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-white-600 border-2 border-black text-white rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
-                                    <img src="{{ asset('img/icon/Upload.png') }}" alt=""
-                                        class="w-5 h-5 sm:w-6 sm:h-6">
-                                </button>
-
-                                <button
-                                    class="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-white-600 border-2 border-black text-white rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
-                                    <img src="{{ asset('img/icon/Link.png') }}" alt=""
-                                        class="w-5 h-5 sm:w-6 sm:h-6">
-                                </button>
-                            </div>
-
-                            <button class="bg-[#5E9EB2] text-white px-4 py-2 rounded-lg hover:bg-[#6CC6EC]">
-                                Posting
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
         </div>
     </div>

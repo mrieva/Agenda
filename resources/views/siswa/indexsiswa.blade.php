@@ -27,22 +27,22 @@
                 <div
                     class="flex items-center lg:justify-end xs:justify-center xss:justify-center h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-4">
                     <!-- Search Form -->
-                    <form class="relative flex items-center">
+                    <form class="relative flex items-center max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl">
                         <input type="text" placeholder="Search..."
-                            class="bg-[#5e9eb234] dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-xl lg:px-10 lg:py-2 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
+                            class="bg-[#5e9eb234] dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2] w-full">
                         <i
                             class='bx bx-search absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500'></i>
                     </form>
 
                     <!-- Profile Button -->
                     <button onclick="window.location.href='{{ route('setsekret') }}'"
-                        class="flex items-center justify-center lg:w-10 lg:h-10 md:w-8 md:h-8 sm:w-8 sm:h-8 xs:w-8 xs:h-8 xss:w-8 xss:h-8 bg-[#5e9eb234] dark:bg-gray-700 xl:rounded-lg lg:rounded-xl md:rounded-lg sm:rounded-lg xs:rounded-lg xss:rounded-lg">
+                        class="flex-none items-center justify-center lg:w-10 lg:h-10 md:w-8 md:h-8 sm:w-8 sm:h-8 xs:w-8 xs:h-8 xss:w-8 xss:h-8 bg-[#5e9eb234] dark:bg-gray-700 xl:rounded-lg lg:rounded-xl md:rounded-lg sm:rounded-lg xs:rounded-lg xss:rounded-lg">
                         <i class='bx bx-user text-gray-600 dark:text-gray-300'></i>
                     </button>
 
                     <!-- Notification Button -->
                     <button onclick="window.location.href='{{ route('notif-sekret') }}'"
-                        class="flex items-center justify-center lg:w-10 lg:h-10 md:w-8 md:h-8 sm:w-8 sm:h-8 xs:w-8 xs:h-8 xss:w-8 xss:h-8 bg-[#5e9eb234] dark:bg-gray-700 xl:rounded-lg lg:rounded-xl md:rounded-lg sm:rounded-lg xs:rounded-lg xss:rounded-lg">
+                        class="flex-none items-center justify-center lg:w-10 lg:h-10 md:w-8 md:h-8 sm:w-8 sm:h-8 xs:w-8 xs:h-8 xss:w-8 xss:h-8 bg-[#5e9eb234] dark:bg-gray-700 xl:rounded-lg lg:rounded-xl md:rounded-lg sm:rounded-lg xs:rounded-lg xss:rounded-lg">
                         <i class='bx bx-bell text-gray-600 dark:text-gray-300'></i>
                     </button>
                 </div>
@@ -54,44 +54,17 @@
                     style="background-image: url('{{ session('banner_url', asset('img/background-banner.png')) }}')">
 
                     <!-- Tombol Sesuaikan di kanan atas -->
-                    <button id="customizeBtn"
-                        class="absolute top-2 right-2 bg-[#5E9EB2] text-white font-medium py-1 px-2 md:px-3 rounded-lg shadow-md flex items-center space-x-1 md:space-x-2">
-                        <img src="{{ asset('img/icon/Pencil.png') }}" alt="" class="w-3 h-3 md:w-4 md:h-4">
-                        <span class="text-sm md:text-base">Sesuaikan</span>
-                    </button>
-                </div>
-            </div>
-
-
-            <!-- Modal Background -->
-            <div id="modal-bg"
-                class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
-                <!-- Modal Content -->
-                <div class="bg-white rounded-lg p-6 shadow-xl w-96">
-                    <h2 class="text-xl font-semibold mb-4">Ganti Background Banner</h2>
-                    <form method="POST" action="" enctype="multipart/form-data">
-                        @csrf
-                        <label class="block mb-2 text-gray-700">Pilih Gambar:</label>
-                        <input type="file" name="bannerImage" class="block w-full mb-4" accept="image/*">
-                        <div class="flex justify-end space-x-2">
-                            <button type="button" id="cancelBtn"
-                                class="border border-[#5E9EB2] text-[#5E9EB2] py-2 px-4 rounded-lg">Batal</button>
-                            <button type="submit" class="bg-[#5E9EB2] text-white py-2 px-4 rounded-lg">Simpan</button>
-                        </div>
-                    </form>
 
                 </div>
             </div>
+
+
+
 
 
             <!-- Task Announcements -->
             <div class="p-4 mx-6">
-                <!-- Container for Button and Form -->
-                <div id="communicationButton"
-                    class="p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% cursor-pointer">
-                    <img src="{{ asset('img/icon/chatlight.png') }}" alt="" class="h-8 mr-4">
-                    <p class="text-white font-semibold">Silahkan Berkomunikasi</p>
-                </div>
+                
 
                 <!-- Hidden Form with Animation -->
                 <div id="communicationForm"

@@ -73,7 +73,7 @@ class PengumpulanTugasController extends Controller
             ]);
         }
 
-        return redirect('tugas-siswa')->with('success', 'Tugas berhasil dikumpulkan.');
+        return back()->with('success', 'Tugas berhasil dikumpulkan.');
     }
 
 
@@ -96,6 +96,24 @@ class PengumpulanTugasController extends Controller
         return view('siswa.deskdiserahkan', compact('task', 'submittedTask'));
     }
 
+    public function showDiserahkanSekret($id)
+    {
+        // Ambil data tugas dari tabel guru_tugas berdasarkan ID tugas
+        $task = GuruTugas::find($id);
+
+        // Ambil data pengumpulan tugas dari tabel pengumpulan_tugas
+        $submittedTask = PengumpulanTugas::where('guru_tugas_id', $id)
+            ->where('user_id', Auth::id()) // hanya data dari siswa yang login
+            ->first();
+
+        // Pastikan data tugas dan pengumpulan tugas ditemukan
+        if (!$task || !$submittedTask) {
+            return redirect()->back()->with('error', 'Tugas tidak ditemukan.');
+        }
+
+        return view('sekretaris.deskdiserahkansekret', compact('task', 'submittedTask'));
+    }
+
 
     public function cancelSubmission($id)
     {
@@ -114,6 +132,25 @@ class PengumpulanTugasController extends Controller
         }
 
         return redirect('/tugas/diserahkan/' . $id)->with('error', 'Pengumpulan tugas tidak ditemukan.');
+    }
+
+    public function cancelSubmissionSekret($id)
+    {
+        // Cari pengumpulan tugas berdasarkan ID tugas dan ID user yang sedang login
+        $submittedTask = PengumpulanTugas::where('guru_tugas_id', $id)
+            ->where('user_id', Auth::id())
+            ->first();
+
+        if ($submittedTask) {
+            // Update status menjadi 'belum diserahkan' (atau sesuai field status di tabelmu)
+            $submittedTask->status_siswa = 'belum diserahkan';
+            $submittedTask->status = 'belum diperiksa';
+            $submittedTask->nilai = null;
+            $submittedTask->save();
+            return redirect('tugassekretaris')->with('success', 'Pengumpulan tugas dibatalkan.');
+        }
+
+        return redirect('/tugas/diserahkan-sekret/' . $id)->with('error', 'Pengumpulan tugas tidak ditemukan.');
     }
 
     public function updateNilaiStatus(Request $request)

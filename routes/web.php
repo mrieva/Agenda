@@ -11,54 +11,56 @@ use App\Http\Controllers\SekretarisController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\PengumpulanTugasController;
 use App\Models\PengumpulanTugas;
+use App\Http\Controllers\CommentController;
 
-Route::post('/guru/tugas', [GuruTugasController::class, 'store'])->name('gurutugas.store');
-
-Route::get('/tugassekretaris', [SekretarisController::class, 'index'])->name('tugassekretaris');
-
-Route::post('/kehadiran/store', [KehadiranController::class, 'store'])->name('kehadiran.store');
-
-Route::post('submit-tugas', [PengumpulanTugasController::class, 'store'])->name('submit.tugas');
 
 
 Route::post('login', [AuthController::class, 'login'])->name('login');
 
-Route::post('send.email', [ContactController::class, 'sendEmail'])->name('send.email');
+Route::get('logout', [AuthController::class, 'destroy'])->name('logout');
 
-Route::get('/conn', function () {
-    return User::get();
-});
+
+
+
 
 Route::get('/', function () {
     return view('home');
 });
 
-Route::get('test', function () {
-    return view('test');
-});
+Route::post('send.email', [ContactController::class, 'sendEmail'])->name('send.email');
+
+
+
 
 
 // siswa section
+
+// Cek role dengan middleware, jika role bukan siswa maka redirect ke halaman awal
 Route::get('index-siswa', [GuruTugasController::class, 'indexSiswa'])->name('index-siswa');
 
 Route::get('pengumuman-siswa/{id}', [GuruTugasController::class, 'detailTugas'])->name('annnsiswa');
 
-Route::get('/tugas-siswa', [GuruTugasController::class, 'tugasSiswa'])->name('tugassiswa');
-
 Route::get('/tugas/diserahkan/{id}', [PengumpulanTugasController::class, 'showDiserahkan'])->name('deskdiserahkan');
 
+Route::get('/tugas-siswa', [GuruTugasController::class, 'tugasSiswa'])->name('tugassiswa');
+
 Route::post('/tugas/{id}/cancel-submission', [PengumpulanTugasController::class, 'cancelSubmission'])->name('cancelSub');
+
+Route::post('submit-tugas', [PengumpulanTugasController::class, 'store'])->name('submit.tugas');
+
+
+
+
+
+
+
+
+
 
 // guru section
 Route::get('index-guru', [GuruTugasController::class, 'indexGuru'])->name('index-guru');
 
-route::get("tugas-guru", function () {
-    return view('guru.tugasguru');
-});
-
-Route::get('tugas-guru', function () {
-    return view('guru.tugasguru');
-})->name('tugas-guru');
+Route::post('/guru/tugas', [GuruTugasController::class, 'store'])->name('gurutugas.store');
 
 Route::get('notif-guru', function () {
     return view('guru.settings-notif');
@@ -74,17 +76,26 @@ Route::get('tambahtugas', function () {
 
 Route::get('/preview-tugas/{id}', [GuruTugasController::class, 'showPreview'])->name('previewTugas.show');
 
+Route::get('periksa-tugas/{id}', [GuruTugasController::class, 'periksa'])->name('periksa');
+
+Route::post('periksa-tugas/{id}/komentar', [GuruTugasController::class, 'storeKomentar'])->name('komentar.store');
+
 Route::post('/preview-tugas/{id}/update', [GuruTugasController::class, 'updateNilai'])->name('previewTugas.update'); // Untuk update nilai
 
 Route::post('/batal-periksa/{id}', [GuruTugasController::class, 'batalPeriksa'])->name('periksa.batal');
-
-Route::get('periksa-tugas/{id}', [GuruTugasController::class, 'periksa'])->name('periksa');
 
 Route::put('/periksa/{id}', [GuruTugasController::class, 'periksaTugas'])->name('periksa.update');
 
 Route::get('tabel-guru', [GuruTugasController::class, 'showTable'])->name('tabelguru');
 
 Route::post('/update-nilai-status', [PengumpulanTugasController::class, 'updateNilaiStatus'])->name('updateNilai');
+
+
+
+
+
+
+
 
 // kepsek section
 Route::get('index-kepala-sekolah', function () {
@@ -101,22 +112,27 @@ Route::get("notif-kepsek", function () {
 
 
 
-// sekretaris section
-Route::get('index-sekretaris', function () {
-    return view('sekretaris.indexsekretaris');
-})->name('index-sekretaris');
 
-Route::get('tugas-sekretaris', function () {
-    return view('sekretaris.tugassekretaris');
-})->name('tugas-sekretaris');
+
+
+
+
+// sekretaris section
+Route::get('index-sekretaris', [GuruTugasController::class, 'indexSekret'])->name('index-sekretaris');
+
+Route::get('tugassekretaris', [GuruTugasController::class, 'tugasSekret'])->name('tugassekret');
 
 Route::get('komunikasi-sekretaris', function () {
     return view('sekretaris.komunikasisekretaris');
 })->name('komunsekret');
 
-Route::get('pengumuman-sekret', function () {
-    return view('sekretaris.announcesekret');
-})->name('annnsekret');
+Route::post('/kehadiran/store', [KehadiranController::class, 'store'])->name('kehadiran.store');
+
+Route::get('pengumuman-sekret/{id}', [GuruTugasController::class, 'detailSekret'])->name('annnsekret');
+
+Route::get('/tugas/diserahkan-sekret/{id}', [PengumpulanTugasController::class, 'showDiserahkanSekret'])->name('deskdiserahkansekret');
+
+Route::post('/tugas/{id}/cancel-submission-sekret', [PengumpulanTugasController::class, 'cancelSubmissionSekret'])->name('cancelSubSekret');
 
 Route::get('settings-sekret', function () {
     return view('sekretaris.setiing');

@@ -73,54 +73,41 @@
 
             <!-- Task Announcements -->
             <div class="p-4 mx-6">
-                <!-- Container for Button and Form -->
-                <div id="communicationButton"
-                    class="p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% cursor-pointer">
-                    <img src="{{ asset('img/icon/chatlight.png') }}" alt="" class="h-8 mr-4">
-                    <p class="text-white font-semibold">Silahkan Berkomunikasi</p>
-                </div>
-
-                <!-- Hidden Form with Animation -->
-                <div id="communicationForm"
-                    class="hidden mt-4 p-4 border-2 border-gray-200 rounded-lg bg-[#e6f5fc] dark:bg-gray-800 w-full opacity-0 transform scale-y-0 origin-top transition-all duration-500">
-                    <textarea
-                        class="w-full h-40 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
-                        placeholder="Write your message..."></textarea>
-                    <div class="flex justify-between items-center mt-4">
-                        <div class="flex space-x-2">
-                            <button
-                                class="bg-gray-200 p-2 rounded hover:bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-500">
-                                <i class='bx bx-italic'></i>
-                            </button>
-                            <button
-                                class="bg-gray-200 p-2 rounded hover:bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-500">
-                                <i class='bx bx-underline'></i>
-                            </button>
-                            <button
-                                class="bg-gray-200 p-2 rounded hover:bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-500">
-                                <i class='bx bx-list-ul'></i>
-                            </button>
-                            <button
-                                class="bg-gray-200 p-2 rounded hover:bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-500">
-                                <i class='bx bx-link'></i>
-                            </button>
-                        </div>
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                            Posting
-                        </button>
-                    </div>
-                </div>
-
-
-                <span class="text-lg font-medium text-[#5E9EB2] ">Pengumuman Tugas
-                    <p class="text-xs text-[#ffff] font-extralight"> 1 July 2024</p>
-                </span>
-
                  <!-- Loop Through Tasks -->
-            <a href="" class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
-                <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4">
-                <p class="text-white font-semibold"></p>
-            </a>
+                @php
+                    $currentDate = null; // Variabel untuk menyimpan tanggal saat ini dalam loop
+                @endphp
+
+                @if ($tugas->count() === 0)
+                    <div class="mt-6 ml-2 mb-2">
+                        <h2 class="text-sm font-semibold text-[#5E9EB2]">Tidak ada tugas yang tersedia.</h2>
+                    </div>
+                @else
+                    @foreach ($tugas as $t)
+                        @php
+                            // Format tanggal pembuatan tugas
+                            $tugasDate = \Carbon\Carbon::parse($t->created_at)->format('d F Y');
+                        @endphp
+
+                        <!-- Cek apakah tanggal berubah, jika ya tampilkan tanggal baru -->
+                        @if ($tugasDate !== $currentDate)
+                            <div class="mt-6 ml-2 mb-2">
+                                <h2 class="text-sm font-semibold text-[#5E9EB2]">{{ $tugasDate }}</h2>
+                            </div>
+                            @php
+                                // Update tanggal saat ini
+                                $currentDate = $tugasDate;
+                            @endphp
+                        @endif
+
+                        <!-- Tampilkan tugas -->
+                        <a href="{{ route('annnsiswa', ['id' => $t->id]) }}"
+                            class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
+                            <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4">
+                            <p class="text-white font-semibold">{{ $t->topik }}</p>
+                        </a>
+                    @endforeach
+                @endif
 
 
             </div>

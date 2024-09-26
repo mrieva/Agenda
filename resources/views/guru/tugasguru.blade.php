@@ -19,12 +19,15 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 mx-4 md:mx-10">
                 <!-- Left Section (Welcome Text) -->
                 <div class="flex flex-col justify-center items-start h-24 rounded bg-transparent dark:bg-gray-800 p-4">
-                    <h3 class="text-xl md:text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, Siswa Sekolah!</h3>
-                    <p class="text-xs md:text-sm text-[#83a4ad] dark:text-gray-300">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem ipsum!</p>
+                    <h3 class="text-xl md:text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, Siswa
+                        Sekolah!</h3>
+                    <p class="text-xs md:text-sm text-[#83a4ad] dark:text-gray-300">Lorem ipsum dolor sit amet,
+                        consectetur adipisicing elit. Dolorem ipsum!</p>
                 </div>
 
                 <!-- Right Section (Search, Profile, Notifications) -->
-                <div class="flex items-center justify-between md:justify-end h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-2 md:space-x-4">
+                <div
+                    class="flex items-center justify-between md:justify-end h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-2 md:space-x-4">
                     <!-- Search Form -->
                     <form
                         class="relative flex items-center bg-[#5e9eb234] dark:bg-gray-700 rounded-lg w-8 h-8 md:w-auto md:h-auto">
@@ -41,12 +44,14 @@
                     </form>
 
                     <!-- Profile Button -->
-                    <button onclick="window.location.href='{{ route('settings-guru') }}'" class="flex items-center justify-center w-10 h-10 bg-[#5e9eb234] dark:bg-gray-700 rounded-lg">
+                    <button onclick="window.location.href='{{ route('settings-guru') }}'"
+                        class="flex items-center justify-center w-10 h-10 bg-[#5e9eb234] dark:bg-gray-700 rounded-lg">
                         <i class='bx bx-user text-gray-600 dark:text-gray-300'></i>
                     </button>
 
                     <!-- Notification Button -->
-                    <button onclick="window.location.href='{{ route('notif-guru') }}'" class="flex items-center justify-center w-10 h-10 bg-[#5e9eb234] dark:bg-gray-700 rounded-lg">
+                    <button onclick="window.location.href='{{ route('notif-guru') }}'"
+                        class="flex items-center justify-center w-10 h-10 bg-[#5e9eb234] dark:bg-gray-700 rounded-lg">
                         <i class='bx bx-bell text-gray-600 dark:text-gray-300'></i>
                     </button>
                 </div>
@@ -57,13 +62,15 @@
                 <div class="relative flex items-center justify-center h-64 rounded-xl bg-cover bg-center bg-no-repeat"
                     style="background-image: url('{{ asset('img/background-banner.png') }}')">
                     <!-- Tombol Sesuaikan di kanan atas -->
-                    <button class="absolute top-2 right-2 bg-[#5E9EB2] text-white font-medium py-1 px-3 rounded-lg shadow-md flex items-center space-x-2">
+                    <button
+                        class="absolute top-2 right-2 bg-[#5E9EB2] text-white font-medium py-1 px-3 rounded-lg shadow-md flex items-center space-x-2">
                         <img src="{{ asset('img/icon/Pencil.png') }}" alt="" class="w-4 h-4">
                         <span>Sesuaikan</span>
                     </button>
 
                     <!-- Tombol Tambah Tugas -->
-                    <button onclick="window.location.href='{{ route('tambahtugas') }}'" class="absolute bottom-4 left-4 md:left-7 bg-[#5E9EB2] text-white font-medium py-1 px-3 rounded-lg shadow-md flex items-center space-x-2">
+                    <button onclick="window.location.href='{{ route('tambahtugas') }}'"
+                        class="absolute bottom-4 left-4 md:left-7 bg-[#5E9EB2] text-white font-medium py-1 px-3 rounded-lg shadow-md flex items-center space-x-2">
                         <span>Tambahkan Tugas</span>
                     </button>
                 </div>
@@ -76,7 +83,8 @@
                     <div class="flex flex-col md:flex-row md:space-x-4 mb-4">
                         <div class="w-full md:w-1/2">
                             <label for="kelas" class="block text-gray-700 font-semibold mb-2">Untuk Kelas:</label>
-                            <select id="kelas" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
+                            <select id="kelas"
+                                class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
                                 <option>Pilih Kelas</option>
                                 <option>Kelas 1</option>
                                 <option>Kelas 2</option>
@@ -86,7 +94,8 @@
 
                         <div class="w-full md:w-1/2 mt-4 md:mt-0">
                             <label for="mapel" class="block text-gray-700 font-semibold mb-2">Mata Pelajaran:</label>
-                            <select id="mapel" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
+                            <select id="mapel"
+                                class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
                                 <option>Pilih Mata Pelajaran</option>
                                 <option>Matematika</option>
                                 <option>Bahasa Indonesia</option>
@@ -97,33 +106,71 @@
 
                     <!-- Input Deskripsi Tugas -->
                     <div class="mb-4">
-                        <label for="deskripsi-tugas" class="block text-gray-700 font-semibold mb-2">Deskripsi Tugas:</label>
-                        <textarea id="deskripsi-tugas" class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full h-32 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]" placeholder="Masukkan deskripsi tugas"></textarea>
+                        <label for="deskripsi-tugas" class="block text-gray-700 font-semibold mb-2">Deskripsi
+                            Tugas:</label>
+                        <textarea id="deskripsi-tugas"
+                            class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg px-4 py-2 w-full h-32 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]"
+                            placeholder="Masukkan deskripsi tugas"></textarea>
                     </div>
 
                     <!-- Tombol Upload -->
                     <div class="flex justify-start space-x-4 mb-4">
-                        <button class="flex items-center justify-center w-10 h-10 bg-white border-2 border-black rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
+                        <button
+                            class="flex items-center justify-center w-10 h-10 bg-white border-2 border-black rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
                             <img src="{{ asset('img/icon/Google drive.png') }}" alt="">
                         </button>
-                        <button class="flex items-center justify-center w-10 h-10 bg-white border-2 border-black rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
+                        <button
+                            class="flex items-center justify-center w-10 h-10 bg-white border-2 border-black rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
                             <img src="{{ asset('img/icon/Youtube.png') }}" alt="">
                         </button>
-                        <button class="flex items-center justify-center w-10 h-10 bg-white border-2 border-black rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
+                        <button
+                            class="flex items-center justify-center w-10 h-10 bg-white border-2 border-black rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
                             <img src="{{ asset('img/icon/Upload.png') }}" alt="">
                         </button>
-                        <button class="flex items-center justify-center w-10 h-10 bg-white border-2 border-black rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
+                        <button
+                            class="flex items-center justify-center w-10 h-10 bg-white border-2 border-black rounded-full shadow-md hover:bg-[#5E9EB2] transition duration-300">
                             <img src="{{ asset('img/icon/Link.png') }}" alt="">
                         </button>
                     </div>
 
                     <!-- Tombol Posting -->
                     <div class="flex justify-end">
-                        <button class="bg-[#5E9EB2] text-white font-medium py-2 px-6 rounded-lg shadow-md hover:bg-[#4b8795] transition duration-300">Posting</button>
+                        <button
+                            class="bg-[#5E9EB2] text-white font-medium py-2 px-6 rounded-lg shadow-md hover:bg-[#4b8795] transition duration-300">Posting</button>
                     </div>
                 </div>
             </div>
         </div>
+        <div id="commentSection" class="mt-8 bg-white dark:bg-gray-700 p-6 rounded-lg">
+            <h3 class="text-xl font-bold mb-4 text-gray-700 dark:text-gray-300">Komentar</h3>
+            <div id="comments" class="space-y-4">
+                <!-- Contoh Komentar -->
+                <div class="comment p-4 bg-gray-100 dark:bg-gray-600 rounded-lg">
+                    <p class="text-gray-700 dark:text-gray-300 font-semibold">Guru:</p>
+                    <p class="text-gray-600 dark:text-gray-400">Ini adalah komentar dari guru mengenai tugas Anda.</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Dikirim pada 26 September 2024</p>
+                </div>
+                <div class="comment p-4 bg-gray-100 dark:bg-gray-600 rounded-lg">
+                    <p class="text-gray-700 dark:text-gray-300 font-semibold">Siswa:</p>
+                    <p class="text-gray-600 dark:text-gray-400">Terima kasih, Pak/Bu. Saya akan segera mengerjakannya.
+                    </p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Dikirim pada 26 September 2024</p>
+                </div>
+            </div>
+
+            <!-- Form Tambah Komentar -->
+            <div class="mt-4">
+                <form action="#" method="POST" class="space-y-2">
+                    <textarea name="komentar" placeholder="Tambahkan komentar" required
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-gray-600 dark:text-gray-200 dark:border-gray-500"></textarea>
+                    <div class="flex justify-end">
+                        <button type="submit"
+                            class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-400">Kirim</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>

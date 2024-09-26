@@ -14,7 +14,7 @@
 <body class="bg-gray-50 dark:bg-gray-900">
 
     <!-- Sidebar -->
-    <x-sidebarsiswa></x-sidebarsiswa>
+    <x-sidebarsekret></x-sidebarsekret>
 
     <!-- Main Content -->
     <div class="p-4 sm:ml-64">
@@ -135,38 +135,33 @@
                     <!-- Submitted Tasks Section -->
                     <div class="bg-white p-4 rounded-lg shadow-lg dark:bg-gray-900">
                         <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-4">Pengumpulan Tugas</h3>
-                        <form action="{{ route('cancelSub', ['id' => $task->id]) }}" method="POST" class="mt-4"
-                            onsubmit="return confirm('Apakah Anda yakin ingin membatalkan penyerahan tugas? Pembatalan tugas akan mereset status diperiksa dan nilai Anda')">
+                        <form action="{{ route('cancelSubSekret', ['id' => $task->id]) }}" method="POST" class="mt-4" onsubmit="return confirm('Apakah Anda yakin ingin membatalkan penyerahan tugas? Pembatalan tugas akan mereset status diperiksa dan nilai Anda')">
                             @csrf
                             @if ($submittedTask->siswa_file)
-                                <div class="flex items-center space-x-4 mb-4">
-                                    <i class='bx bx-file text-2xl text-blue-500'></i>
-                                    <input type="text" value="{{ basename($submittedTask->siswa_file) }}"
-                                        class="form-input border rounded p-2 mr-2" readonly>
-                                    <a href="{{ asset('storage/' . basename($submittedTask->siswa_file)) }}" download>
-                                        <i class='bx bx-download text-blue-500 text-2xl'></i>
-                                    </a>
-                                </div>
-                            @endif
-                            @if ($submittedTask->siswa_url)
-                                <div class="flex items-center mb-4">
-                                    <i class='bx bx-link text-2xl text-green-500 mx-1'></i>
-                                    <input type="text" value="{{ $submittedTask->siswa_url }}"
-                                        class="form-input border rounded p-2 mr-2" readonly>
-                                    <a href="{{ $submittedTask->siswa_url }}" target="_blank"
-                                        rel="noopener noreferrer">
-                                        <i class='bx bx-link-external text-green-500 text-2xl'></i>
-                                    </a>
-                                </div>
-                            @endif
+                        <div class="flex items-center space-x-4 mb-4">
+                        <i class='bx bx-file text-2xl text-blue-500'></i>
+                        <input type="text" value="{{ basename($submittedTask->siswa_file) }}"
+                            class="form-input border rounded p-2 mr-2" readonly>
+                        <a href="{{ asset('storage/' . basename($submittedTask->siswa_file)) }}" download>
+                            <i class='bx bx-download text-blue-500 text-2xl'></i>
+                        </a>
+                    </div> @endif
+                            @if ($submittedTask->siswa_url) <div class="flex items-center mb-4">
+                        <i class='bx bx-link text-2xl text-green-500 mx-1'></i>
+                        <input type="text" value="{{ $submittedTask->siswa_url }}"
+                            class="form-input border rounded p-2 mr-2" readonly>
+                        <a href="{{ $submittedTask->siswa_url }}" target="_blank"
+                            rel="noopener noreferrer">
+                            <i class='bx bx-link-external text-green-500 text-2xl'></i>
+                        </a>
+                    </div> @endif
                             <button type="submit"
-                                class="py-2 bg-red-500 text-white rounded-lg hover:bg-red-400 focus:outline-none w-full">
-                                <i class='bx bx-x-circle mr-2'></i> Batalkan Pengiriman
+                            class="py-2 bg-red-500 text-white rounded-lg hover:bg-red-400 focus:outline-none w-full">
+                            <i class='bx bx-x-circle mr-2'></i> Batalkan Pengiriman
                             </button>
                         </form>
                     </div>
                 </div>
-
             </div>
 
 

@@ -57,10 +57,12 @@
             <div class="flex justify-between items-center">
                 <div>
                     <h1 class="text-2xl font-semibold text-[#5E9EB2] dark:text-white">{{ $tugas->judul }}</h1>
-                    <p class="text-sm text-gray-500 dark:text-gray-300">Diberikan oleh: <span class="font-semibold">{{ $tugas->nama_siswa }}</span></p>
+                    <p class="text-sm text-gray-500 dark:text-gray-300">Diberikan oleh: <span
+                            class="font-semibold">{{ $tugas->nama_siswa }}</span></p>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-300"><strong>Tenggat waktu: </strong> {{ \Carbon\Carbon::parse($guruTugas->tengat)->format('d F Y, H:i') }}</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-300"><strong>Tenggat waktu: </strong>
+                        {{ \Carbon\Carbon::parse($guruTugas->tengat)->format('d F Y, H:i') }}</p>
                 </div>
             </div>
         </div>
@@ -140,6 +142,7 @@
                     </div>
                 </form>
             </div>
+
         </div>
 
         <!-- Modal Preview -->
@@ -151,11 +154,42 @@
                     <button class="text-gray-600 hover:text-gray-800" id="closePreviewModal">&times;</button>
                 </div>
                 <div class="h-[80vh] overflow-auto">
+                    <!-- Kalau gambar, kita tidak perlu menggunakan library pihak ketiga untuk menampilkan previewnya -->
+                    <!-- Kita hanya perlu menggunakan JS native untuk menampilkan preview gambarnya -->
+                    <!-- Kita pakai komentar karena kita tidak perlu menggunakan library pihak ketiga -->
+                    <img id="filePreview" class="w-full h-full" src="" />
                     <iframe id="filePreview" class="w-full h-full hidden"></iframe>
                     <pre id="codePreview" class="bg-gray-800 text-white p-4 rounded-lg overflow-auto hidden"></pre>
                 </div>
             </div>
         </div>
+
+        <!-- Bagian Komentar -->
+        <div class="mt-8">
+            <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300">Komentar</h3>
+
+            <!-- Menampilkan Komentar yang sudah ada -->
+            @foreach ($tugas->komentar as $komentar)
+                <div class="bg-gray-100 p-4 rounded-lg mt-2">
+                    <p><strong>{{ $komentar->user->name }}:</strong> {{ $komentar->message_content }}</p>
+                    <p class="text-sm text-gray-500">{{ $komentar->created_at->format('d M Y H:i') }}</p>
+                </div>
+            @endforeach
+
+            <!-- Form untuk menambah komentar -->
+            <form action="{{ route('komentar.store', $tugas->id) }}" method="POST" class="mt-4">
+                @csrf
+                <input type="hidden" name="siswa_id" value="{{ $tugas->user_id }}">
+                <!-- ID siswa yang mengumpulkan tugas -->
+
+                <div class="flex">
+                    <input type="text" name="message_content" placeholder="Tulis komentar..."
+                        class="border border-gray-300 rounded-lg px-4 py-2 w-full">
+                    <button type="submit" class="ml-2 bg-blue-500 text-white px-4 py-2 rounded-lg">Kirim</button>
+                </div>
+            </form>
+        </div>
+
     </div>
 
     <!-- Scripts -->
@@ -172,11 +206,15 @@
             filePreview.src = '';
             filePreview.classList.add('hidden');
             codePreview.classList.add('hidden');
-
-            if (fileExtension === 'pdf' || fileExtension === 'docx' || fileExtension === 'pptx') {
+            // Kalau gambar, kita tidak perlu menggunakan library pihak ketiga untuk menampilkan previewnya
+            // Kita hanya perlu menggunakan JS native untuk menampilkan preview gambarnya
+            if (['jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg'].includes(fileExtension)) {
                 filePreview.src = filePath;
                 filePreview.classList.remove('hidden');
-            } else if (['txt', 'html', 'css', 'js', 'php'].includes(fileExtension)) {
+                filePreview.classList.add('block');
+            } else if (fileExtension === 'pdf' || fileExtension === 'docx' || fileExtension === 'pptx') {
+                alert('Preview tidak tersedia untuk format ini.');
+            } else if (['txt', 'html', 'css', 'js', 'php', 'sql'].includes(fileExtension)) {
                 fetch(filePath)
                     .then(response => response.text())
                     .then(data => {
@@ -190,7 +228,7 @@
             previewModal.classList.remove('hidden');
         }
 
-        document.getElementById('closePreviewModal').onclick = function () {
+        document.getElementById('closePreviewModal').onclick = function() {
             document.getElementById('previewModal').classList.add('hidden');
         };
     </script>
