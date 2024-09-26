@@ -14,3 +14,12 @@
     transform: scale(1.01);
 }
 
+
+::-webkit-scrollbar{
+    width: 8px;
+    background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #5E9EB2;
+}

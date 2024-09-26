@@ -9,6 +9,7 @@
     <link href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet" />
     @vite('resources/css/app.css')
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="resources/css/app.css">
     <title>Document</title>
 </head>
 
@@ -287,8 +288,6 @@
             });
         });
     </script>
-
-
 </body>
 
 </html>

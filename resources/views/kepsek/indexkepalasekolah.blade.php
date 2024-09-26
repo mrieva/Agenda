@@ -10,6 +10,7 @@
     <link href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet" />
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <link rel="stylesheet" href="resources/css/app.css">
     <script type="text/javascript">
         google.charts.load('current', {
             'packages': ['corechart']

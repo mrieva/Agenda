@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
     <link href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <link rel="stylesheet" href="resources/css/app.css">
     @vite('resources/css/app.css')
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Settings</title>

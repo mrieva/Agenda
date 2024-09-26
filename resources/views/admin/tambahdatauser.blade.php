@@ -7,11 +7,41 @@
     <title>Tambah Data User</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="resources/css/app.css">
     @vite('resources/css/app.css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 
 <body class="bg-gray-100">
     <x-sidebaradm></x-sidebaradm>
+
+
+    @if (session('success'))
+        <script>
+            window.onload = function() {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: "{{ session('success') }}",
+                    confirmButtonText: 'OK'
+                });
+            };
+        </script>
+    @endif
+
+    @if ($errors->any())
+        <script>
+            window.onload = function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '{{ $errors->first() }}',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#5E9EB2';
+                });
+            };
+        </script>
+    @endif
 
     <div class="p-4 sm:ml-64">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 max-h-full">
@@ -152,13 +182,13 @@
                                             <option value="ips">Fisika</option>
                                             <option value="bahasa_indonesia">Bahasa Indonesia</option>
                                             <option value="bahasa_inggris">Bahasa Inggris</option>
-                                            <option value="pkn">PPKn</option>
-                                            <option value="pkn">PAI</option>
-                                            <option value="pkn">Sejarah</option>
-                                            <option value="pkn">PPL</option>
-                                            <option value="pkn">PWPB</option>
-                                            <option value="pkn">PBO</option>
-                                            <option value="pkn">Basis Data</option>
+                                            <option value="PPkn">PPKn</option>
+                                            <option value="PAI">PAI</option>
+                                            <option value="Sejarah">Sejarah</option>
+                                            <option value="Pengembangan Perangkat Lunak">PPL</option>
+                                            <option value="PWPB">PWPB</option>
+                                            <option value="PBO">PBO</option>
+                                            <option value="Basis Data">Basis Data</option>
                                         </select>
                                         @error('mapel')
                                             <div class="text-red-500 text-sm">{{ $message }}</div>
@@ -179,6 +209,10 @@
             </div>
         </div>
     </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 
     <script>
         const dropZone = document.querySelector('.drop-zone');

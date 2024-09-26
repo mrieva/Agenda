@@ -9,6 +9,10 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
+Use Alert;
+
+
+
 
 class UserController extends Controller
 {
@@ -54,7 +58,8 @@ class UserController extends Controller
         ]);
 
         //redirect to index
-        return redirect()->route('indexadm');
+        return redirect()->route('indexadm')->with('success', 'Data user berhasil ditambahkan');
+
     }
 
 
@@ -134,6 +139,6 @@ class UserController extends Controller
         // Update data user
         $user->update($validatedData);
 
-        return redirect()->route('indexadm')->with('success', 'User updated successfully');
+        return redirect()->route('indexadm')->with('success', 'Data user berhasil diperbarui');
     }
 }
