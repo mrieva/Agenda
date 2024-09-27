@@ -8,6 +8,8 @@ use App\Models\GuruTugas;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Models\User;
+use App\Models\Kehadiran;
+
 use App\Models\Comment;
 
 
@@ -63,8 +65,14 @@ class GuruTugasController extends Controller
     {
         $user = auth()->user();
 
-        return view('guru.indexguru', compact('user'));
+        // Ambil data kehadiran hanya untuk siswa
+        $kehadiran = Kehadiran::where('role', 'siswa')->get();
+
+        return view('guru.indexguru', compact('user', 'kehadiran'));
     }
+
+
+
 
     public function tugasSiswa(Request $request)
     {
@@ -141,24 +149,37 @@ class GuruTugasController extends Controller
     }
     public function indexSekret(Request $request)
     {
-        $user = auth()->user();
+        $user = Auth::user();
         $userId = $user->id;
-        $kelas = $user->kelas; // Ambil kelas user yang login
+        $kelas = $user->kelas;
         $jurusan = $user->jurusan;
 
         // Ambil semua tugas yang belum diserahkan oleh user yang login, filter berdasarkan kelas
-        $tugas = GuruTugas::where('kelas', $kelas) // Filter tugas berdasarkan kelas siswa
+        $tugas = GuruTugas::where('kelas', $kelas)
             ->where('jurusan', $jurusan)
             ->whereDoesntHave('pengumpulanTugas', function ($query) use ($userId) {
                 $query->where('user_id', $userId);
             })
             ->get();
 
-        return Auth::check() && Auth::user()->role == 'sekretaris'
-            ? view('sekretaris.indexsekretaris', compact('tugas'))
-            : redirect('/')->with('error', 'Akses ditolak');
-    }
+        // Ambil data kehadiran siswa + sekretaris
+        $kehadiran = Kehadiran::whereHas('user', function ($query) {
+            $query->whereIn('role', ['siswa', 'sekretaris']);
+        })->get();
 
+        // Ambil data siswa dan sekretaris berdasarkan kelas dan jurusan
+        $siswa = User::whereIn('role', ['siswa', 'sekretaris']) // ambil siswa & sekretaris
+        ->where('kelas', $kelas)
+            ->where('jurusan', $jurusan)
+            ->pluck('name', 'id');
+
+        // Ambil data guru berdasarkan role
+        $gurus = User::where('role', 'guru')->pluck('name', 'id');
+
+        return Auth::check() && in_array($user->role, ['siswa', 'sekretaris'])
+        ? view('sekretaris.indexsekretaris', compact('tugas', 'kehadiran', 'siswa', 'gurus'))
+        : redirect('/')->with('error', 'Akses ditolak');
+    }
 
     public function detailTugas($id)
     {
@@ -208,11 +229,9 @@ class GuruTugasController extends Controller
     public function periksa($id)
     {
         // Ambil tugas beserta komentar yang sudah ada
-        $tugas = PengumpulanTugas::with(['komentar.user'])->findOrFail($id);
+        $tugas = PengumpulanTugas::findOrFail($id);
         $guruTugas = GuruTugas::where('id', $tugas->guru_tugas_id)->first();
-
-        // tampilkan komentar
-        $komentar = $tugas->komentar;
+        $komentar = [];
 
         return view('guru.periksa', compact('tugas', 'guruTugas', 'komentar'));
     }
@@ -256,7 +275,7 @@ class GuruTugasController extends Controller
     // Menampilkan halaman preview tugas
     public function showPreview($id)
     {
-        $tugas = PengumpulanTugas::with(['komentar.user'])->findOrFail($id);
+        $tugas = PengumpulanTugas::findOrFail($id);
         $guruTugas = GuruTugas::where('id', $tugas->guru_tugas_id)->first();
 
         return view('guru.preview-tugas', compact('tugas', 'guruTugas'));

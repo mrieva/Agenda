@@ -169,7 +169,7 @@
             <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300">Komentar</h3>
 
             <!-- Menampilkan Komentar yang sudah ada -->
-            @foreach ($tugas->komentar as $komentar)
+            @foreach ($tugas->komentar ?? [] as $komentar)
                 <div class="bg-gray-100 p-4 rounded-lg mt-2">
                     <p><strong>{{ $komentar->user->name }}:</strong> {{ $komentar->message_content }}</p>
                     <p class="text-sm text-gray-500">{{ $komentar->created_at->format('d M Y H:i') }}</p>

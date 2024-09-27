@@ -51,6 +51,10 @@ class AuthController extends Controller
                 Auth::login($user);
                 return redirect('/index-kepala-sekolah');
             }
+            if ($user->role == 'admin') {
+                Auth::login($user);
+                return redirect('/admin/indexadm');
+            }
         } else {
             return back()->with('error', 'NISN/NIPD atau password salah');
         }

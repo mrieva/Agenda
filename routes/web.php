@@ -4,14 +4,15 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TugasController;
 use App\Http\Controllers\KehadiranController;
 use App\Http\Controllers\GuruTugasController;
 use App\Http\Controllers\SekretarisController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\PengumpulanTugasController;
 use App\Models\PengumpulanTugas;
-use App\Http\Controllers\CommentController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\KepsekController;
+
 
 
 
@@ -97,19 +98,34 @@ Route::post('/update-nilai-status', [PengumpulanTugasController::class, 'updateN
 
 
 
-// kepsek section
-Route::get('index-kepala-sekolah', function () {
-    return view('kepsek.indexkepalasekolah');
-})->name('index-kepala-sekolah');
+// Kepala sekolah section
+Route::get('index-kepala-sekolah', [KepsekController::class, 'index'])->name('index-kepala-sekolah');
 
-Route::get('settings-kepsek', function () {
-    return view('kepsek.settings');
-})->name('settings-kepsek');
+Route::get('settings-kepsek', [KepsekController::class, 'settings'])->name('settings-kepsek');
 
-Route::get("notif-kepsek", function () {
-    return view("kepsek.notif-kepsek");
-})->name('notifkepsek');
+Route::get('edit-profile', [KepsekController::class, 'editProfile'])->name('edit-profile');
 
+Route::put('update-profile', [KepsekController::class, 'updateProfile'])->name('update-profile');
+
+Route::get('/kehadiran-chart', [KehadiranController::class, 'chart'])->name('kehadiran.chart');
+
+
+
+// Admin section
+Route::post('tambah-user', [UserController::class, 'store'])->name('admin.store');
+
+Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
+
+Route::get('/admin/indexadm', [UserController::class, 'index'])->name('indexadm');
+
+Route::get('/admin/search', [UserController::class, 'search'])->name('search');
+
+// Route untuk menghapus data user
+Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+
+route::get('tambah-user', function () {
+    return view('admin.tambahdatauser');
+})->name('tambahuser');
 
 
 
@@ -134,9 +150,11 @@ Route::get('/tugas/diserahkan-sekret/{id}', [PengumpulanTugasController::class, 
 
 Route::post('/tugas/{id}/cancel-submission-sekret', [PengumpulanTugasController::class, 'cancelSubmissionSekret'])->name('cancelSubSekret');
 
-Route::get('settings-sekret', function () {
-    return view('sekretaris.setiing');
-})->name('setsekret');
+Route::get('settings-sekret', [UserController::class, 'settingsSekret'])->name('setsekret');
+
+Route::put('update-profile', [UserController::class, 'updateProfileSekret'])->name('update-profile-sekretaris');
+
+Route::get('update-profile', [UserController::class, 'editProfileSekret'])->name('edit-profile-sekretaris');
 
 Route::get('notif-sekret', function () {
     return view('sekretaris.notifsekret');

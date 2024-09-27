@@ -25,6 +25,7 @@ class User extends Authenticatable
         'kelas',
         'jurusan',
         'mapel',
+        'profile_picture',
     ];
 
     /**
@@ -46,4 +47,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function kehadirans()
+    {
+        return $this->hasMany(Kehadiran::class, 'user_id');
+    }
 }

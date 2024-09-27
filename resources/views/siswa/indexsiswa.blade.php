@@ -18,33 +18,20 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 mx-6">
                 <!-- Left Section (Welcome Text) -->
                 <div class="items-center justify-center h-24 rounded bg-transparent dark:bg-gray-800 block p-4">
-                    <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back,
-                        {{ Auth::user()->name }}! </h3>
+                    <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, {{ Auth::user()->name }}</h3>
                     <p class="text-sm text-[#83a4ad] dark:text-gray-300"></p>
                 </div>
 
-                <!-- Right Section (Search, Profile, Notifications) -->
-                <div
-                    class="flex items-center lg:justify-end xs:justify-center xss:justify-center h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-4">
-                    <!-- Search Form -->
-                    <form class="relative flex items-center max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl">
-                        <input type="text" placeholder="Search..."
-                            class="bg-[#5e9eb234] dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2] w-full">
-                        <i
-                            class='bx bx-search absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500'></i>
-                    </form>
-
-                    <!-- Profile Button -->
-                    <button onclick="window.location.href='{{ route('setsekret') }}'"
-                        class="flex-none items-center justify-center lg:w-10 lg:h-10 md:w-8 md:h-8 sm:w-8 sm:h-8 xs:w-8 xs:h-8 xss:w-8 xss:h-8 bg-[#5e9eb234] dark:bg-gray-700 xl:rounded-lg lg:rounded-xl md:rounded-lg sm:rounded-lg xs:rounded-lg xss:rounded-lg">
-                        <i class='bx bx-user text-gray-600 dark:text-gray-300'></i>
-                    </button>
-
-                    <!-- Notification Button -->
-                    <button onclick="window.location.href='{{ route('notif-sekret') }}'"
-                        class="flex-none items-center justify-center lg:w-10 lg:h-10 md:w-8 md:h-8 sm:w-8 sm:h-8 xs:w-8 xs:h-8 xss:w-8 xss:h-8 bg-[#5e9eb234] dark:bg-gray-700 xl:rounded-lg lg:rounded-xl md:rounded-lg sm:rounded-lg xs:rounded-lg xss:rounded-lg">
-                        <i class='bx bx-bell text-gray-600 dark:text-gray-300'></i>
-                    </button>
+                <div class="flex items-center justify-end h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-4">
+                    <div class="flex items-center space-x-4 cursor-pointer"
+                        onclick="window.location.href='{{ route('settings-kepsek') }}'">
+                        <img src="{{asset('storage/' . Auth::user()->profile_picture)}}"
+                            class="w-10 h-10 rounded-full object-cover" alt="">
+                        <div>
+                            <p class="text-x font-bold text-[#5E9EB2] dark:text-gray-500">{{ Auth::user()->name }}</p>
+                            <p class="text-xs text-[#83a4ad] dark:text-gray-300">{{ Auth::user()->email }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -64,7 +51,7 @@
 
             <!-- Task Announcements -->
             <div class="p-4 mx-6">
-                
+
 
                 <!-- Hidden Form with Animation -->
                 <div id="communicationForm"
@@ -229,8 +216,8 @@
                     <
                     li > {{ $error }} < /li>
                 @endforeach <
-                /ul> <
-                /div>
+                /ul> < /
+            div >
         @endif
     </script>
 </body>

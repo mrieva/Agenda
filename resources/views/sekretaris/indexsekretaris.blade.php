@@ -17,51 +17,40 @@
 
     <div class="p-4 sm:ml-64">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-            <!-- Welcome Section -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 mx-6">
                 <div class="items-center justify-center h-24 rounded bg-transparent dark:bg-gray-800 block p-4">
-                    <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, {{ Auth::user()->name }}!
+                    <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back,
+                        {{ Auth::user()->name }}!
                     </h3>
                 </div>
 
-                <!-- Right Section (Search, Profile, Notifications) -->
-                <div
-                    class="flex items-center lg:justify-end xs:justify-center xss:justify-center h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-4">
-                    <!-- Search Form -->
-                    <form class="relative flex items-center">
-                        <input type="text" placeholder="Search..."
-                            class="bg-[#5e9eb234] dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-xl lg:px-10 lg:py-2 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">
-                        <i
-                            class='bx bx-search absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500'></i>
-                    </form>
-
-                    <!-- Profile Button -->
-                    <button onclick="window.location.href='{{ route('setsekret') }}'"
-                        class="flex items-center justify-center lg:w-10 lg:h-10 md:w-8 md:h-8 sm:w-8 sm:h-8 xs:w-8 xs:h-8 xss:w-8 xss:h-8 bg-[#5e9eb234] dark:bg-gray-700 xl:rounded-lg lg:rounded-xl md:rounded-lg sm:rounded-lg xs:rounded-lg xss:rounded-lg">
-                        <i class='bx bx-user text-gray-600 dark:text-gray-300'></i>
-                    </button>
-
-                    <!-- Notification Button -->
-                    <button onclick="window.location.href='{{ route('notif-sekret') }}'"
-                        class="flex items-center justify-center lg:w-10 lg:h-10 md:w-8 md:h-8 sm:w-8 sm:h-8 xs:w-8 xs:h-8 xss:w-8 xss:h-8 bg-[#5e9eb234] dark:bg-gray-700 xl:rounded-lg lg:rounded-xl md:rounded-lg sm:rounded-lg xs:rounded-lg xss:rounded-lg">
-                        <i class='bx bx-bell text-gray-600 dark:text-gray-300'></i>
-                    </button>
+                <div class="flex items-center justify-end h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-4">
+                    <div class="flex items-center space-x-4 cursor-pointer"
+                        onclick="window.location.href='{{ route('settings-kepsek') }}'">
+                        <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}"
+                            class="w-10 h-10 rounded-full object-cover" alt="">
+                        <div>
+                            <p class="text-x font-bold text-[#5E9EB2] dark:text-gray-500">{{ Auth::user()->name }}</p>
+                            <p class="text-xs text-[#83a4ad] dark:text-gray-300">{{ Auth::user()->email }}</p>
+                        </div>
+                    </div>
                 </div>
-
             </div>
 
-            <!-- Dashboard Sections -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-4 mx-10">
-                <!-- XII RPL1 Card -->
+                @php
+                    $kelasUser = Auth::user()->kelas;
+                    $jurusanUser = Auth::user()->jurusan;
+                @endphp
+
                 <div id="section1" data-type="siswa"
                     class="flex items-center justify-center h-48 rounded-lg bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC] p-4 cursor-pointer">
                     <div class="flex flex-col items-center">
                         <img src="{{ asset('img/kelas1.png') }}" alt="Icon" class="h-24 mb-4">
-                        <p class="text-xl font-bold text-white">XII RPL1</p>
+                        <p class="text-xl font-bold text-white">{{ $kelasUser }} {{ $jurusanUser }}</p>
                     </div>
                 </div>
 
-                <!-- Guru Card -->
                 <div id="section2" data-type="guru"
                     class="flex items-center justify-center h-48 rounded-lg bg-gradient-to-b from-[#5E9EB2] to-[#6CC6EC] p-2 cursor-pointer">
                     <div class="flex flex-col items-center">
@@ -71,11 +60,9 @@
                 </div>
             </div>
 
-            <!-- Task Announcements -->
             <div class="p-4 mx-6">
-                 <!-- Loop Through Tasks -->
                 @php
-                    $currentDate = null; // Variabel untuk menyimpan tanggal saat ini dalam loop
+                    $currentDate = null;
                 @endphp
 
                 @if ($tugas->count() === 0)
@@ -85,22 +72,18 @@
                 @else
                     @foreach ($tugas as $t)
                         @php
-                            // Format tanggal pembuatan tugas
                             $tugasDate = \Carbon\Carbon::parse($t->created_at)->format('d F Y');
                         @endphp
 
-                        <!-- Cek apakah tanggal berubah, jika ya tampilkan tanggal baru -->
                         @if ($tugasDate !== $currentDate)
                             <div class="mt-6 ml-2 mb-2">
                                 <h2 class="text-sm font-semibold text-[#5E9EB2]">{{ $tugasDate }}</h2>
                             </div>
                             @php
-                                // Update tanggal saat ini
                                 $currentDate = $tugasDate;
                             @endphp
                         @endif
 
-                        <!-- Tampilkan tugas -->
                         <a href="{{ route('annnsiswa', ['id' => $t->id]) }}"
                             class="relative p-4 rounded-lg mb-4 flex items-center h-20 bg-gradient-to-r from-[#6CC6EC] from-[-40%] to-[#5E9EB2] to70% hover:bg-[#5E9EB2] transition-colors duration-200">
                             <img src="{{ asset('img/icon/tugasb.png') }}" alt="" class="h-8 mr-4">
@@ -108,14 +91,10 @@
                         </a>
                     @endforeach
                 @endif
-
-
             </div>
         </div>
     </div>
-    </div>
 
-    <!-- Modal -->
     <div id="modal"
         class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 text-white hidden">
         <div
@@ -124,14 +103,19 @@
             <form action="{{ route('kehadiran.store') }}" method="POST" enctype="multipart/form-data"
                 aria-labelledby="modal-title">
                 @csrf
-                <input type="hidden" id="role" name="role" value="">
-                <!-- Input tersembunyi untuk role -->
-
+                <input type="hidden" id="role" name="role" value="siswa">
+                <input type="hidden" id="name" name="name"> <!-- Hidden input for name -->
                 <div class="mb-4">
-                    <label for="name" id="name-label" class="block text-sm font-semibold">Nama</label>
-                    <input type="text" id="name" name="name"
+                    <label for="user_id" id="user-label" class="block text-sm font-semibold">Nama</label>
+                    <select id="user_id" name="user_id"
                         class="w-full px-4 py-2 mt-2 bg-white border border-[#83a4ad] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5E9EB2] text-gray-900"
-                        placeholder="Masukkan nama siswa" required />
+                        required>
+                        <option value="">Pilih Nama</option> <!-- Opsi default -->
+                        @foreach ($siswa as $id => $nama)
+                            <option value="{{ $id }}">{{ $nama }}</option>
+                        @endforeach
+                    </select>
+
                 </div>
 
                 <div class="mb-4">
@@ -139,7 +123,7 @@
                     <select id="kehadiran" name="kehadiran"
                         class="w-full px-4 py-2 mt-2 bg-white border border-[#83a4ad] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5E9EB2] text-gray-900"
                         required>
-                        <option value="hadir">Hadir</option>
+                        <option value="hadir">Tanpa Keterangan</option>
                         <option value="izin">Izin</option>
                         <option value="sakit">Sakit</option>
                     </select>
@@ -152,107 +136,63 @@
                         placeholder="Tambahkan deskripsi (opsional)"></textarea>
                 </div>
 
-                <div class="mb-4">
-                    <label for="lampiran" class="block text-sm font-semibold">Lampiran Surat</label>
-                    <div class="mt-2">
-                        <p id="file-name" class="text-gray-200 mb-2"></p> <!-- Nama file akan muncul di sini -->
-                        <button type="button" id="upload-btn"
-                            class="w-full px-4 py-2 bg-[#6CC6EC] text-white font-semibold rounded-lg hover:bg-[#4c8da3]">
-                            Unggah File
-                        </button>
-                        <input type="file" id="lampiran" name="lampiran" class="hidden"
-                            accept=".pdf,.jpg,.jpeg,.png" /> <!-- Input file hidden -->
-                    </div>
-                </div>
-
-                <div class="flex justify-between">
-                    <button type="button" id="close-modal"
-                        class="px-6 py-2 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400">Cancel</button>
+                <div class="flex justify-center">
                     <button type="submit"
-                        class="px-6 py-2 bg-[#fff] text-[#6CC6EC] font-semibold rounded-lg hover:bg-[#4c8da3] hover:text-[#fff] focus:outline-none focus:ring-2 focus:ring-[#5E9EB2]">Input
-                        </button>
+                        class="px-4 py-2 text-white bg-[#5E9EB2] rounded-lg hover:bg-[#4A8C9F] focus:outline-none focus:bg-[#4A8C9F]">Simpan</button>
+                    <button type="button" onclick="closeModal()"
+                        class="px-4 py-2 text-white bg-red-600 rounded-lg hover:bg-red-700 ml-4 focus:outline-none focus:bg-red-700">Batal</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
     <script>
-        document.getElementById('section1').addEventListener('click', function() {
-            document.getElementById('role').value = 'siswa'; // Set role ke siswa
-            openModal();
-        });
-
-        document.getElementById('section2').addEventListener('click', function() {
-            document.getElementById('role').value = 'guru'; // Set role ke guru
-            openModal();
-        });
-
-        document.getElementById('close-modal').addEventListener('click', function() {
-            closeModal();
-        });
-
-        // Fungsi untuk membuka modal
         function openModal() {
-            var modal = document.getElementById('modal');
-            modal.classList.remove('hidden'); // Hapus class 'hidden' untuk membuka modal
-            modal.classList.add('flex'); // Tambahkan class 'flex' untuk menampilkan modal
-            modal.classList.remove('opacity-0', 'scale-y-0'); // Menampilkan modal dengan animasi
+            document.getElementById('modal').classList.remove('hidden');
         }
 
-        // Fungsi untuk menutup modal
         function closeModal() {
-            var modal = document.getElementById('modal');
-            modal.classList.add('hidden'); // Tambahkan class 'hidden' untuk menutup modal
-            modal.classList.remove('flex'); // Hapus class 'flex' agar tidak terlihat
-            modal.classList.add('opacity-0', 'scale-y-0'); // Sembunyikan dengan animasi
+            document.getElementById('modal').classList.add('hidden');
         }
 
-        // Event listener untuk membuka modal saat bagian "siswa" atau "guru" di klik
+        // Ketika klik section siswa
         document.getElementById('section1').addEventListener('click', function() {
             document.getElementById('role').value = 'siswa'; // Set role ke siswa
-            openModal(); // Buka modal
+            document.getElementById('user-label').textContent = 'Nama Siswa';
+
+            // Update select option untuk siswa
+            let siswaOptions = '<option value="">Pilih Nama</option>';
+            @foreach ($siswa as $id => $nama)
+                siswaOptions += `<option value="{{ $id }}">{{ $nama }}</option>`;
+            @endforeach
+            document.getElementById('user_id').innerHTML = siswaOptions;
+
+            openModal();
         });
 
+        // Ketika klik section guru
         document.getElementById('section2').addEventListener('click', function() {
             document.getElementById('role').value = 'guru'; // Set role ke guru
-            openModal(); // Buka modal
+            document.getElementById('user-label').textContent = 'Nama Guru';
+
+            // Update select option untuk guru
+            let guruOptions = '<option value="">Pilih Nama</option>';
+            @foreach ($gurus as $id => $nama)
+                guruOptions += `<option value="{{ $id }}">{{ $nama }}</option>`;
+            @endforeach
+            document.getElementById('user_id').innerHTML = guruOptions;
+
+            openModal();
         });
 
-        // Event listener untuk menutup modal saat tombol close di klik
-        document.getElementById('close-modal').addEventListener('click', function() {
-            closeModal();
-        });
-
-        //komunikasi
-        document.getElementById('communicationButton').addEventListener('click', function() {
-            var form = document.getElementById('communicationForm');
-            if (form.classList.contains('hidden')) {
-                form.classList.remove('hidden');
-                setTimeout(function() {
-                    form.classList.remove('opacity-0', 'scale-y-0');
-                }, 10);
-            } else {
-                form.classList.add('opacity-0', 'scale-y-0');
-                setTimeout(function() {
-                    form.classList.add('hidden');
-                }, 500);
-            }
-        });
-    </script>
-    <script>
-        // Ketika tombol upload diklik
-        document.getElementById('upload-btn').addEventListener('click', function() {
-            document.getElementById('lampiran').click(); // Memicu input file yang tersembunyi
-        });
-
-        // Menampilkan nama file setelah file diunggah
-        document.getElementById('lampiran').addEventListener('change', function() {
-            const fileName = this.files[0] ? this.files[0].name : '';
-            document.getElementById('file-name').textContent = fileName; // Menampilkan nama file di atas tombol
+        // Update hidden input name saat memilih user_id
+        document.getElementById('user_id').addEventListener('change', function() {
+            const selectedOption = this.options[this.selectedIndex];
+            document.getElementById('name').value = selectedOption.text; // Set value name berdasarkan text
         });
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.js"></script>
 </body>
 
 </html>

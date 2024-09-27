@@ -9,7 +9,11 @@ class Kehadiran extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'kehadiran', 'deskripsi', 'lampiran', 'role'];
+    protected $fillable = ['name', 'user_id', 'kehadiran', 'deskripsi', 'role'];
 
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

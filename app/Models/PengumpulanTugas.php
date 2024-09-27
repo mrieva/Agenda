@@ -36,9 +36,4 @@ class PengumpulanTugas extends Model
         return $this->belongsTo(User::class, 'user_id'); // Pastikan 'user_id' adalah foreign key yang benar
     }
 
-    public function komentar()
-    {
-        return $this->hasMany(Comment::class, 'guru_tugas_id');
-    }
-
 }

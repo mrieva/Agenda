@@ -19,39 +19,21 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 mx-6">
                 <!-- Left Section (Welcome Text) -->
                 <div class="items-center justify-center h-24 rounded bg-transparent dark:bg-gray-800 block p-4">
-                    <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back, {{ Auth::user()->name }}!</h3>
+                    <h3 class="text-2xl font-bold text-[#5E9EB2] dark:text-gray-500">Welcome Back,
+                        {{ Auth::user()->name }}!</h3>
                     <p class="text-sm text-[#83a4ad] dark:text-gray-300"></p>
                 </div>
 
-                <!-- Right Section (Search, Profile, Notifications) -->
-                <div
-                    class="flex items-center justify-center md:justify-end h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-4">
-                    <!-- Search Form -->
-                    <form
-                        class="relative flex items-center bg-[#5e9eb234] dark:bg-gray-700 rounded-lg w-8 h-8 md:w-auto md:h-auto">
-                        <!-- Search Icon in Mobile -->
-                        <button type="submit" class="flex items-center justify-center w-full h-full md:hidden">
-                            <i class='bx bx-search text-gray-600 dark:text-gray-300'></i>
-                        </button>
-                        <!-- Search Input in Desktop -->
-                        <input type="text"
-                            class="bg-transparent text-gray-600 dark:text-gray-300 rounded-lg px-8 py-2 focus:outline-none focus:ring-2 focus:ring-[#5E9EB2] hidden md:block"
-                            placeholder="search">
-                        <i
-                            class='bx bx-search absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500 hidden md:block'></i>
-                    </form>
-
-                    <!-- Profile Button -->
-                    <button onclick="window.location.href='{{ route('settings-guru') }}'"
-                        class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-[#5e9eb234] dark:bg-gray-700 rounded-lg">
-                        <i class='bx bx-user text-gray-600 dark:text-gray-300'></i>
-                    </button>
-
-                    <!-- Notification Button -->
-                    <button onclick="window.location.href='{{ route('notif-guru') }}'"
-                        class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-[#5e9eb234] dark:bg-gray-700 rounded-lg">
-                        <i class='bx bx-bell text-gray-600 dark:text-gray-300'></i>
-                    </button>
+                <div class="flex items-center justify-end h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-4">
+                    <div class="flex items-center space-x-4 cursor-pointer"
+                        onclick="window.location.href='{{ route('settings-kepsek') }}'">
+                        <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}"
+                            class="w-10 h-10 rounded-full object-cover" alt="">
+                        <div>
+                            <p class="text-x font-bold text-[#5E9EB2] dark:text-gray-500">{{ Auth::user()->name }}</p>
+                            <p class="text-xs text-[#83a4ad] dark:text-gray-300">{{ Auth::user()->email }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -87,6 +69,48 @@
             </div>
 
 
+            <div class="p-4">
+                <h2 class="text-2xl font-bold mb-4">Data Kehadiran Siswa</h2>
+
+                <div class="overflow-x-auto">
+                    <table class="min-w-full leading-normal">
+                        <thead>
+                            <tr>
+                                <th
+                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Nama Siswa
+                                </th>
+                                <th
+                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Tanggal Kehadiran
+                                </th>
+                                <th
+                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Status
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($kehadiran as $data)
+                                <tr>
+                                    <!-- Menampilkan nama siswa dari kolom name di tabel kehadirans -->
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        {{ $data->name }}
+                                    </td>
+
+                                    <!-- Menampilkan tanggal kehadiran -->
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        {{ $data->created_at->format('d-m-Y') }}
+                                    </td>
+                                    <!-- Menampilkan status kehadiran-->
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        {{ $data->kehadiran }}
+                                    </td>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
 
 
