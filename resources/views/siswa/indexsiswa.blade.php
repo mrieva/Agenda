@@ -45,14 +45,8 @@
                 </div>
             </div>
 
-
-
-
-
             <!-- Task Announcements -->
             <div class="p-4 mx-6">
-
-
                 <!-- Hidden Form with Animation -->
                 <div id="communicationForm"
                     class="hidden mt-4 p-4 border-2 border-gray-200 rounded-lg bg-[#e6f5fc] dark:bg-gray-800 w-full opacity-0 transform scale-y-0 origin-top transition-all duration-500">
@@ -83,8 +77,6 @@
                         </button>
                     </div>
                 </div>
-
-
                 <span class="text-lg font-medium text-[#5E9EB2] ">Tugas:
                 </span>
 

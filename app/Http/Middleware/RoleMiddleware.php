@@ -13,7 +13,24 @@ class RoleMiddleware
         $user = Auth::user();
 
         if (!$user || !in_array($user->role, $roles)) {
-            abort(404);
+            switch ($user->role) {
+                case 'guru':
+                    return redirect('/index-guru');
+                    break;
+                case 'admin':
+                    return redirect('/admin/indexadm');
+                    break;
+                case 'siswa':
+                    return redirect('/index-siswa');
+                    break;
+                case 'sekretaris':
+                    return redirect('/index-sekretaris');
+                    break;
+
+                default:
+                    # code...
+                    return redirect('/');
+            }
         }
 
         return $next($request);
