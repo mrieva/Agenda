@@ -35,13 +35,12 @@
                 <div class="flex items-center gap-4 mb-6">
                     <!-- Profile Picture -->
                     <div class="w-24 h-24 rounded-full overflow-hidden">
-                        <img src="path_to_your_image.png" alt="Profile Picture" class="object-cover w-full h-full" />
+                        <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="Profile Picture" class="object-cover w-full h-full" />
                     </div>
 
                     <!-- Profile Details -->
                     <div class="flex flex-col">
                         <h4 class="text-lg font-bold text-[#5E9EB2] dark:text-gray-300 mb-2">Profile Pictures</h4>
-
                         <div class="flex items-center gap-4 mb-2">
                             <p class="text-lg text-[#5E9EB2] dark:text-gray-400">Edit</p>
                             <button class="flex items-center py-1 px-3 text-[#5E9EB2] rounded">
@@ -51,8 +50,6 @@
                                 <img src="{{ asset('img/icon/Hapus.png') }}" class="w-4 h-4 mr-1" alt="">
                             </button>
                         </div>
-
-                        <p class="text-sm text-[#5E9EB2]">We Support PNGs, JPGs</p>
                     </div>
                 </div>
                 <!-- Form Section -->

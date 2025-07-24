@@ -38,6 +38,8 @@ class UserController extends Controller
             'mapel'             => 'nullable|sometimes|required_if:role,guru|string',
         ]);
 
+            $path = null;
+
         //upload image
         if ($request->hasFile('profile_picture')) {
             $imageName = time() . '.' . $request->profile_picture->extension();

@@ -26,7 +26,7 @@
 
                 <div class="flex items-center justify-end h-24 rounded bg-transparent dark:bg-gray-800 p-4 space-x-4">
                     <div class="flex items-center space-x-4 cursor-pointer"
-                        onclick="window.location.href='{{ route('settings-kepsek') }}'">
+                        onclick="window.location.href='{{ route('settings-guru') }}'">
                         <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}"
                             class="w-10 h-10 rounded-full object-cover" alt="">
                         <div>
