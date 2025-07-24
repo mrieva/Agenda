@@ -1,4 +1,4 @@
-    <nav class="z-50 absolute top-0 w-full mt-5" x-data="{ isOpen: false }">
+    <nav class="z-40 absolute top-0 w-full mt-5" x-data="{ isOpen: false }">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
                 <div class="flex items-center">
@@ -124,14 +124,14 @@
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5">
-                    <form class="space-y-4" action="{{ route('login') }}" method="POST">
+                    <form class="space-y-4" action="{{ route('login.submit') }}" method="POST">
                         @csrf
                         <div>
                             <label for="nisn" class="block mb-2 text-sm font-medium text-gray-700">NISN /
                                 NIPD</label>
                             <input type="text" name="nisn" id="nisn"
                                 class="w-full p-3 border border-gray-300 rounded-lg text-gray-900" placeholder="NISN"
-                                required />
+                                required autofocus />
                         </div>
                         <div class="relative">
                             <label for="password"

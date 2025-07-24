@@ -175,7 +175,7 @@
 </head>
 
 <body class="m-0 font-poppins bg-cover bg-center bg-no-repeat">
-
+    <x-preloader></x-preloader>
     <x-navbar />
 
     <main>
@@ -197,7 +197,8 @@
                     <div class="basis-full lg:basis-1/2 relative md:h-full">
                         <div class="relative md:h-full left-[55px]">
                             <img src="{{ asset('img/elipse.png') }}" alt="elipse" class="absolute z-10 w-[600px]">
-                            <img src="{{ asset('img/ketua.png') }}" alt="ketua" class="absolute z-20 w-[450px] left-[90px] top-[25px]">
+                            <img src="{{ asset('img/ketua.png') }}" alt="ketua"
+                                class="absolute z-20 w-[450px] left-[90px] top-[25px]">
                         </div>
                     </div>
                 </div>
@@ -214,6 +215,13 @@
             </button>
         </div>
     </main>
+
+    @if (session('error'))
+        <script>
+            alert('{{ session('error') }}');
+        </script>
+    @endif
+
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
